@@ -1,0 +1,51 @@
+name: sjs-digitaltwin
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.12
+
+  # XML parsing
+  - lxml>=4.9
+
+  # Network analysis
+  - networkx>=3.2
+
+  # Data manipulation
+  - pandas>=2.1
+  - numpy>=1.26
+
+  # HTTP requests
+  - requests>=2.31
+  - urllib3>=2.0
+
+  # Plotting & QC notebooks
+  - matplotlib>=3.8
+  - seaborn>=0.13
+  - jupyter>=1.0
+  - jupyterlab>=4.0
+  - ipykernel>=6.27
+  - ipywidgets>=8.1
+
+  # Progress bars
+  - tqdm>=4.66
+
+  # R / Bioconductor (Phase 2 — transcriptomics)
+  - r-base>=4.3
+  - bioconductor-limma
+  - bioconductor-geoquery
+  - bioconductor-biobase
+  - r-ggplot2
+  - r-dplyr
+
+  - pip
+  - pip:
+    # SBML parsing — pip version is more up-to-date than conda-forge
+    - python-libsbml>=5.20.2
+    # CaSQ — Boolean model generation from CellDesigner XML
+    - casq>=1.4.3
+    # Scipy for Phase 2 similarity scoring
+    - scipy>=1.12
+    # Scikit-learn for Phase 2 binarisation
+    - scikit-learn>=1.4
