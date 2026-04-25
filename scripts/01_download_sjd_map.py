@@ -37,7 +37,6 @@ from lib.minerva_api import (
     summarize_elements,
     summarize_reactions,
     get_phenotype_nodes,
-    COMPARTMENT_NAMES,
 )
 from lib.celldesigner_xml import (
     make_sbml_root,
@@ -51,6 +50,7 @@ from lib.celldesigner_xml import (
     count_elements,
     check_species_references,
     MINERVA_TYPE_TO_CD,
+    COMPARTMENT_NAMES,
 )
 
 logger = logging.getLogger(__name__)

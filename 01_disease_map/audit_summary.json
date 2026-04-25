@@ -1,0 +1,2256 @@
+{
+  "topology": {
+    "n_nodes": 1157,
+    "n_edges": 1151,
+    "n_weakly_connected_components": 316,
+    "largest_weak_component_size": 842,
+    "n_strongly_connected_components": 1121,
+    "largest_strong_component_size": 23,
+    "n_isolated_nodes": 315,
+    "n_source_nodes": 371,
+    "n_sink_nodes": 36,
+    "n_hubs": 6,
+    "hub_threshold": 20,
+    "top_20_hubs": [
+      {
+        "id": 21541,
+        "name": "Inflammation",
+        "type": "Phenotype",
+        "in_degree": 44,
+        "out_degree": 0,
+        "total_degree": 44
+      },
+      {
+        "id": 21240,
+        "name": "STAT1 homodimer",
+        "type": "Protein",
+        "in_degree": 1,
+        "out_degree": 42,
+        "total_degree": 43
+      },
+      {
+        "id": 21485,
+        "name": "STAT1/STAT2/IRF9",
+        "type": "Complex",
+        "in_degree": 2,
+        "out_degree": 40,
+        "total_degree": 42
+      },
+      {
+        "id": 21272,
+        "name": "RELA/NFKB1",
+        "type": "Complex",
+        "in_degree": 1,
+        "out_degree": 27,
+        "total_degree": 28
+      },
+      {
+        "id": 20805,
+        "name": "GNAI",
+        "type": "Protein",
+        "in_degree": 20,
+        "out_degree": 2,
+        "total_degree": 22
+      },
+      {
+        "id": 21544,
+        "name": "Chemotaxis/Infiltration",
+        "type": "Phenotype",
+        "in_degree": 22,
+        "out_degree": 0,
+        "total_degree": 22
+      }
+    ],
+    "degree_distribution": {
+      "0": 315,
+      "1": 369,
+      "2": 116,
+      "3": 178,
+      "4": 74,
+      "5": 44,
+      "6": 16,
+      "7": 14,
+      "8": 4,
+      "9": 10,
+      "10": 3,
+      "11": 3,
+      "12": 1,
+      "13": 2,
+      "15": 1,
+      "18": 1,
+      "22": 2,
+      "28": 1,
+      "42": 1,
+      "43": 1,
+      "44": 1
+    },
+    "isolated_node_names": [
+      "CCR5",
+      "CD36",
+      "PDCD1",
+      "SMAD3",
+      "RIPK1",
+      "flagellin",
+      "JUN",
+      "KDR",
+      "IL6ST",
+      "IFNG",
+      "IFNGR2",
+      "CCL19,21",
+      "CD14",
+      "LY96",
+      "CD3G",
+      "XCR1",
+      "RELB",
+      "Extracellular_ligands",
+      "SMAD2",
+      "CpG_DNA",
+      "MHC1 proteins",
+      "SMAD3",
+      "IL21R",
+      "Phenotypes",
+      "CD79A",
+      "IL12",
+      "CXCR6",
+      "CD14",
+      "LXA4, CCL23",
+      "LTA",
+      "IL2RG",
+      "IKBKE",
+      "IL2RA",
+      "IL7",
+      "IL2RG",
+      "IRAK4",
+      "TANK",
+      "LTB,TNFSF14",
+      "FLT3",
+      "CXCL9,10,11",
+      "TNFSF13,13B",
+      "RELB",
+      "ZAP70",
+      "TAB1",
+      "IFNGR1",
+      "IFNAR2",
+      "TBK1",
+      "C5a",
+      "CCL25",
+      "IRAKM"
+    ]
+  },
+  "element_annotations": {
+    "total_elements": 1157,
+    "by_annotation": {
+      "GO": 1010,
+      "Entrez": 890,
+      "UniProt": 890,
+      "HGNC": 890,
+      "Ensembl": 888,
+      "KEGG": 369,
+      "DOI": 281,
+      "ChEBI": 17
+    },
+    "with_any_annotation": 1090,
+    "without_annotation": 67,
+    "with_pmid": 508,
+    "coverage_pct_any": 94.21,
+    "sample_without_annotation": [
+      "flagellin",
+      "IKBKE/TBK1",
+      "PLCB",
+      "Matrix_degradation",
+      "CCL19,21",
+      "Extracellular_ligands",
+      "STAT5A/B",
+      "CpG_DNA",
+      "MHC1 proteins",
+      "Phenotypes",
+      "LXA4, CCL23",
+      "LTB,TNFSF14",
+      "CXCL9,10,11",
+      "TNFSF13,13B",
+      "CD27/CD70",
+      "C5a",
+      "IRAKM",
+      "Cell",
+      "MHC1 proteins",
+      "CD8",
+      "C3a",
+      "Endoplasmic_reticulum",
+      "IRAK1,2",
+      "MHC_Class_1_Activation",
+      "STAT5 homodimer",
+      "IL7RA",
+      "TRBC",
+      "STAT5 homodimer",
+      "IL1RA",
+      "IRAKM"
+    ]
+  },
+  "reaction_annotations": {
+    "total_reactions": 598,
+    "with_any_reference": 325,
+    "with_pmid": 100,
+    "pmid_coverage_pct": 16.72
+  },
+  "compartments": {
+    "20513": {
+      "n_species": 624,
+      "by_type": {
+        "Protein": 501,
+        "Complex": 115,
+        "Simple molecule": 4,
+        "Compartment": 2,
+        "Ion": 2
+      },
+      "sample_names": [
+        "IL2/IL2R",
+        "CCR5",
+        "CALM1",
+        "CD36",
+        "NFATC1,2,3",
+        "FCGR3A",
+        "PDCD1",
+        "SMAD3",
+        "USP18",
+        "MAP2K7"
+      ]
+    },
+    "21231": {
+      "n_species": 308,
+      "by_type": {
+        "RNA": 135,
+        "Gene": 135,
+        "Protein": 31,
+        "Complex": 5,
+        "Antisense RNA": 2
+      },
+      "sample_names": [
+        "SOCS3",
+        "ADAR",
+        "CXCL8",
+        "MIR145",
+        "VCAM1",
+        "CXCL9",
+        "TRIM25",
+        "OASL",
+        "JUN",
+        "IRF1"
+      ]
+    },
+    "21629": {
+      "n_species": 40,
+      "by_type": {
+        "Protein": 40
+      },
+      "sample_names": [
+        "CCL21",
+        "TNFSF13B",
+        "IL1B",
+        "IL23A",
+        "IFNG",
+        "CXCL1",
+        "CXCL10",
+        "IL12",
+        "CXCL9",
+        "CCL4"
+      ]
+    },
+    "21555": {
+      "n_species": 73,
+      "by_type": {
+        "Protein": 59,
+        "Simple molecule": 12,
+        "Complex": 2
+      },
+      "sample_names": [
+        "antigen",
+        "LTA",
+        "IFNB1",
+        "MHC1 proteins",
+        "TNFSF10",
+        "TNF",
+        "CXCL1",
+        "CD80",
+        "IL15",
+        "igg"
+      ]
+    },
+    "21540": {
+      "n_species": 14,
+      "by_type": {
+        "Phenotype": 14
+      },
+      "sample_names": [
+        "Fibrosis",
+        "Matrix_degradation",
+        "Cell_Proliferation/Survival",
+        "MHC_Class_1_Activation",
+        "Regulated_Necrosis",
+        "T_Cell_Activation/Differentiation",
+        "Phagocytosis",
+        "MHC_Class_2_Activation",
+        "Angiogenesis",
+        "Lymphoid_organ_development"
+      ]
+    },
+    "null": {
+      "n_species": 93,
+      "by_type": {
+        "Protein": 73,
+        "Simple molecule": 16,
+        "Compartment": 4
+      },
+      "sample_names": [
+        "flagellin",
+        "IFNG",
+        "CCL19,21",
+        "CD3G",
+        "Extracellular_ligands",
+        "CpG_DNA",
+        "Phenotypes",
+        "IL12",
+        "CD14",
+        "LXA4, CCL23"
+      ]
+    },
+    "20730": {
+      "n_species": 5,
+      "by_type": {
+        "Protein": 2,
+        "Complex": 1,
+        "Simple molecule": 1,
+        "Ion": 1
+      },
+      "sample_names": [
+        "PIP3/IP3R",
+        "ITPR3",
+        "PI(3,4,5)P3",
+        "ca2",
+        "ITPR3"
+      ]
+    }
+  },
+  "celltype_marker_hits": {
+    "SGEC": [],
+    "TH1": [
+      {
+        "id": 21209,
+        "name": "IFNG",
+        "type": "Protein",
+        "matched_marker": "IFNG"
+      },
+      {
+        "id": 20853,
+        "name": "CD3G",
+        "type": "Protein",
+        "matched_marker": "CD3G"
+      },
+      {
+        "id": 21662,
+        "name": "IFNG",
+        "type": "Protein",
+        "matched_marker": "IFNG"
+      },
+      {
+        "id": 20897,
+        "name": "CD3E",
+        "type": "Protein",
+        "matched_marker": "CD3E"
+      },
+      {
+        "id": 21253,
+        "name": "IFNG",
+        "type": "Gene",
+        "matched_marker": "IFNG"
+      },
+      {
+        "id": 21476,
+        "name": "IFNG",
+        "type": "RNA",
+        "matched_marker": "IFNG"
+      },
+      {
+        "id": 20898,
+        "name": "CD3D",
+        "type": "Protein",
+        "matched_marker": "CD3D"
+      },
+      {
+        "id": 20896,
+        "name": "CD3G",
+        "type": "Protein",
+        "matched_marker": "CD3G"
+      },
+      {
+        "id": 20892,
+        "name": "CD4",
+        "type": "Protein",
+        "matched_marker": "CD4"
+      },
+      {
+        "id": 20900,
+        "name": "STAT4",
+        "type": "Protein",
+        "matched_marker": "STAT4"
+      },
+      {
+        "id": 20736,
+        "name": "STAT4",
+        "type": "Protein",
+        "matched_marker": "STAT4"
+      },
+      {
+        "id": 20847,
+        "name": "CD4",
+        "type": "Protein",
+        "matched_marker": "CD4"
+      },
+      {
+        "id": 20849,
+        "name": "CD3D",
+        "type": "Protein",
+        "matched_marker": "CD3D"
+      },
+      {
+        "id": 20850,
+        "name": "CD3E",
+        "type": "Protein",
+        "matched_marker": "CD3E"
+      },
+      {
+        "id": 21585,
+        "name": "IFNG",
+        "type": "Protein",
+        "matched_marker": "IFNG"
+      }
+    ],
+    "TH17": [
+      {
+        "id": 21329,
+        "name": "IL21",
+        "type": "RNA",
+        "matched_marker": "IL21"
+      },
+      {
+        "id": 21254,
+        "name": "IL17A",
+        "type": "RNA",
+        "matched_marker": "IL17A"
+      },
+      {
+        "id": 21649,
+        "name": "IL17A",
+        "type": "Protein",
+        "matched_marker": "IL17A"
+      },
+      {
+        "id": 21289,
+        "name": "IL17A",
+        "type": "Gene",
+        "matched_marker": "IL17A"
+      },
+      {
+        "id": 21144,
+        "name": "STAT3",
+        "type": "Protein",
+        "matched_marker": "STAT3"
+      },
+      {
+        "id": 21036,
+        "name": "IL21",
+        "type": "Protein",
+        "matched_marker": "IL21"
+      },
+      {
+        "id": 21636,
+        "name": "IL21",
+        "type": "Protein",
+        "matched_marker": "IL21"
+      },
+      {
+        "id": 21225,
+        "name": "STAT3",
+        "type": "Protein",
+        "matched_marker": "STAT3"
+      },
+      {
+        "id": 21400,
+        "name": "IL21",
+        "type": "Gene",
+        "matched_marker": "IL21"
+      },
+      {
+        "id": 21577,
+        "name": "IL21",
+        "type": "Protein",
+        "matched_marker": "IL21"
+      }
+    ],
+    "TFH": [
+      {
+        "id": 21105,
+        "name": "PDCD1",
+        "type": "Protein",
+        "matched_marker": "PDCD1"
+      },
+      {
+        "id": 21200,
+        "name": "CXCR5",
+        "type": "Protein",
+        "matched_marker": "CXCR5"
+      },
+      {
+        "id": 21108,
+        "name": "ICOS",
+        "type": "Protein",
+        "matched_marker": "ICOS"
+      },
+      {
+        "id": 20518,
+        "name": "CXCR5",
+        "type": "Protein",
+        "matched_marker": "CXCR5"
+      },
+      {
+        "id": 20814,
+        "name": "ICOS",
+        "type": "Protein",
+        "matched_marker": "ICOS"
+      },
+      {
+        "id": 20960,
+        "name": "PDCD1",
+        "type": "Protein",
+        "matched_marker": "PDCD1"
+      }
+    ],
+    "TREG": [
+      {
+        "id": 20663,
+        "name": "IL2RA",
+        "type": "Protein",
+        "matched_marker": "IL2RA"
+      },
+      {
+        "id": 21244,
+        "name": "IL2RA",
+        "type": "Gene",
+        "matched_marker": "IL2RA"
+      },
+      {
+        "id": 20839,
+        "name": "CTLA4",
+        "type": "Protein",
+        "matched_marker": "CTLA4"
+      },
+      {
+        "id": 21128,
+        "name": "IL2RA",
+        "type": "Protein",
+        "matched_marker": "IL2RA"
+      },
+      {
+        "id": 21358,
+        "name": "IL2RA",
+        "type": "RNA",
+        "matched_marker": "IL2RA"
+      },
+      {
+        "id": 20975,
+        "name": "CTLA4",
+        "type": "Protein",
+        "matched_marker": "CTLA4"
+      },
+      {
+        "id": 21652,
+        "name": "IL2RA",
+        "type": "Protein",
+        "matched_marker": "IL2RA"
+      }
+    ],
+    "BCELL": [
+      {
+        "id": 21100,
+        "name": "CD79A",
+        "type": "Protein",
+        "matched_marker": "CD79A"
+      },
+      {
+        "id": 21107,
+        "name": "BTK",
+        "type": "Protein",
+        "matched_marker": "BTK"
+      },
+      {
+        "id": 20610,
+        "name": "TNFRSF13B",
+        "type": "Protein",
+        "matched_marker": "TNFRSF13B"
+      },
+      {
+        "id": 20681,
+        "name": "TNFRSF13C",
+        "type": "Protein",
+        "matched_marker": "TNFRSF13C"
+      },
+      {
+        "id": 20674,
+        "name": "TNFRSF13C",
+        "type": "Protein",
+        "matched_marker": "TNFRSF13C"
+      },
+      {
+        "id": 20756,
+        "name": "BTK",
+        "type": "Protein",
+        "matched_marker": "BTK"
+      },
+      {
+        "id": 21181,
+        "name": "CD79A",
+        "type": "Protein",
+        "matched_marker": "CD79A"
+      },
+      {
+        "id": 21182,
+        "name": "CD79B",
+        "type": "Protein",
+        "matched_marker": "CD79B"
+      },
+      {
+        "id": 20947,
+        "name": "TNFRSF13B",
+        "type": "Protein",
+        "matched_marker": "TNFRSF13B"
+      },
+      {
+        "id": 21101,
+        "name": "CD79B",
+        "type": "Protein",
+        "matched_marker": "CD79B"
+      }
+    ],
+    "PLASMA": [
+      {
+        "id": 21028,
+        "name": "TNFRSF17",
+        "type": "Protein",
+        "matched_marker": "TNFRSF17"
+      },
+      {
+        "id": 20604,
+        "name": "TNFRSF17",
+        "type": "Protein",
+        "matched_marker": "TNFRSF17"
+      }
+    ],
+    "M1": [
+      {
+        "id": 21666,
+        "name": "IL1B",
+        "type": "Protein",
+        "matched_marker": "IL1B"
+      },
+      {
+        "id": 21093,
+        "name": "FCGR1A",
+        "type": "Protein",
+        "matched_marker": "FCGR1A"
+      },
+      {
+        "id": 21430,
+        "name": "FCGR1A",
+        "type": "RNA",
+        "matched_marker": "FCGR1A"
+      },
+      {
+        "id": 21571,
+        "name": "TNF",
+        "type": "Protein",
+        "matched_marker": "TNF"
+      },
+      {
+        "id": 21262,
+        "name": "CXCL10",
+        "type": "RNA",
+        "matched_marker": "CXCL10"
+      },
+      {
+        "id": 21658,
+        "name": "CXCL10",
+        "type": "Protein",
+        "matched_marker": "CXCL10"
+      },
+      {
+        "id": 20952,
+        "name": "CCR7",
+        "type": "Protein",
+        "matched_marker": "CCR7"
+      },
+      {
+        "id": 21266,
+        "name": "IL6",
+        "type": "Gene",
+        "matched_marker": "IL6"
+      },
+      {
+        "id": 21023,
+        "name": "IL6",
+        "type": "Protein",
+        "matched_marker": "IL6"
+      },
+      {
+        "id": 21490,
+        "name": "CXCL10",
+        "type": "Gene",
+        "matched_marker": "CXCL10"
+      },
+      {
+        "id": 21642,
+        "name": "TNF",
+        "type": "Protein",
+        "matched_marker": "TNF"
+      },
+      {
+        "id": 21625,
+        "name": "IL6",
+        "type": "Protein",
+        "matched_marker": "IL6"
+      },
+      {
+        "id": 21237,
+        "name": "IL1B",
+        "type": "Gene",
+        "matched_marker": "IL1B"
+      },
+      {
+        "id": 21344,
+        "name": "IL6",
+        "type": "RNA",
+        "matched_marker": "IL6"
+      },
+      {
+        "id": 21655,
+        "name": "IL6",
+        "type": "Protein",
+        "matched_marker": "IL6"
+      },
+      {
+        "id": 20688,
+        "name": "TNF",
+        "type": "Protein",
+        "matched_marker": "TNF"
+      },
+      {
+        "id": 20614,
+        "name": "CCR7",
+        "type": "Protein",
+        "matched_marker": "CCR7"
+      },
+      {
+        "id": 21442,
+        "name": "TNF",
+        "type": "Gene",
+        "matched_marker": "TNF"
+      },
+      {
+        "id": 21446,
+        "name": "IL1B",
+        "type": "RNA",
+        "matched_marker": "IL1B"
+      },
+      {
+        "id": 21518,
+        "name": "FCGR1A",
+        "type": "Gene",
+        "matched_marker": "FCGR1A"
+      },
+      {
+        "id": 20792,
+        "name": "FCGR1A",
+        "type": "Protein",
+        "matched_marker": "FCGR1A"
+      },
+      {
+        "id": 21435,
+        "name": "TNF",
+        "type": "RNA",
+        "matched_marker": "TNF"
+      },
+      {
+        "id": 21578,
+        "name": "CXCL10",
+        "type": "Protein",
+        "matched_marker": "CXCL10"
+      },
+      {
+        "id": 21147,
+        "name": "TNF",
+        "type": "Protein",
+        "matched_marker": "TNF"
+      }
+    ],
+    "M2": [
+      {
+        "id": 20782,
+        "name": "TGFB1",
+        "type": "Protein",
+        "matched_marker": "TGFB1"
+      },
+      {
+        "id": 21564,
+        "name": "TGFB1",
+        "type": "Protein",
+        "matched_marker": "TGFB1"
+      },
+      {
+        "id": 21648,
+        "name": "IL10",
+        "type": "Protein",
+        "matched_marker": "IL10"
+      },
+      {
+        "id": 21469,
+        "name": "IL10",
+        "type": "RNA",
+        "matched_marker": "IL10"
+      },
+      {
+        "id": 21538,
+        "name": "IL10",
+        "type": "Gene",
+        "matched_marker": "IL10"
+      }
+    ],
+    "PDC": [
+      {
+        "id": 20636,
+        "name": "IRF7",
+        "type": "Protein",
+        "matched_marker": "IRF7"
+      },
+      {
+        "id": 20799,
+        "name": "IRF7",
+        "type": "Protein",
+        "matched_marker": "IRF7"
+      },
+      {
+        "id": 20944,
+        "name": "TLR7",
+        "type": "Protein",
+        "matched_marker": "TLR7"
+      },
+      {
+        "id": 21346,
+        "name": "IRF7",
+        "type": "RNA",
+        "matched_marker": "IRF7"
+      },
+      {
+        "id": 20857,
+        "name": "TLR7",
+        "type": "Protein",
+        "matched_marker": "TLR7"
+      },
+      {
+        "id": 21278,
+        "name": "IRF7",
+        "type": "Protein",
+        "matched_marker": "IRF7"
+      },
+      {
+        "id": 20765,
+        "name": "TLR9",
+        "type": "Protein",
+        "matched_marker": "TLR9"
+      },
+      {
+        "id": 20824,
+        "name": "TLR9",
+        "type": "Protein",
+        "matched_marker": "TLR9"
+      },
+      {
+        "id": 21403,
+        "name": "IRF7",
+        "type": "Gene",
+        "matched_marker": "IRF7"
+      }
+    ]
+  },
+  "intercellular_pivots": [
+    {
+      "id": 21657,
+      "name": "CCL21",
+      "type": "Protein",
+      "matched_cytokine": "CCL21"
+    },
+    {
+      "id": 21667,
+      "name": "TNFSF13B",
+      "type": "Protein",
+      "matched_cytokine": "TNFSF13B"
+    },
+    {
+      "id": 21666,
+      "name": "IL1B",
+      "type": "Protein",
+      "matched_cytokine": "IL1B"
+    },
+    {
+      "id": 21290,
+      "name": "CXCL9",
+      "type": "Gene",
+      "matched_cytokine": "CXCL9"
+    },
+    {
+      "id": 21209,
+      "name": "IFNG",
+      "type": "Protein",
+      "matched_cytokine": "IFNG"
+    },
+    {
+      "id": 21633,
+      "name": "IL23A",
+      "type": "Protein",
+      "matched_cytokine": "IL23A"
+    },
+    {
+      "id": 21575,
+      "name": "LTA",
+      "type": "Protein",
+      "matched_cytokine": "LTA"
+    },
+    {
+      "id": 21615,
+      "name": "IFNB1",
+      "type": "Protein",
+      "matched_cytokine": "IFNB1"
+    },
+    {
+      "id": 21329,
+      "name": "IL21",
+      "type": "RNA",
+      "matched_cytokine": "IL21"
+    },
+    {
+      "id": 21310,
+      "name": "IL15",
+      "type": "RNA",
+      "matched_cytokine": "IL15"
+    },
+    {
+      "id": 21662,
+      "name": "IFNG",
+      "type": "Protein",
+      "matched_cytokine": "IFNG"
+    },
+    {
+      "id": 21571,
+      "name": "TNF",
+      "type": "Protein",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 20744,
+      "name": "LTA",
+      "type": "Protein",
+      "matched_cytokine": "LTA"
+    },
+    {
+      "id": 21262,
+      "name": "CXCL10",
+      "type": "RNA",
+      "matched_cytokine": "CXCL10"
+    },
+    {
+      "id": 21658,
+      "name": "CXCL10",
+      "type": "Protein",
+      "matched_cytokine": "CXCL10"
+    },
+    {
+      "id": 21254,
+      "name": "IL17A",
+      "type": "RNA",
+      "matched_cytokine": "IL17A"
+    },
+    {
+      "id": 21265,
+      "name": "IFNB1",
+      "type": "Gene",
+      "matched_cytokine": "IFNB1"
+    },
+    {
+      "id": 21562,
+      "name": "IL15",
+      "type": "Protein",
+      "matched_cytokine": "IL15"
+    },
+    {
+      "id": 21266,
+      "name": "IL6",
+      "type": "Gene",
+      "matched_cytokine": "IL6"
+    },
+    {
+      "id": 21645,
+      "name": "CXCL9",
+      "type": "Protein",
+      "matched_cytokine": "CXCL9"
+    },
+    {
+      "id": 21567,
+      "name": "CCL19",
+      "type": "Protein",
+      "matched_cytokine": "CCL19"
+    },
+    {
+      "id": 21637,
+      "name": "CCL4",
+      "type": "Protein",
+      "matched_cytokine": "CCL4"
+    },
+    {
+      "id": 21580,
+      "name": "CXCL13",
+      "type": "Protein",
+      "matched_cytokine": "CXCL13"
+    },
+    {
+      "id": 21341,
+      "name": "CCL3",
+      "type": "RNA",
+      "matched_cytokine": "CCL3"
+    },
+    {
+      "id": 21263,
+      "name": "IFNB1",
+      "type": "RNA",
+      "matched_cytokine": "IFNB1"
+    },
+    {
+      "id": 21622,
+      "name": "CXCL11",
+      "type": "Protein",
+      "matched_cytokine": "CXCL11"
+    },
+    {
+      "id": 21649,
+      "name": "IL17A",
+      "type": "Protein",
+      "matched_cytokine": "IL17A"
+    },
+    {
+      "id": 21375,
+      "name": "IL23A",
+      "type": "Gene",
+      "matched_cytokine": "IL23A"
+    },
+    {
+      "id": 21373,
+      "name": "CCL5",
+      "type": "Gene",
+      "matched_cytokine": "CCL5"
+    },
+    {
+      "id": 20680,
+      "name": "TNFSF13B",
+      "type": "Protein",
+      "matched_cytokine": "TNFSF13B"
+    },
+    {
+      "id": 21023,
+      "name": "IL6",
+      "type": "Protein",
+      "matched_cytokine": "IL6"
+    },
+    {
+      "id": 21277,
+      "name": "CCL4",
+      "type": "Gene",
+      "matched_cytokine": "CCL4"
+    },
+    {
+      "id": 21289,
+      "name": "IL17A",
+      "type": "Gene",
+      "matched_cytokine": "IL17A"
+    },
+    {
+      "id": 21490,
+      "name": "CXCL10",
+      "type": "Gene",
+      "matched_cytokine": "CXCL10"
+    },
+    {
+      "id": 21565,
+      "name": "TNFSF14",
+      "type": "Protein",
+      "matched_cytokine": "TNFSF14"
+    },
+    {
+      "id": 21642,
+      "name": "TNF",
+      "type": "Protein",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 21253,
+      "name": "IFNG",
+      "type": "Gene",
+      "matched_cytokine": "IFNG"
+    },
+    {
+      "id": 21476,
+      "name": "IFNG",
+      "type": "RNA",
+      "matched_cytokine": "IFNG"
+    },
+    {
+      "id": 20985,
+      "name": "CCL19",
+      "type": "Protein",
+      "matched_cytokine": "CCL19"
+    },
+    {
+      "id": 21625,
+      "name": "IL6",
+      "type": "Protein",
+      "matched_cytokine": "IL6"
+    },
+    {
+      "id": 21647,
+      "name": "IL15",
+      "type": "Protein",
+      "matched_cytokine": "IL15"
+    },
+    {
+      "id": 21267,
+      "name": "CXCL11",
+      "type": "RNA",
+      "matched_cytokine": "CXCL11"
+    },
+    {
+      "id": 21659,
+      "name": "CCL19",
+      "type": "Protein",
+      "matched_cytokine": "CCL19"
+    },
+    {
+      "id": 21579,
+      "name": "CXCL9",
+      "type": "Protein",
+      "matched_cytokine": "CXCL9"
+    },
+    {
+      "id": 21338,
+      "name": "CCL3",
+      "type": "Gene",
+      "matched_cytokine": "CCL3"
+    },
+    {
+      "id": 21246,
+      "name": "CXCL11",
+      "type": "Gene",
+      "matched_cytokine": "CXCL11"
+    },
+    {
+      "id": 21623,
+      "name": "LTB",
+      "type": "Protein",
+      "matched_cytokine": "LTB"
+    },
+    {
+      "id": 21651,
+      "name": "CCL5",
+      "type": "Protein",
+      "matched_cytokine": "CCL5"
+    },
+    {
+      "id": 21237,
+      "name": "IL1B",
+      "type": "Gene",
+      "matched_cytokine": "IL1B"
+    },
+    {
+      "id": 21445,
+      "name": "CCL2",
+      "type": "Gene",
+      "matched_cytokine": "CCL2"
+    },
+    {
+      "id": 21344,
+      "name": "IL6",
+      "type": "RNA",
+      "matched_cytokine": "IL6"
+    },
+    {
+      "id": 21089,
+      "name": "CCL2",
+      "type": "Protein",
+      "matched_cytokine": "CCL2"
+    },
+    {
+      "id": 21199,
+      "name": "CXCL13",
+      "type": "Protein",
+      "matched_cytokine": "CXCL13"
+    },
+    {
+      "id": 21193,
+      "name": "IL15",
+      "type": "Protein",
+      "matched_cytokine": "IL15"
+    },
+    {
+      "id": 21609,
+      "name": "CCL21",
+      "type": "Protein",
+      "matched_cytokine": "CCL21"
+    },
+    {
+      "id": 21443,
+      "name": "CCL19",
+      "type": "Gene",
+      "matched_cytokine": "CCL19"
+    },
+    {
+      "id": 21635,
+      "name": "IFNB1",
+      "type": "Protein",
+      "matched_cytokine": "IFNB1"
+    },
+    {
+      "id": 21632,
+      "name": "CXCL11",
+      "type": "Protein",
+      "matched_cytokine": "CXCL11"
+    },
+    {
+      "id": 21669,
+      "name": "CCL3",
+      "type": "Protein",
+      "matched_cytokine": "CCL3"
+    },
+    {
+      "id": 21036,
+      "name": "IL21",
+      "type": "Protein",
+      "matched_cytokine": "IL21"
+    },
+    {
+      "id": 21337,
+      "name": "IL15",
+      "type": "Gene",
+      "matched_cytokine": "IL15"
+    },
+    {
+      "id": 21636,
+      "name": "IL21",
+      "type": "Protein",
+      "matched_cytokine": "IL21"
+    },
+    {
+      "id": 21120,
+      "name": "CCL5",
+      "type": "Protein",
+      "matched_cytokine": "CCL5"
+    },
+    {
+      "id": 21241,
+      "name": "CCL4",
+      "type": "RNA",
+      "matched_cytokine": "CCL4"
+    },
+    {
+      "id": 21655,
+      "name": "IL6",
+      "type": "Protein",
+      "matched_cytokine": "IL6"
+    },
+    {
+      "id": 20688,
+      "name": "TNF",
+      "type": "Protein",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 21380,
+      "name": "CCL21",
+      "type": "Gene",
+      "matched_cytokine": "CCL21"
+    },
+    {
+      "id": 21535,
+      "name": "CCL19",
+      "type": "RNA",
+      "matched_cytokine": "CCL19"
+    },
+    {
+      "id": 21239,
+      "name": "CCL5",
+      "type": "RNA",
+      "matched_cytokine": "CCL5"
+    },
+    {
+      "id": 21648,
+      "name": "IL10",
+      "type": "Protein",
+      "matched_cytokine": "IL10"
+    },
+    {
+      "id": 21442,
+      "name": "TNF",
+      "type": "Gene",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 21480,
+      "name": "TNFSF13B",
+      "type": "RNA",
+      "matched_cytokine": "TNFSF13B"
+    },
+    {
+      "id": 21446,
+      "name": "IL1B",
+      "type": "RNA",
+      "matched_cytokine": "IL1B"
+    },
+    {
+      "id": 21400,
+      "name": "IL21",
+      "type": "Gene",
+      "matched_cytokine": "IL21"
+    },
+    {
+      "id": 21469,
+      "name": "IL10",
+      "type": "RNA",
+      "matched_cytokine": "IL10"
+    },
+    {
+      "id": 21311,
+      "name": "CCL2",
+      "type": "RNA",
+      "matched_cytokine": "CCL2"
+    },
+    {
+      "id": 21577,
+      "name": "IL21",
+      "type": "Protein",
+      "matched_cytokine": "IL21"
+    },
+    {
+      "id": 21559,
+      "name": "CCL5",
+      "type": "Protein",
+      "matched_cytokine": "CCL5"
+    },
+    {
+      "id": 21275,
+      "name": "TNFSF13B",
+      "type": "Gene",
+      "matched_cytokine": "TNFSF13B"
+    },
+    {
+      "id": 21572,
+      "name": "CCL2",
+      "type": "Protein",
+      "matched_cytokine": "CCL2"
+    },
+    {
+      "id": 21538,
+      "name": "IL10",
+      "type": "Gene",
+      "matched_cytokine": "IL10"
+    },
+    {
+      "id": 21410,
+      "name": "CCL21",
+      "type": "RNA",
+      "matched_cytokine": "CCL21"
+    },
+    {
+      "id": 21641,
+      "name": "CCL2",
+      "type": "Protein",
+      "matched_cytokine": "CCL2"
+    },
+    {
+      "id": 21368,
+      "name": "IL23A",
+      "type": "RNA",
+      "matched_cytokine": "IL23A"
+    },
+    {
+      "id": 21318,
+      "name": "CXCL9",
+      "type": "RNA",
+      "matched_cytokine": "CXCL9"
+    },
+    {
+      "id": 21435,
+      "name": "TNF",
+      "type": "RNA",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 21578,
+      "name": "CXCL10",
+      "type": "Protein",
+      "matched_cytokine": "CXCL10"
+    },
+    {
+      "id": 21223,
+      "name": "IFNB1",
+      "type": "Protein",
+      "matched_cytokine": "IFNB1"
+    },
+    {
+      "id": 21581,
+      "name": "TNFSF13",
+      "type": "Protein",
+      "matched_cytokine": "TNFSF13"
+    },
+    {
+      "id": 21585,
+      "name": "IFNG",
+      "type": "Protein",
+      "matched_cytokine": "IFNG"
+    },
+    {
+      "id": 21147,
+      "name": "TNF",
+      "type": "Protein",
+      "matched_cytokine": "TNF"
+    },
+    {
+      "id": 21563,
+      "name": "TNFSF13B",
+      "type": "Protein",
+      "matched_cytokine": "TNFSF13B"
+    }
+  ],
+  "pathway_hints_from_notes": {
+    "CALM1": [
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "NFATC1,2,3": [
+      "R-HSA-2871809",
+      "R-HSA-983705"
+    ],
+    "FCGR3A": [
+      "R-HSA-2029481"
+    ],
+    "USP18": [
+      "R-HSA-9758274"
+    ],
+    "PLCG": [
+      "R-HSA-2029485",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "RIPK1": [
+      "R-HSA-168164"
+    ],
+    "NFKB1/RELA": [
+      "R-HSA-2871837",
+      "R-HSA-975138",
+      "R-HSA-9758274",
+      "R-HSA-983705"
+    ],
+    "IRF3": [
+      "R-HSA-168164",
+      "R-HSA-937061",
+      "R-HSA-975155"
+    ],
+    "TRIM25": [
+      "R-HSA-877300"
+    ],
+    "LPS/CD14/TL4/LY96": [
+      "R-HSA-166016",
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "IRF7": [
+      "R-HSA-877300"
+    ],
+    "OASL": [
+      "R-HSA-877300"
+    ],
+    "JUN": [
+      "R-HSA-2871796"
+    ],
+    "CD40": [
+      "R-HSA-5668541"
+    ],
+    "TNFRSF1B": [
+      "R-HSA-5668541"
+    ],
+    "IKBKE/TBK1": [
+      "R-HSA-168164",
+      "R-HSA-937061"
+    ],
+    "Allergen/IgE/FCERI": [
+      "R-HSA-2730905",
+      "R-HSA-2871796",
+      "R-HSA-2871809",
+      "R-HSA-2871837"
+    ],
+    "IRF1": [
+      "R-HSA-877300"
+    ],
+    "IRF9": [
+      "R-HSA-877300"
+    ],
+    "FCGR1A": [
+      "R-HSA-877300"
+    ],
+    "RIGI": [
+      "R-HSA-936440"
+    ],
+    "CD22": [
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "RIPK3": [
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "STAT5A/B": [
+      "R-HSA-1266695"
+    ],
+    "LTA": [
+      "R-HSA-5668541"
+    ],
+    "JAK3": [
+      "R-HSA-1266695"
+    ],
+    "GBP4": [
+      "R-HSA-877300"
+    ],
+    "CISH": [
+      "R-HSA-1266695"
+    ],
+    "CCR3": [
+      "R-HSA-380108"
+    ],
+    "IKBIP": [
+      "R-HSA-9758274"
+    ],
+    "PRKC": [
+      "R-HSA-2029485",
+      "R-HSA-2871837",
+      "R-HSA-983705"
+    ],
+    "OAS2": [
+      "R-HSA-877300"
+    ],
+    "NLRX1": [
+      "R-HSA-9758274"
+    ],
+    "TRIM34": [
+      "R-HSA-877300"
+    ],
+    "GBP3": [
+      "R-HSA-877300"
+    ],
+    "SOCS2": [
+      "R-HSA-1266695"
+    ],
+    "ARF1": [
+      "R-HSA-447115"
+    ],
+    "IFNG": [
+      "R-HSA-877300"
+    ],
+    "PML": [
+      "R-HSA-877300"
+    ],
+    "TNF": [
+      "R-HSA-5668541"
+    ],
+    "BLNK": [
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "BTK": [
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "NLRC5": [
+      "R-HSA-936440",
+      "R-HSA-9758274"
+    ],
+    "LTBR": [
+      "R-HSA-5668541"
+    ],
+    "IFNGR": [
+      "R-HSA-877300"
+    ],
+    "TRIM5": [
+      "R-HSA-877300"
+    ],
+    "HLA-DRB4": [
+      "R-HSA-877300"
+    ],
+    "TRAF3": [
+      "R-HSA-168164",
+      "R-HSA-937061"
+    ],
+    "HLA-DQA1": [
+      "R-HSA-877300"
+    ],
+    "CXCL16/CXCR6": [
+      "R-HSA-380108"
+    ],
+    "TRIM14": [
+      "R-HSA-877300"
+    ],
+    "IRF5": [
+      "R-HSA-877300"
+    ],
+    "GBP6": [
+      "R-HSA-877300"
+    ],
+    "ISG15": [
+      "R-HSA-1169408",
+      "R-HSA-936440"
+    ],
+    "CCR7": [
+      "R-HSA-380108"
+    ],
+    "CD27/CD70": [
+      "R-HSA-5668541"
+    ],
+    "TICAM1": [
+      "R-HSA-168164",
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "TICAM2": [
+      "R-HSA-168898"
+    ],
+    "STAT1 homodimer": [
+      "R-HSA-877300"
+    ],
+    "CCL19-21/CCR7": [
+      "R-HSA-380108"
+    ],
+    "PIP3/IP3R": [
+      "R-HSA-2029485",
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "CCL16/CCR1": [
+      "R-HSA-380108"
+    ],
+    "HNRNPA2B1": [
+      "R-HSA-447115"
+    ],
+    "FADD": [
+      "R-HSA-168164",
+      "R-HSA-937061"
+    ],
+    "OAS3": [
+      "R-HSA-877300"
+    ],
+    "TAB1/TAB2/TAB3": [
+      "R-HSA-168164",
+      "R-HSA-975138",
+      "R-HSA-975155",
+      "R-HSA-975871"
+    ],
+    "IL7R": [
+      "R-HSA-1266695"
+    ],
+    "C3AR1": [
+      "R-HSA-380108"
+    ],
+    "SOCS1": [
+      "R-HSA-1266695"
+    ],
+    "CXCR1": [
+      "R-HSA-380108"
+    ],
+    "SP100": [
+      "R-HSA-877300"
+    ],
+    "TRIM22": [
+      "R-HSA-877300"
+    ],
+    "TP53": [
+      "R-HSA-9833482"
+    ],
+    "SYK": [
+      "R-HSA-2029485",
+      "R-HSA-2730905",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "MAP3K7": [
+      "R-HSA-2871796"
+    ],
+    "EDA": [
+      "R-HSA-5668541"
+    ],
+    "HLA-DQA2": [
+      "R-HSA-877300"
+    ],
+    "CCL19": [
+      "R-HSA-380108"
+    ],
+    "HLA-DRA": [
+      "R-HSA-877300"
+    ],
+    "LPS": [
+      "R-HSA-166016",
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "TRAF6": [
+      "R-HSA-168164",
+      "R-HSA-975138",
+      "R-HSA-975155"
+    ],
+    "C3a": [
+      "R-HSA-380108"
+    ],
+    "TNFRSF11A": [
+      "R-HSA-5668541"
+    ],
+    "TLR2/TLR6/CD36": [
+      "R-HSA-168188",
+      "R-HSA-168898",
+      "R-HSA-181438"
+    ],
+    "CXCL13": [
+      "R-HSA-380108"
+    ],
+    "FOS": [
+      "R-HSA-2871796"
+    ],
+    "TNFRSF13B": [
+      "R-HSA-5668541"
+    ],
+    "Regulated_Necrosis": [
+      "R-HSA-168164"
+    ],
+    "TLR5/flagellin": [
+      "R-HSA-168176",
+      "R-HSA-168898"
+    ],
+    "STAT5 homodimer": [
+      "R-HSA-1266695"
+    ],
+    "OAS1": [
+      "R-HSA-877300"
+    ],
+    "GBP1": [
+      "R-HSA-877300"
+    ],
+    "RSAD2": [
+      "R-HSA-877300"
+    ],
+    "CCR1": [
+      "R-HSA-380108"
+    ],
+    "TRIM21": [
+      "R-HSA-877300"
+    ],
+    "CXCL16": [
+      "R-HSA-380108"
+    ],
+    "TNFRSF13C": [
+      "R-HSA-5668541"
+    ],
+    "PTPN2": [
+      "R-HSA-9833482"
+    ],
+    "JAK2": [
+      "R-HSA-877300"
+    ],
+    "FCGR1BP": [
+      "R-HSA-877300"
+    ],
+    "Ag/IgG/FCGR1A": [
+      "R-HSA-2029481",
+      "R-HSA-2029482"
+    ],
+    "EIF2AK2 homodimer": [
+      "R-HSA-9833482"
+    ],
+    "NFKBIA": [
+      "R-HSA-168164",
+      "R-HSA-2871837",
+      "R-HSA-975138",
+      "R-HSA-9758274",
+      "R-HSA-983705"
+    ],
+    "STAT1": [
+      "R-HSA-877300"
+    ],
+    "PI(3,4,5)P3": [
+      "R-HSA-2029485",
+      "R-HSA-2730905",
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "TLR7/ssRNA": [
+      "R-HSA-168181",
+      "R-HSA-168898",
+      "R-HSA-975138"
+    ],
+    "CX3CL1": [
+      "R-HSA-380108"
+    ],
+    "TNFSF14": [
+      "R-HSA-5668541"
+    ],
+    "IRAK4/IRAK1,2/IRAKM": [
+      "R-HSA-975138",
+      "R-HSA-975155",
+      "R-HSA-975871"
+    ],
+    "CCL11": [
+      "R-HSA-380108"
+    ],
+    "IFNG/IFNGR": [
+      "R-HSA-877300"
+    ],
+    "sialic_acid/CD22": [
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "IL7": [
+      "R-HSA-1266695"
+    ],
+    "Calmodulin/Ca2+": [
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "EIF2AK2": [
+      "R-HSA-9833482"
+    ],
+    "TRAF2/TRAF3": [
+      "R-HSA-9758274"
+    ],
+    "TNFSF15": [
+      "R-HSA-5668541"
+    ],
+    "GBP5": [
+      "R-HSA-877300"
+    ],
+    "CpG_DNA/TLR9": [
+      "R-HSA-168138",
+      "R-HSA-168898",
+      "R-HSA-975138"
+    ],
+    "RELA/NFKB1": [
+      "R-HSA-2871837",
+      "R-HSA-9758274",
+      "R-HSA-983705"
+    ],
+    "LTB-TNFSF14/LTBR": [
+      "R-HSA-5668541"
+    ],
+    "CXCL6": [
+      "R-HSA-380108"
+    ],
+    "TRIM6": [
+      "R-HSA-877300"
+    ],
+    "BAFF-APRIL/BCMA": [
+      "R-HSA-5668541"
+    ],
+    "CX3CR1": [
+      "R-HSA-380108"
+    ],
+    "CXCR5": [
+      "R-HSA-380108"
+    ],
+    "MAP2K3": [
+      "R-HSA-975138"
+    ],
+    "MAP2K6": [
+      "R-HSA-975138",
+      "R-HSA-9833482"
+    ],
+    "BAFF/BAFFR": [
+      "R-HSA-5668541"
+    ],
+    "XCL1": [
+      "R-HSA-380108"
+    ],
+    "BCR": [
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "IL7/IL7R": [
+      "R-HSA-1266695"
+    ],
+    "LYN": [
+      "R-HSA-2730905",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "CCL19/CCRL2": [
+      "R-HSA-380108"
+    ],
+    "CCR6": [
+      "R-HSA-380108"
+    ],
+    "LMNB1": [
+      "R-HSA-447115"
+    ],
+    "CpG_DNA": [
+      "R-HSA-168138",
+      "R-HSA-168898"
+    ],
+    "Ag/IgG/FCGR2A": [
+      "R-HSA-2029481",
+      "R-HSA-2029482"
+    ],
+    "MAVS": [
+      "R-HSA-936440"
+    ],
+    "XCL1-XCL2/XCR1": [
+      "R-HSA-380108"
+    ],
+    "TIRAP": [
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "RPLP0": [
+      "R-HSA-447115"
+    ],
+    "LTB": [
+      "R-HSA-5668541"
+    ],
+    "flagellin": [
+      "R-HSA-168176",
+      "R-HSA-168898"
+    ],
+    "ITPR3": [
+      "R-HSA-2029485",
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "TNFSF11": [
+      "R-HSA-5668541"
+    ],
+    "MT2A": [
+      "R-HSA-877300"
+    ],
+    "CXCL12/CXCR4": [
+      "R-HSA-380108"
+    ],
+    "CXCR6": [
+      "R-HSA-380108"
+    ],
+    "GBP2": [
+      "R-HSA-877300"
+    ],
+    "C5a": [
+      "R-HSA-380108"
+    ],
+    "CHUK/IKBKB/IKBKG": [
+      "R-HSA-168164",
+      "R-HSA-2871837",
+      "R-HSA-975138",
+      "R-HSA-9758274",
+      "R-HSA-983705"
+    ],
+    "TNFRSF17": [
+      "R-HSA-5668541"
+    ],
+    "PI(4,5)P2": [
+      "R-HSA-2029485",
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "XCL2": [
+      "R-HSA-380108"
+    ],
+    "LTA/TNFR2": [
+      "R-HSA-5668541"
+    ],
+    "TLR7": [
+      "R-HSA-168181",
+      "R-HSA-168898"
+    ],
+    "CCL21": [
+      "R-HSA-380108"
+    ],
+    "GNAI": [
+      "R-HSA-380108"
+    ],
+    "Phagocytosis": [
+      "R-HSA-2029482"
+    ],
+    "TLR8": [
+      "R-HSA-168181",
+      "R-HSA-168898"
+    ],
+    "TNF/TNFR2": [
+      "R-HSA-5668541"
+    ],
+    "AKT": [
+      "R-HSA-2730905",
+      "R-HSA-983705"
+    ],
+    "CXCL6/CXCR1": [
+      "R-HSA-380108"
+    ],
+    "CXCL12": [
+      "R-HSA-380108"
+    ],
+    "TLR8/ssRNA": [
+      "R-HSA-168181",
+      "R-HSA-168898",
+      "R-HSA-975138"
+    ],
+    "IFI30": [
+      "R-HSA-877300"
+    ],
+    "FCGR2A": [
+      "R-HSA-2029481"
+    ],
+    "TLR10_ligand": [
+      "R-HSA-168142",
+      "R-HSA-168898"
+    ],
+    "ADAR1 homodimer": [
+      "R-HSA-9833482"
+    ],
+    "BAFF-APRIL/TACI": [
+      "R-HSA-5668541"
+    ],
+    "TNFSF15/TNFRSF25": [
+      "R-HSA-5668541"
+    ],
+    "TLR9": [
+      "R-HSA-168138",
+      "R-HSA-168898"
+    ],
+    "RANKL/RANK": [
+      "R-HSA-5668541"
+    ],
+    "dsRNA/polyIC": [
+      "R-HSA-168164",
+      "R-HSA-168898"
+    ],
+    "EDARADD": [
+      "R-HSA-5668541"
+    ],
+    "CCL23": [
+      "R-HSA-380108"
+    ],
+    "TLR1/TLR2/CD14": [
+      "R-HSA-168179",
+      "R-HSA-168898",
+      "R-HSA-181438"
+    ],
+    "CXCR4": [
+      "R-HSA-380108"
+    ],
+    "MYD88": [
+      "R-HSA-168898",
+      "R-HSA-975138",
+      "R-HSA-975871"
+    ],
+    "JAK1": [
+      "R-HSA-1266695",
+      "R-HSA-877300"
+    ],
+    "CD70 homotrimer": [
+      "R-HSA-5668541"
+    ],
+    "CCL11/CCR3": [
+      "R-HSA-380108"
+    ],
+    "C5AR1": [
+      "R-HSA-380108"
+    ],
+    "PSME2": [
+      "R-HSA-447115"
+    ],
+    "Ag/IgG": [
+      "R-HSA-2029481"
+    ],
+    "CDKN1A": [
+      "R-HSA-69560",
+      "R-HSA-69895"
+    ],
+    "CXCL5/CXCR2": [
+      "R-HSA-380108"
+    ],
+    "TLR3": [
+      "R-HSA-168164",
+      "R-HSA-168898"
+    ],
+    "CCL20": [
+      "R-HSA-380108"
+    ],
+    "NCAM1": [
+      "R-HSA-877300"
+    ],
+    "TLR5": [
+      "R-HSA-168176",
+      "R-HSA-168898"
+    ],
+    "CXCL9-10-11/CXCR3": [
+      "R-HSA-380108"
+    ],
+    "RCAN": [
+      "R-HSA-2871809",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "TLR3/dsRNA/PolyIC": [
+      "R-HSA-168164",
+      "R-HSA-168898"
+    ],
+    "CX3CL1/CX3CR1": [
+      "R-HSA-380108"
+    ],
+    "CD40LG": [
+      "R-HSA-5668541"
+    ],
+    "CCRL2": [
+      "R-HSA-380108"
+    ],
+    "IFIH1": [
+      "R-HSA-936440"
+    ],
+    "FAS": [
+      "R-HSA-5668541"
+    ],
+    "dsRNA": [
+      "R-HSA-936440"
+    ],
+    "CXCL5": [
+      "R-HSA-380108"
+    ],
+    "FASLG": [
+      "R-HSA-5668541"
+    ],
+    "Ag/IgG/FCGR3A": [
+      "R-HSA-2029481",
+      "R-HSA-2029482"
+    ],
+    "CD40LG/CD40": [
+      "R-HSA-5668541"
+    ],
+    "DAG": [
+      "R-HSA-2029485",
+      "R-HSA-2871837",
+      "R-HSA-983695",
+      "R-HSA-983705"
+    ],
+    "CASP8": [
+      "R-HSA-168164",
+      "R-HSA-937061"
+    ],
+    "CCL20/CCR6": [
+      "R-HSA-380108"
+    ],
+    "LXA4-CCL23/FPR2": [
+      "R-HSA-380108"
+    ],
+    "TLR4/LY96": [
+      "R-HSA-166016",
+      "R-HSA-168898",
+      "R-HSA-937061"
+    ],
+    "UBA7": [
+      "R-HSA-1169408",
+      "R-HSA-936440"
+    ],
+    "FASL/FASR": [
+      "R-HSA-5668541"
+    ],
+    "TNFRSF25": [
+      "R-HSA-5668541"
+    ],
+    "UBE2L6": [
+      "R-HSA-1169408"
+    ],
+    "FPR2": [
+      "R-HSA-380108"
+    ],
+    "Apoptosis": [
+      "R-HSA-168164",
+      "R-HSA-937061"
+    ],
+    "CD27": [
+      "R-HSA-5668541"
+    ],
+    "PG": [
+      "R-HSA-181438"
+    ],
+    "ssRNA": [
+      "R-HSA-168181",
+      "R-HSA-168898"
+    ],
+    "XCR1": [
+      "R-HSA-380108"
+    ],
+    "PTEN": [
+      "R-HSA-983705"
+    ],
+    "TLR10L/TLR10": [
+      "R-HSA-168142",
+      "R-HSA-168898"
+    ],
+    "EDA/EDAR": [
+      "R-HSA-5668541"
+    ],
+    "TLR10": [
+      "R-HSA-168142",
+      "R-HSA-168898"
+    ],
+    "C5a/C5AR1": [
+      "R-HSA-380108"
+    ],
+    "TARBP2": [
+      "R-HSA-9833482"
+    ],
+    "CCL16": [
+      "R-HSA-380108"
+    ],
+    "CXCL6/CXCR2": [
+      "R-HSA-380108"
+    ],
+    "LXA4": [
+      "R-HSA-380108"
+    ],
+    "C3a/CA3R1": [
+      "R-HSA-380108"
+    ],
+    "CXCL13/CXCR5": [
+      "R-HSA-380108"
+    ],
+    "TNFSF13": [
+      "R-HSA-5668541"
+    ],
+    "EDAR": [
+      "R-HSA-5668541"
+    ],
+    "HERC5": [
+      "R-HSA-1169408"
+    ],
+    "TNFSF13B": [
+      "R-HSA-5668541"
+    ]
+  }
+}

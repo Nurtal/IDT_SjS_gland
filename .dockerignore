@@ -1,0 +1,16 @@
+.git
+.github
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+01_disease_map/cache/
+03_transcriptomics/public_salivary_gland/
+data/
+*.log
+.DS_Store
+node_modules/

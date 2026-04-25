@@ -7,14 +7,16 @@ dependencies:
   - python=3.12
 
   # XML parsing
-  - lxml>=4.9
+  - lxml=4.9.*
 
   # Network analysis
-  - networkx>=3.2
+  - networkx>=3.2,<4
+  - python-igraph>=0.11
 
   # Data manipulation
-  - pandas>=2.1
-  - numpy>=1.26
+  - pandas>=2.1,<3
+  - numpy>=1.26,<2
+  - pyarrow>=14
 
   # HTTP requests
   - requests>=2.31
@@ -23,29 +25,67 @@ dependencies:
   # Plotting & QC notebooks
   - matplotlib>=3.8
   - seaborn>=0.13
+  - plotly>=5.18
   - jupyter>=1.0
   - jupyterlab>=4.0
   - ipykernel>=6.27
   - ipywidgets>=8.1
+  - nbformat>=5.9
+  - nbconvert>=7.10
 
-  # Progress bars
+  # Progress bars / logging
   - tqdm>=4.66
+  - rich>=13.7
 
-  # R / Bioconductor (Phase 2 — transcriptomics)
+  # Dev tooling
+  - pytest>=8.0
+  - pytest-cov>=4.1
+  - ruff>=0.3
+  - mypy>=1.8
+
+  # ─── R / Bioconductor — Phase 2 transcriptomics ─────────────────────
   - r-base>=4.3
   - bioconductor-limma
   - bioconductor-geoquery
   - bioconductor-biobase
+  - bioconductor-edger
+  - bioconductor-deseq2
+  - bioconductor-sva
+  - bioconductor-affy
+  - bioconductor-affyio
+  - bioconductor-oligo
+  - bioconductor-illuminaio
+  - bioconductor-org.hs.eg.db
+  - bioconductor-annotationdbi
   - r-ggplot2
   - r-dplyr
+  - r-readr
+  - r-tidyr
+  - r-stringr
+  - r-survival
+  - r-pheatmap
+  - r-metafor
 
+  # ─── Pip-only packages ──────────────────────────────────────────────
   - pip
   - pip:
     # SBML parsing — pip version is more up-to-date than conda-forge
-    - python-libsbml>=5.20.2
+    - python-libsbml==5.20.2
     # CaSQ — Boolean model generation from CellDesigner XML
-    - casq>=1.4.3
-    # Scipy for Phase 2 similarity scoring
+    - casq==1.4.3
+    # Scipy (Phase 2 — similarity scoring)
     - scipy>=1.12
-    # Scikit-learn for Phase 2 binarisation
+    # Scikit-learn (Phase 2 — binarisation)
     - scikit-learn>=1.4
+    # Boolean network analysis — Phase 2.2 multi-tool POC
+    - pyboolnet>=3.0.13
+    - mpbn>=3.6
+    - colomoto-jupyter>=0.8
+    - biolqm>=0.8
+    # MaBoSS Python bindings
+    - maboss>=0.8
+    # Reactome / Enrichment APIs (Phase 1.1 audit)
+    - reactome2py>=3.0
+    - gseapy>=1.1
+    # HTTP mocking for CI
+    - responses>=0.25

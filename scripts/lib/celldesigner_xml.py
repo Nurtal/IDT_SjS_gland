@@ -534,8 +534,12 @@ def make_reaction(
     modifiers_raw = rxn.get("modifiers") or []
 
     def resolve(entry: dict) -> str | None:
-        elem = entry.get("element") or {}
-        eid = elem.get("id")
+        # MINERVA API renvoie soit "aliasId" (entier), soit
+        # "element": {"id": ...} selon les endpoints/versions.
+        eid = entry.get("aliasId")
+        if eid is None:
+            elem = entry.get("element") or {}
+            eid = elem.get("id")
         if eid is None:
             return None
         return id_map.get(int(eid))

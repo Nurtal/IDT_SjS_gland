@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint (ruff + mypy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install lint tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff==0.3.* mypy==1.8.* lxml types-requests
+
+      - name: ruff check
+        run: ruff check scripts/ tests/
+
+      - name: ruff format check
+        run: ruff format --check scripts/ tests/
+
+      - name: mypy (lib only, strict)
+        run: mypy --strict scripts/lib/
+        continue-on-error: true  # Phase 0 : non bloquant le temps de couvrir les types
+
+  test:
+    name: Pytest
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install minimal test deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install \
+            pytest==8.* \
+            pytest-cov==4.* \
+            lxml==4.9.* \
+            python-libsbml==5.20.2 \
+            requests \
+            responses \
+            networkx \
+            pandas \
+            numpy \
+            tqdm
+
+      - name: Run pytest
+        run: pytest -v --cov=scripts/lib --cov-report=term-missing tests/

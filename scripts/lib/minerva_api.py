@@ -100,10 +100,14 @@ def _paginate(
     delay: float = REQUEST_DELAY,
 ) -> list[dict[str, Any]]:
     """
-    Itère sur un endpoint paginé de MINERVA jusqu'à épuisement.
+    Itère sur un endpoint MINERVA. L'API peut :
+      - soit renvoyer tout en une seule réponse (ignore les query params)
+      - soit paginer correctement avec ?page=N&size=N
 
-    L'API renvoie un tableau JSON plat (pas de wrapper {totalCount, data}).
-    La dernière page est détectée quand len(batch) < page_size.
+    La fin est détectée par :
+      1. La réponse est plus petite que page_size → dernière page
+      2. La page suivante contient les mêmes IDs que la page précédente → l'API
+         ignore la pagination, on a déjà tout
 
     Args:
         session   : Session requests configurée
@@ -112,14 +116,14 @@ def _paginate(
         delay     : Pause entre les pages (secondes)
 
     Returns:
-        Liste complète de tous les objets JSON.
+        Liste dédupliquée par champ `id` de tous les objets JSON.
 
     Raises:
         requests.HTTPError si une page renvoie un code >= 400.
         ValueError si la réponse n'est pas un tableau JSON.
-        AssertionError si le résultat final est vide.
     """
     results: list[dict] = []
+    seen_ids: set = set()
     page = 0
 
     while True:
@@ -136,13 +140,30 @@ def _paginate(
                 f"sur {endpoint} page {page}: {str(batch)[:200]}"
             )
 
-        results.extend(batch)
+        # Filtrer les doublons (cas où l'API ignore la pagination)
+        new_items = []
+        for item in batch:
+            iid = item.get("id")
+            if iid is None or iid not in seen_ids:
+                if iid is not None:
+                    seen_ids.add(iid)
+                new_items.append(item)
+
+        results.extend(new_items)
         logger.info(
-            "Page %d : %d éléments récupérés (total cumulé : %d)",
-            page, len(batch), len(results),
+            "Page %d : %d éléments reçus, %d nouveaux (total unique : %d)",
+            page, len(batch), len(new_items), len(results),
         )
 
+        # Conditions d'arrêt
         if len(batch) < page_size:
+            logger.debug("Dernière page (batch < size)")
+            break
+        if len(new_items) == 0:
+            logger.info(
+                "Aucun nouvel élément sur la page %d → l'API ne pagine pas, arrêt.",
+                page,
+            )
             break
 
         page += 1

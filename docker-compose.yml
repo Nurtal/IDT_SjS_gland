@@ -1,0 +1,32 @@
+services:
+  sjs-dt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sjs-digitaltwin:latest
+    container_name: sjs-dt
+    working_dir: /work
+    volumes:
+      - .:/work
+      - sjs-cache:/work/01_disease_map/cache
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: bash
+    stdin_open: true
+    tty: true
+
+  jupyter:
+    image: sjs-digitaltwin:latest
+    container_name: sjs-dt-jupyter
+    working_dir: /work
+    volumes:
+      - .:/work
+    ports:
+      - "8888:8888"
+    command: >
+      conda run --no-capture-output -n sjs-digitaltwin
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+      --NotebookApp.token='' --NotebookApp.password=''
+
+volumes:
+  sjs-cache:

@@ -84,11 +84,23 @@ Phase 3   Simulations in silico & manuscrit                      [4-6 mois]
 
 ---
 
-## Phase 0 — Infrastructure & reproductibilité *(2 semaines)*
+## Phase 0 — Infrastructure & reproductibilité *(2 semaines)* — ✅ COMPLÈTE (2026-04-25)
 
 ### Objectif
 
 Verrouiller l'environnement et les conventions **avant** de produire de la science, pour garantir la reproductibilité bit-à-bit.
+
+### Statut
+
+| Sous-tâche | Statut | Livrable |
+|---|---|---|
+| 0.1 Environnement scellé | ✅ | `envs/environment.yml` complété (pyboolnet, mpbn, edgeR, DESeq2, sva, MaBoSS) |
+| 0.2 Conventions de nommage | ✅ | `CONVENTIONS.md` |
+| 0.3 Dockerfile + compose | ✅ | `Dockerfile`, `docker-compose.yml`, `.dockerignore` |
+| 0.4 CI/CD | ✅ | `.github/workflows/ci.yml`, `pyproject.toml`, 5 smoke tests OK |
+| 0.5 Journal | ✅ | `journal.md` |
+
+**Gate 0** : `[ ]` reproduction Docker à valider sur 2 machines distinctes (test reporté — pas de Docker accessible localement à cette session).
 
 ### Tâches
 
@@ -136,7 +148,36 @@ Verrouiller l'environnement et les conventions **avant** de produire de la scien
 
 Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire structurée par type cellulaire avec communications intercellulaires explicites, suivant les conventions CellDesigner de Zerrouk et al. 2024.
 
-### Sous-phase 1.1 — Audit topologique & sémantique *(2 semaines)*
+### Sous-phase 1.1 — Audit topologique & sémantique *(2 semaines)* — ✅ COMPLÈTE (2026-04-25)
+
+**Statut** :
+
+| Tâche | Résultat |
+|---|---|
+| Téléchargement SjD Map | ✅ 1157 espèces, 598 réactions, 14 phénotypes |
+| Bug pagination MINERVA corrigé | ✅ déduplication par id |
+| Bug `aliasId` dans `make_reaction` | ✅ corrigé (resolve fallback) |
+| Audit topologique | ✅ 1157 nœuds, 1151 edges, 316 composantes faibles |
+| Couverture annotations éléments | ✅ 94.21% (gate ≥80%) |
+| Couverture PMID réactions | ⚠️ 16.72% (gate FAIL ≥50%) |
+| Détection marqueurs cell-type | ⚠️ SGEC 0/19 — module à construire from-scratch |
+| Détection cytokines clés | ✅ 25/36 cytokines clés présentes (92 nœuds avec triplets Gene/RNA/Protein) |
+| Pathway hints depuis notes | ✅ 235 éléments avec ≥1 ID Reactome/KEGG/GO |
+
+**Findings critiques pour Phase 1.2** :
+1. **27% nœuds isolés** (315/1157, dont 290 Protein) → carte très fragmentée
+2. **SGEC quasi-absent** (0 marqueurs canoniques AQP5/MUC5B/CFTR) → la SjD Map se concentre sur l'immunité, pas la fonction épithéliale → **module SGEC à construire manuellement** depuis littérature SjD spécifique
+3. **125 triplets Gene+RNA+Protein** (sur 526 noms uniques) → **réduction formelle obligatoire** avant cell-type cloning, sinon explosion combinatoire (1157 × N_celltypes)
+4. **6 compartiments** présents → compartiment-driven viable mais 93 nodes en `None`
+
+**Livrables produits** :
+- `01_disease_map/SjD_Map_original.xml` (2.0 Mo)
+- `01_disease_map/cache/elements_raw.json` (3.4 Mo)
+- `01_disease_map/cache/reactions_raw.json` (1.3 Mo)
+- `01_disease_map/audit_summary.json`
+- `01_disease_map/audit_report.md`
+- `01_disease_map/audit_celltype_hits.tsv`
+- `01_disease_map/audit_intercellular_pivots.tsv`
 
 **Justification** : avant toute dissociation, il faut connaître précisément le matériau de départ. Aucun audit n'a été publié au-delà du papier original.
 

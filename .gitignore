@@ -1,1 +1,30 @@
 venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Caches API
+01_disease_map/cache/
+
+# Données externes (récupérées via script)
+data/
+03_transcriptomics/public_salivary_gland/
+03_transcriptomics/processed/
+
+# Artéfacts volumineux non-LFS
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
