@@ -1,0 +1,42 @@
+{
+  "n_total_nodes": 1157,
+  "n_extracellular": 113,
+  "n_phenotype": 14,
+  "n_unassigned": 95,
+  "n_assignable": 1030,
+  "n_assigned_to_celltype": 935,
+  "coverage_pct": 90.78,
+  "by_rule": {
+    "R6": 601,
+    "R5": 138,
+    "R4": 135,
+    "R1": 113,
+    "R7": 95,
+    "R3": 61,
+    "R2": 14
+  },
+  "by_confidence": {
+    "LOW": 739,
+    "HIGH": 188,
+    "MEDIUM": 135,
+    "": 95
+  },
+  "by_celltype": {
+    "BCELL": 868,
+    "TH1": 770,
+    "TH17": 767,
+    "M1": 763,
+    "M2": 760,
+    "SGEC": 749,
+    "PLASMA": 259,
+    "TREG": 180,
+    "TFH": 175,
+    "PDC": 170,
+    "EXTRA": 113,
+    "PHENOTYPE": 14
+  },
+  "celltype_threshold": 80,
+  "underprovisioned_celltypes": [],
+  "gate_coverage_pass": true,
+  "gate_celltype_size_pass": true
+}

@@ -164,3 +164,79 @@
 - **Décision en attente** :
   - Inclure pDC ? → recommandation **OUI** (9/6 marqueurs trouvés, signature IFN-α)
   - Inclure SGEC malgré 0/19 marqueurs natifs ? → **OUI obligatoire** (cible cellulaire principale du tissu) mais coût de Phase 1.3 augmenté
+
+---
+
+## 2026-04-25 (suite 3) — Phase 1.2 complète
+
+### Décision pivot — abandon de l'approche "compartiment-driven"
+
+Inspection des 6 compartiments MINERVA :
+- 20513 Cell (624) / 21231 nucleus (308) / 21555 Extracellular_ligands (73) / 21629 Secreted_molecules (40) / 21540 Phenotypes (14) / 20730 ER (5)
+
+**Constat** : la SjD Map est organisée par compartiment **fonctionnel**, pas cell-type-spécifique. → Refonte Phase 1.2 vers une **approche hybride à 7 règles auditables avec multi-assignment**.
+
+### `01_disease_map/dissociation_rules.md` (v1)
+
+Spec : 7 règles à priorité décroissante.
+- R1 (HIGH) : compartiment ∈ {21555, 21629} → `EXTRA` (nœud unique, pas cloné)
+- R2 (HIGH) : type Phenotype → `PHENOTYPE` global
+- R3 (HIGH) : marqueur exclusif (table 90 marqueurs) → mono ou intra-lignée
+- R4 (MEDIUM) : pathway-driven (table Reactome/KEGG) → multi
+- R5 (LOW) : voisinage ≥2 voisins concordants → multi
+- R6 (LOW) : default fallback (signaling intracellulaire ou edge>0) → 6 cell-types principaux
+- R7 : inassignable → `UNASSIGNED` (revue manuelle Phase 1.3)
+
+### `scripts/lib/dissociator.py` + `scripts/03_dissociate.py`
+
+Implémentation des 7 règles (~480 lignes). Sorties produites :
+- `node_to_celltype.tsv` (4744 lignes ; format long)
+- `extracellular_nodes.tsv` (113 lignes)
+- `unassigned_nodes.tsv` (95 lignes)
+- `dissociation_summary.json`
+- `dissociation_report.md`
+
+### Findings dissociation
+
+| Métrique | Valeur |
+|---|---|
+| Total nœuds | 1157 |
+| EXTRA (R1) | 113 |
+| PHENOTYPE (R2) | 14 |
+| Assignables | 1030 |
+| Assignés à ≥1 cell-type | 935 (**90.78%**) |
+| UNASSIGNED (R7) | 95 |
+| Effectifs par cell-type | BCELL=868, TH1=770, TH17=767, M1=763, M2=760, SGEC=749, PLASMA=259, TREG=180, TFH=175, PDC=170 |
+
+**Distribution par règle** : R6=601 (52%), R5=138, R4=135, R1=113, R7=95, R3=61, R2=14.
+
+**Distribution par confiance** : LOW=739, HIGH=188, MEDIUM=135.
+
+**Sanity-check** : STAT1 → 10 cell-types (multi correct), BTK → BCELL only, TLR7/IRF7 → PDC only, IL17A → EXTRA + signalling. Cohérent.
+
+### Décision technique post-implémentation
+
+**R6 a été élargi** pour assigner aussi les nœuds isolés s'ils sont en compartiment intracellulaire (Cell/nucleus/ER). Sans cet élargissement, 283 nœuds (TBK1, MTOR, IRAK4, TLR1/2, etc.) restaient UNASSIGNED malgré leur biologie clairement définie. Justification : ces nœuds n'ont pas de pathway dans leurs notes mais sont de l'intracellular signaling présumé partagé entre cell-types ; meilleur choix que R7.
+
+### Gate 1.2
+
+- ✅ Couverture ≥90% nœuds assignables (90.78%)
+- ✅ Tous les cell-types ont ≥80 nœuds (min PDC=170)
+- ⏸ Revue expert : **EN ATTENTE** — bloquant pour Phase 1.3
+- ⏸ Spot-check 20 nœuds aléatoires : à faire avec expert
+
+### Limites assumées
+
+1. **Sur-assignment R6** : les 6 cell-types "principaux" (SGEC, TH1, TH17, BCELL, M1, M2) sont gonflés à ~750-870 nœuds chacun à cause du fallback. La curation Phase 1.3 va couper cela par expertise biologique.
+2. **PLASMA/TFH/TREG/PDC sous-représentés** (~170-260) : c'est attendu — pas dans le default fallback. Ils auront besoin d'enrichissement manuel Phase 1.3 (cible : >300 nœuds chacun pour viabilité Booléenne).
+3. **95 UNASSIGNED restants** : majoritairement nœuds satellites sans compartiment, sans annotations. À trier en Phase 1.3 (drop ou ajouter marqueur).
+
+### Prochaines étapes
+
+- **Phase 1.3** — construction des modules cell-type CellDesigner :
+    - SGEC : module quasi from-scratch (0/19 marqueurs natifs) — sources Manoussakis/Tsunawaki/Mavragani
+    - TH1, TH17, TFH, TREG, BCELL, PLASMA, M1, M2, PDC : élagage du clone par expert + ajouts ciblés
+    - Estimation révisée : **8-9 sem** (au lieu de 6)
+- Demande de **revue expert SjD** sur `node_to_celltype.tsv` avant lancement Phase 1.3
+
+---

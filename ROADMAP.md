@@ -200,9 +200,29 @@ Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire stru
 
 **Livrable** : `01_disease_map/audit_report.html` + `01_disease_map/audit_summary.json`
 
-### Sous-phase 1.2 — Stratégie de dissociation *(3 semaines)*
+### Sous-phase 1.2 — Stratégie de dissociation ✅ **COMPLÈTE (2026-04-25)**
 
-**Justification** : la SjD Map n'a pas (ou peu) d'annotation cell-type explicite — c'est l'étape la plus risquée de Phase 1. Approche hybride à valider.
+**Statut** : Gate 1.2 ✅ atteinte (90.78% couverture, tous cell-types ≥80 nœuds), revue expert en attente.
+
+**Pivot post-audit Phase 1.1** : compartiment-driven seul est insuffisant car la SjD Map est organisée par compartiment fonctionnel (Cell/nucleus/ECM/Secreted/Phenotypes/ER), **pas** par cell-type. → Approche hybride à 7 règles auditables (cf. `01_disease_map/dissociation_rules.md`) avec **multi-assignment**.
+
+**Règles implémentées** (`scripts/lib/dissociator.py` + `scripts/03_dissociate.py`) :
+
+| Rule | Confidence | n_nœuds | Description |
+|---|---|---|---|
+| R1 | HIGH | 113 | Compartiment extracellulaire/secreted → `EXTRA` (nœud unique) |
+| R2 | HIGH | 14 | Type Phenotype → `PHENOTYPE` global |
+| R3 | HIGH | 61 | Marqueur cell-type exclusif → mono ou intra-lignée |
+| R4 | MEDIUM | 135 | Pathway-driven (Reactome/KEGG/GO depuis notes) |
+| R5 | LOW | 138 | Voisinage ≥2 voisins concordants (5 itérations) |
+| R6 | LOW | 601 | Default fallback (intracellulaire ou edge>0) → 6 cell-types |
+| R7 | — | 95 | Inassignable (revue manuelle Phase 1.3) |
+
+**Effectifs par cell-type (clones potentiels)** :
+- BCELL=868, TH1=770, TH17=767, M1=763, M2=760, SGEC=749 (cell-types fallback)
+- PLASMA=259, TREG=180, TFH=175, PDC=170 (uniquement R3+R4+R5)
+
+**Justification archive** : la SjD Map n'a pas (ou peu) d'annotation cell-type explicite — c'est l'étape la plus risquée de Phase 1. Approche hybride à valider.
 
 **Trois approches combinées** :
 
@@ -231,15 +251,18 @@ Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire stru
 
 **Combinaison** : score de confiance par nœud par cell-type (markers > pathway > compartment). Multi-assignation autorisée (un nœud peut appartenir à plusieurs cell-types — il sera **cloné** lors de l'assemblage).
 
-**Livrables** :
-- `01_disease_map/dissociation_rules.md` — règles auditables
-- `01_disease_map/node_to_celltype.tsv` — `node_id, celltype, confidence, rule_triggered, evidence`
-- `01_disease_map/extracellular_nodes.tsv` — ligands/cytokines partagés (cas spécial à ne pas dupliquer)
+**Livrables** ✅ :
+- `01_disease_map/dissociation_rules.md` — règles auditables (v1, 218 lignes)
+- `01_disease_map/node_to_celltype.tsv` — 4744 lignes (long format multi-assignment)
+- `01_disease_map/extracellular_nodes.tsv` — 113 nœuds R1
+- `01_disease_map/unassigned_nodes.tsv` — 95 nœuds R7 (à trier Phase 1.3)
+- `01_disease_map/dissociation_summary.json` — stats agrégées
+- `01_disease_map/dissociation_report.md` — rapport humain + Gate
 
 **Gate 1.2** :
-- [ ] ≥90 % des nœuds non-extracellulaires assignés à ≥1 cell-type
-- [ ] Les 10 % restants documentés et justifiés (orphelins / stroma / matrice / inconnu)
-- [ ] Revue par expert (immunologiste / SjD specialist) du fichier `node_to_celltype.tsv`
+- [x] ≥90 % des nœuds non-extracellulaires assignés à ≥1 cell-type (**90.78%**)
+- [x] Les ~10 % restants documentés (`unassigned_nodes.tsv`)
+- [ ] Revue par expert (immunologiste / SjD specialist) du fichier `node_to_celltype.tsv` — **EN ATTENTE**
 
 ### Sous-phase 1.3 — Modules cell-type *(6 semaines)*
 

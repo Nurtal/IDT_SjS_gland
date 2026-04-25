@@ -1,0 +1,96 @@
+node_id	node_name	node_type	compartment_id
+20513	Cell	Compartment	
+20521	LTB,TNFSF14	Protein	
+20537	IgE	Protein	
+20541	Allergen	Simple molecule	
+20545	sialic acid	Simple molecule	
+20574	TLR1	Protein	
+20583	EDA	Protein	
+20586	ITGA4	Protein	
+20591	Antigen	Simple molecule	
+20603	TNFSF13,13B	Protein	
+20613	CCL19,21	Protein	
+20616	IgE	Protein	
+20617	FCER1A	Protein	
+20622	CX3CL1	Protein	
+20632	CXCL12	Protein	
+20652	TLR1	Protein	
+20654	PG	Simple molecule	
+20657	dsRNA/polyIC	Simple molecule	
+20661	CD27	Protein	
+20672	TNFSF11	Protein	
+20680	TNFSF13B	Protein	
+20688	TNF	Protein	
+20705	sialic acid	Simple molecule	
+20724	FASLG	Protein	
+20730	Endoplasmic_reticulum	Compartment	20513
+20738	FLT3LG	Protein	
+20744	LTA	Protein	
+20755	XCL1,2	Protein	
+20760	CXCL16	Protein	
+20782	TGFB1	Protein	
+20787	IL15RA	Protein	
+20793	Antigen	Simple molecule	
+20794	igg	Protein	
+20802	flagellin	Simple molecule	
+20811	LXA4, CCL23	Protein	
+20815	ICOSLG	Protein	
+20819	IL12	Protein	
+20825	CpG_DNA	Simple molecule	
+20830	CXCL6	Protein	
+20851	TRBC	Protein	
+20852	TRAC	Protein	
+20869	TLR6	Protein	
+20871	PG	Simple molecule	
+20874	CCL20	Protein	
+20890	MHC1 proteins	Protein	
+20891	B2M	Protein	
+20894	TRBC	Protein	
+20895	TRAC	Protein	
+20905	CCL16	Protein	
+20908	TLR10 ligand	Simple molecule	
+20920	MHC1 proteins	Protein	
+20921	B2M	Protein	
+20935	TLR6	Protein	
+20941	TNFSF15	Protein	
+20945	ssRNA	Simple molecule	
+20948	TNFSF13,13B	Protein	
+20958	CD40LG	Protein	
+20968	igg	Protein	
+20969	Antigen	Simple molecule	
+20974	CD80,86	Protein	
+20978	CXCL9,10,11	Protein	
+20982	CD14	Protein	
+20985	CCL19	Protein	
+20994	CCL25	Protein	
+21002	CXCL6	Protein	
+21007	TNFSF10	Protein	
+21023	IL6	Protein	
+21032	IL7	Protein	
+21036	IL21	Protein	
+21060	VEGFA	Protein	
+21070	C3a	Protein	
+21075	C5a	Protein	
+21087	IFNA	Protein	
+21099	FCAMR	Protein	
+21102	antigen	Simple molecule	
+21104	CD279	Protein	
+21112	IL1	Protein	
+21114	LPS	Simple molecule	
+21115	CD14	Protein	
+21120	CCL5	Protein	
+21126	VCAM1	Protein	
+21130	IL2	Protein	
+21147	TNF	Protein	
+21165	ssRNA	Simple molecule	
+21180	FCAMR	Protein	
+21193	IL15	Protein	
+21199	CXCL13	Protein	
+21209	IFNG	Protein	
+21223	IFNB1	Protein	
+21231	nucleus	Compartment	20513
+21452	MIR181D	Antisense RNA	21231
+21534	MIR145	Antisense RNA	21231
+21540	Phenotypes	Compartment	
+21555	Extracellular_ligands	Compartment	
+21629	Secreted_molecules	Compartment	
