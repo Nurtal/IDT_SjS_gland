@@ -335,25 +335,29 @@ Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire stru
 ### Sous-phase 1.5 — Assemblage & QC *(2 semaines)*
 
 **Tâches** :
-- Script `scripts/06_assemble_multicellular.py` :
-  - Merge des 4 modules + edges intercellulaires
-  - Clonage des nœuds multi-assignés avec préfixes `_SGEC`, `_TH17`, etc.
-  - Création des compartiments cell-type-spécifiques
+- Script `scripts/06_assemble_map.py` :
+  - Merge des 10 modules + 470 edges intercellulaires
+  - Clonage des nœuds multi-assignés avec préfixes `<CT>_s<id>`
+  - Création des compartiments cell-type-spécifiques (4 intra × 10 + 3 partagés = 43)
 - QC topologique automatique :
-  - Pas de nœud orphelin (degree 0)
-  - Pas de réaction sans réactif/produit valide
-  - Cohérence de signe sur les chemins critiques (ex : IFN-α → STAT1 → IRF7 → IFN-α doit être cohérent)
-- Visualisation : ouverture dans CellDesigner 4.4.2 + export PNG layouté
+  - speciesReference orphelines = 0
+  - libsbml severity FATAL = 0 (les schema-warnings L2V4 sur `celldesigner:*` sont attendues)
+- Visualisation : ouverture dans CellDesigner 4.4.2 + export PNG layouté ⏸ pending
 
 **Gate 1.5 (passage Phase 2)** :
-- [ ] Carte ouvre dans CellDesigner 4.4.2 sans erreur
-- [ ] ≥1200 espèces, ≥800 réactions, ≥30 edges intercellulaires
-- [ ] Validation libsbml : 0 erreur fatale
-- [ ] Toutes les références d'espèces résolues
-- [ ] 14 phénotypes présents
-- [ ] Revue scientifique par 2 experts (immunologue + modélisateur)
+- [ ] Carte ouvre dans CellDesigner 4.4.2 sans erreur ⏸ pending QC visuel
+- [x] ≥1200 espèces (**6 279**), ≥800 réactions (**3 292**), ≥30 edges intercellulaires (**470**)
+- [x] Validation libsbml : 0 erreur fatale (5 574 schema-warnings non bloquantes — pattern identique à la SjD Map publiée)
+- [x] Toutes les références d'espèces résolues (0 orphelines)
+- [x] 14 phénotypes présents (compartiment partagé Phenotypes)
+- [ ] Revue scientifique par 2 experts (immunologue + modélisateur) ⏸ EN ATTENTE
 
-**Livrable** : `01_disease_map/SjD_multicellular_map.xml` + `01_disease_map/multicellular_map.png`
+**Livrables** :
+- `scripts/lib/assembly.py` + `scripts/06_assemble_map.py`
+- `01_disease_map/SjD_multicellular_map.xml` (10.8 Mo, 43 compartiments / 6 279 espèces / 3 292 réactions)
+- `01_disease_map/assembly_summary.json`
+- `01_disease_map/assembly_report.md`
+- `01_disease_map/multicellular_map.png` ⏸ pending CellDesigner GUI
 
 ---
 

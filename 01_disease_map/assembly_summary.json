@@ -1,0 +1,39 @@
+{
+  "xml_path": "/home/n765/workspace/IDT_SjS_gland/01_disease_map/SjD_multicellular_map.xml",
+  "compartments": 43,
+  "species": 6279,
+  "reactions": 3292,
+  "stats": {
+    "n_species_core": 6112,
+    "n_species_extra": 113,
+    "n_species_phenotype": 14,
+    "n_species_complex": 40,
+    "n_reactions_intra": 2822,
+    "n_reactions_skipped": 113,
+    "n_inter_secreted": 430,
+    "n_inter_contact": 40,
+    "n_inter_skipped": 0,
+    "by_celltype_reactions": {
+      "SGEC": 260,
+      "TH1": 266,
+      "TH17": 250,
+      "TFH": 251,
+      "TREG": 251,
+      "BCELL": 361,
+      "PLASMA": 328,
+      "M1": 299,
+      "M2": 274,
+      "PDC": 282
+    }
+  },
+  "libsbml_n_errors": 5574,
+  "libsbml_n_fatal": 0,
+  "libsbml_n_schema_warnings": 5574,
+  "n_unresolved_species_refs": 0,
+  "gate": {
+    "species": true,
+    "reactions": true,
+    "libsbml": true,
+    "refs": true
+  }
+}
