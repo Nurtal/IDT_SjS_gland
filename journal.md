@@ -240,3 +240,67 @@ Implémentation des 7 règles (~480 lignes). Sorties produites :
 - Demande de **revue expert SjD** sur `node_to_celltype.tsv` avant lancement Phase 1.3
 
 ---
+
+## 2026-04-26 — Phase 1.2bis — Raffinement expert R6 → R6c
+
+### Contexte
+
+Diagnostic Phase 1.2 : les 6 cell-types fallback (SGEC, TH1, TH17, BCELL, M1, M2) sont gonflés à 750-870 nœuds avec un score de plausibilité moyen ≈ 30 (R6 base = 25). Cela traduit la sur-assignation systématique du fallback. Cible : descendre les effectifs et remonter le score moyen via une table curée nom-par-nom adossée aux DBs spécialisées.
+
+### Actions
+
+1. **Création `scripts/lib/refinement.py`** — table `CURATED` de 329 entrées (nom normalisé → set cell-types, score 60-88, source explicite). Couverture par axes biologiques :
+    - IFN type I/II + ISGs (Mavragani 2017, Reactome:R-HSA-877300/909733)
+    - TLR/NLR/RLR (InnateDB Breuer 2013 PMID:23180781)
+    - TNF / death receptors (FAS, TRAIL, RANK, BAFF — Mackay 2002, Lavie 2004, Manganelli 2003)
+    - NF-κB / MAPK / TAK1 (KEGG hsa04064/hsa04010)
+    - TCR / BCR / CBM signalosome (PMID:14684827)
+    - IL cytokines (IL-2/4/6/7/10/12/15/21/23) avec restriction par récepteur
+    - Chemokine R/L pairs (PanglaoDB myeloid + ImmGen Th1/Th17)
+    - Complement / Fc receptors / MHC
+    - Lineage TFs (TOX, SNAI1) + housekeeping ubiquitaires
+    - 4 entrées de **drop explicite** (`IL5` Th2, `KDR` endothélial, etc.) → bascule R7
+
+2. **Wiring pipeline** : appel `refine_assignments()` dans `scripts/03_dissociate.py` après `dissociate()` et avant `summarize()`. Stats injectées dans le `summary` JSON et le rapport markdown.
+
+3. **Re-run** `python3 scripts/03_dissociate.py` :
+    - 589 nœuds R6 → R6c (refinés avec score 60-88 et source PMID/DB)
+    - 4 nœuds R6 → R7 (drop expert)
+    - 8 nœuds R6 sans match (conservés en R6 score 25)
+    - 556 nœuds non-R6 inchangés
+
+### Résultats avant / après raffinement
+
+| Indicateur | Avant (R6 brut) | Après (R6c) |
+|---|---|---|
+| Couverture | 90.78% | 90.39% (4 dropped) |
+| Score moyen SGEC | 29.6 | 70.1 |
+| Score moyen TH1 | 30.9 | 70.3 |
+| Score moyen BCELL | 34.4 | 69.1 |
+| Score moyen M1 | 30.5 | 71.1 |
+| Score moyen M2 | 30.3 | 70.6 |
+| Effectif SGEC | 749 | 578 |
+| Effectif M1 | 763 | 667 |
+| Effectif BCELL | 868 | 690 |
+| n MEDIUM confidence | 135 | 545 |
+
+Tous les cell-types restent ≥80 nœuds (min TREG=567). Gate 1.2 : **PASS** (couverture + size).
+
+### Décisions
+
+- R6c devient une règle officielle documentée dans `dissociation_rules.md` §3 et §4.
+- Drop expert (set vide) → R7 : autorisé pour les nœuds non pertinents (Th2, endothélial).
+- La table `refinement.py` reste éditable et auditable : chaque entrée porte sa source.
+
+### Limites résiduelles
+
+- **8 R6 sans match** : noms MINERVA non standard (probablement complexes spécifiques) → à curer manuellement Phase 1.3.
+- **Score moyen ~70** plafonné par le choix conservatif (la majorité des entrées sont à 70-80 et non 85+) — assumé pour ne pas sur-claimer.
+- **Revue expert SjD** toujours requise avant Phase 1.3 pour spot-check sur 20-30 nœuds R6c aléatoires.
+
+### Prochaines étapes
+
+- Mark Task #11 (Phase 1.2bis) comme **completed**.
+- Lancer **Phase 1.3** (modules CellDesigner cell-type) sur la base du `node_to_celltype.tsv` raffiné.
+
+---

@@ -43,6 +43,7 @@ from lib.minerva_api import (  # noqa: E402
     load_or_fetch_reactions,
     make_session,
 )
+from lib.refinement import refine_assignments  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +60,7 @@ def write_node_to_celltype(
     fields = [
         "node_id", "node_name", "node_type", "compartment_id",
         "celltype", "confidence", "rule", "evidence",
+        "plausibility_score", "source",
     ]
     with path.open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, delimiter="\t")
@@ -146,19 +148,23 @@ def render_report(summary: dict[str, Any]) -> str:
     L.append("")
 
     # Par cell-type
-    L.append("## 4. Effectifs par cell-type (clones potentiels)")
+    L.append("## 4. Effectifs et plausibilité par cell-type")
     L.append("")
-    L.append("| Cell-type | n_nœuds | seuil 80 |")
-    L.append("|---|---|---|")
+    L.append("| Cell-type | n_nœuds | seuil 80 | score moyen | n ≥80 | n <40 |")
+    L.append("|---|---|---|---|---|---|")
     by_ct = summary["by_celltype"]
     threshold = summary["celltype_threshold"]
+    mean = summary["mean_plausibility_per_celltype"]
+    high = summary["n_high_score_per_celltype"]
+    low = summary["n_low_score_per_celltype"]
     for ct in (*CELL_TYPES, EXTRA, PHENOTYPE):
         n = by_ct.get(ct, 0)
         if ct in {EXTRA, PHENOTYPE}:
             mark = "—"
         else:
             mark = "✅" if n >= threshold else "❌"
-        L.append(f"| {ct} | {n} | {mark} |")
+        L.append(f"| {ct} | {n} | {mark} | {mean.get(ct, 0)} | "
+                 f"{high.get(ct, 0)} | {low.get(ct, 0)} |")
     L.append("")
 
     # Gate 1.2
@@ -175,8 +181,25 @@ def render_report(summary: dict[str, Any]) -> str:
     L.append("- Revue expert : **EN ATTENTE** (manuel)")
     L.append("")
 
+    # Raffinement R6c (Phase 1.2bis)
+    if "refinement" in summary:
+        ref = summary["refinement"]
+        L.append("## 6. Raffinement expert R6 → R6c (Phase 1.2bis)")
+        L.append("")
+        L.append("Application post-dissociation de la table curée "
+                 "`scripts/lib/refinement.py` (PanglaoDB, CellMarker 2.0, HPA, "
+                 "InnateDB, Reactome, KEGG, ImmGen + littérature SjD primaire).")
+        L.append("")
+        L.append("| Indicateur | Valeur |")
+        L.append("|---|---|")
+        L.append(f"| Entrées curées | {ref['curated_entries']} |")
+        L.append(f"| Nœuds R6 → R6c (raffinés) | {ref['n_refined']} |")
+        L.append(f"| Nœuds R6 → R7 (drop expert) | {ref['n_dropped']} |")
+        L.append(f"| Nœuds R6 sans match (conservés R6) | {ref['n_no_match']} |")
+        L.append("")
+
     # Recommandations
-    L.append("## 6. Recommandations Phase 1.3")
+    L.append("## 7. Recommandations Phase 1.3")
     L.append("")
     if summary["underprovisioned_celltypes"]:
         L.append("- Cell-types sous-provisionnés à enrichir manuellement (curation littérature) :")
@@ -232,7 +255,12 @@ def main() -> int:
 
     logger.info("Application des règles de dissociation R1–R7…")
     assignments = dissociate(elements, graph)
+
+    logger.info("Raffinement expert R6 → R6c (table curée PanglaoDB/CellMarker2.0/HPA/InnateDB/Reactome)…")
+    refine_stats = refine_assignments(assignments)
+
     summary = summarize(assignments)
+    summary["refinement"] = refine_stats
 
     # --- TSV ---
     n2c_path = args.output_dir / "node_to_celltype.tsv"

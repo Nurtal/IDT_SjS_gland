@@ -69,6 +69,7 @@ node_id	node_name	node_type	compartment_id
 21032	IL7	Protein	
 21036	IL21	Protein	
 21060	VEGFA	Protein	
+21061	KDR	Protein	20513
 21070	C3a	Protein	
 21075	C5a	Protein	
 21087	IFNA	Protein	
@@ -82,6 +83,7 @@ node_id	node_name	node_type	compartment_id
 21126	VCAM1	Protein	
 21130	IL2	Protein	
 21147	TNF	Protein	
+21151	KDR	Protein	20513
 21165	ssRNA	Simple molecule	
 21180	FCAMR	Protein	
 21193	IL15	Protein	
@@ -89,7 +91,9 @@ node_id	node_name	node_type	compartment_id
 21209	IFNG	Protein	
 21223	IFNB1	Protein	
 21231	nucleus	Compartment	20513
+21308	IL5	Gene	21231
 21452	MIR181D	Antisense RNA	21231
+21499	IL5	RNA	21231
 21534	MIR145	Antisense RNA	21231
 21540	Phenotypes	Compartment	
 21555	Extracellular_ligands	Compartment	

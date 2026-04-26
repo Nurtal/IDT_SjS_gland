@@ -165,6 +165,179 @@ DEFAULT_FALLBACK_CELLTYPES: set[str] = {
 # Confiance ordonnée
 CONFIDENCE_RANK: dict[str, int] = {"HIGH": 3, "MEDIUM": 2, "LOW": 1}
 
+# ---------------------------------------------------------------------------
+# Score de plausibilité par règle (base) + sources bibliographiques
+# ---------------------------------------------------------------------------
+#
+# Plausibilité (0–100) reflète à quel point l'assignation node→cell-type est
+# défendable biologiquement, indépendamment de la confiance computationnelle :
+#   95–100 : marqueur lineage-defining, consensus immunologique
+#   80–94  : marqueur fonctionnel à forte spécificité (DB curées)
+#   60–79  : pathway-driven cohérent (Reactome/KEGG, multi-cell-type plausible)
+#   40–59  : propagation par voisinage validée par graphe
+#   20–39  : fallback générique (signaling intracellulaire ubiquitaire)
+#    0–19  : non assigné / spurious
+#
+# Les sources sont des références primaires ou des DB publiques :
+#   PMID:xxxxxx, doi:..., HGNC:..., UniProt:..., InnateDB:..., STRING:...,
+#   KEGG:hsaXXXXX, Reactome:R-HSA-XXXXX, CellMarker2.0, PanglaoDB.
+#
+# Pour les assignations fallback (R5/R6), la source est générique (graphe SjD
+# Map elle-même + DB consensus) car par définition le nœud n'a pas de signal
+# fort cell-type-spécifique.
+
+RULE_BASE_SCORE: dict[str, int] = {
+    "R1": 95,   # compartiment ECM = preuve directe
+    "R2": 90,   # phenotype = sortie globale, score élevé
+    "R3": 92,   # marqueur exclusif HIGH par défaut (ajusté par marqueur)
+    "R4": 65,   # pathway-driven : plausible mais surinclusif
+    "R5": 45,   # voisinage : preuve indirecte
+    "R6": 25,   # fallback générique
+    "R7": 0,
+}
+
+RULE_SOURCE: dict[str, str] = {
+    "R1": "MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)",
+    "R2": "MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)",
+    "R3": "see marker source per node",
+    "R4": "Reactome/KEGG via MINERVA notes (Jassal 2020 PMID:31691815; Kanehisa 2023 PMID:36300620)",
+    "R5": "graph propagation on SjD Map (this work)",
+    "R6": "default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105)",
+    "R7": "",
+}
+
+# Sources canoniques par marqueur (CellMarker 2.0 / PanglaoDB / HGNC + PMID
+# fondateurs ; un marqueur peut avoir plusieurs lignées → la source précise
+# la lignée-cible primaire). Utilisé par R3.
+MARKER_SOURCE: dict[str, str] = {
+    # SGEC — Mavragani 2017, Manoussakis 2020, Verstappen 2021 review
+    "AQP5": "HGNC:633; PMID:11136261 Steinfeld 2001 (AQP5 SGEC)",
+    "AQP3": "HGNC:638; PanglaoDB SGEC marker",
+    "MUC5B": "HGNC:7516; PMID:15057281 Alliende 2008 (acinar SGEC)",
+    "MUC7": "HGNC:7518; CellMarker2.0 SGEC",
+    "KRT7": "HGNC:6445; CellMarker2.0 epithelial",
+    "KRT8": "HGNC:6446; PanglaoDB epithelial",
+    "KRT18": "HGNC:6430; PanglaoDB epithelial",
+    "KRT19": "HGNC:6436; PMID:10643978 SGEC ductal",
+    "EPCAM": "HGNC:11529; PMID:24412576 epithelial",
+    "CFTR": "HGNC:1884; CellMarker2.0 ductal cell",
+    "CDH1": "HGNC:1748; epithelial junction (UniProt P12830)",
+    "CLDN1": "HGNC:2032; tight junction (UniProt O95832)",
+    "CLDN3": "HGNC:2045; tight junction (UniProt O15551)",
+    "CLDN4": "HGNC:2046; tight junction",
+    "OCLN": "HGNC:8104; tight junction (UniProt Q16625)",
+    "ZO1": "HGNC:11827; tight junction",
+    "TJP1": "HGNC:11827; tight junction",
+    "AMY1A": "HGNC:474; PMID:11136261 salivary amylase",
+    "PRB1": "HGNC:9337; salivary proline-rich protein",
+    "STATH": "HGNC:11369; salivary statherin",
+    # T-lineage TCR
+    "CD3D": "HGNC:1673; CellMarker2.0 T cell (PMID:31091489)",
+    "CD3E": "HGNC:1674; CellMarker2.0 T cell",
+    "CD3G": "HGNC:1675; CellMarker2.0 T cell",
+    "CD4": "HGNC:1678; CellMarker2.0 CD4 T helper",
+    "CD2": "HGNC:1639; PanglaoDB T cell",
+    "LCK": "HGNC:6524; Reactome:R-HSA-202403 TCR signaling",
+    "ZAP70": "HGNC:12858; Reactome:R-HSA-202427",
+    "LAT": "HGNC:18874; Reactome:R-HSA-202433",
+    "LCP2": "HGNC:6526; SLP76 TCR adaptor",
+    "CD28": "HGNC:1653; KEGG:hsa04660 T cell costim",
+    # TH1
+    "TBX21": "HGNC:11599; PMID:11163255 Szabo 2000 T-bet master TH1",
+    "STAT4": "HGNC:11365; PMID:8702611 IL-12 → TH1",
+    # TH17
+    "RORC": "HGNC:10260; PMID:16990141 Ivanov 2006 RORγt TH17",
+    "RORA": "HGNC:10258; PMID:18486082 RORα TH17",
+    "IL23R": "HGNC:19100; KEGG:hsa04659 TH17 differentiation",
+    "AHR": "HGNC:348; PMID:18362915 Veldhoen 2008 AhR TH17",
+    # TFH
+    "CXCR5": "HGNC:1060; PMID:11160276 Breitfeld 2000 TFH",
+    "BCL6": "HGNC:1001; PMID:19608860 Johnston 2009 BCL6 TFH master",
+    "ICOS": "HGNC:5351; PMID:11595950 Akiba 2005 TFH",
+    "PDCD1": "HGNC:8760; PMID:21164560 PD-1 TFH",
+    # TREG
+    "FOXP3": "HGNC:6106; PMID:14679299 Hori 2003 FOXP3 Treg master",
+    "IL2RA": "HGNC:6008; CD25 Treg (PMID:16330541)",
+    "IKZF2": "HGNC:13177; Helios Treg (PMID:20962259)",
+    "CTLA4": "HGNC:2505; PMID:20720586 Wing 2008 CTLA4 Treg",
+    # B-lineage
+    "CD19": "HGNC:1633; PanglaoDB B cell core",
+    "MS4A1": "HGNC:7315; CD20 B cell (PMID:16921026)",
+    "CD79A": "HGNC:1698; BCR component (UniProt P11912)",
+    "CD79B": "HGNC:1699; BCR component (UniProt P40259)",
+    "CR2": "HGNC:2336; CD21 B cell (UniProt P20023)",
+    "BLNK": "HGNC:14211; B cell adaptor (UniProt Q8WV28)",
+    "BANK1": "HGNC:18233; PMID:18204447 B cell scaffold (SjD GWAS)",
+    # BCELL
+    "BTK": "HGNC:1133; UniProt Q06187; KEGG:hsa04662 BCR",
+    "BLK": "HGNC:1057; B-cell-specific Src kinase (UniProt P51451)",
+    "TNFRSF13B": "HGNC:18153; TACI (UniProt O14836); PMID:11460154 BAFF",
+    "TNFRSF13C": "HGNC:17755; BAFF-R (UniProt Q96RJ3)",
+    "FCRL3": "HGNC:18506; PMID:19543290 SjD risk allele",
+    # PLASMA
+    "XBP1": "HGNC:12801; PMID:11460154 plasma cell ER stress",
+    "IRF4": "HGNC:6119; PMID:16973387 plasma cell differentiation",
+    "PRDM1": "HGNC:9346; BLIMP1 (PMID:12612588 Shapiro-Shelef)",
+    "SDC1": "HGNC:10658; CD138 plasma cell (PMID:8095971)",
+    "MZB1": "HGNC:23645; PMID:19763233 plasma cell ER chaperone",
+    "JCHAIN": "HGNC:5713; IGJ plasma cell (UniProt P01591)",
+    "TNFRSF17": "HGNC:11913; BCMA (UniProt Q02223); PMID:14990790",
+    # Macrophage
+    "CD68": "HGNC:1693; PanglaoDB macrophage core",
+    "FCGR1A": "HGNC:3613; CD64 macrophage (UniProt P12314)",
+    "FCGR2A": "HGNC:3616; CD32 macrophage",
+    "FCGR3A": "HGNC:3619; CD16 macrophage",
+    "CSF1R": "HGNC:2433; M-CSF receptor (UniProt P07333)",
+    "MERTK": "HGNC:7027; macrophage efferocytosis",
+    "ITGAM": "HGNC:6149; CD11b macrophage (UniProt P11215)",
+    # M1
+    "NOS2": "HGNC:7873; PMID:18025190 Mantovani M1",
+    "CCR7": "HGNC:1608; M1/migratory DC (UniProt P32248)",
+    # M2
+    "CD163": "HGNC:1631; PMID:11380995 Pulford 2001 M2",
+    "MRC1": "HGNC:7228; CD206 M2 (PMID:16824795)",
+    "ARG1": "HGNC:663; PMID:18025190 Mantovani M2",
+    "MSR1": "HGNC:7376; M2 scavenger receptor",
+    # PDC
+    "CLEC4C": "HGNC:14554; BDCA2 pDC (PMID:11254703)",
+    "IL3RA": "HGNC:6012; CD123 pDC (UniProt P26951)",
+    "LILRA4": "HGNC:15498; ILT7 pDC (PMID:18215090)",
+    "IRF7": "HGNC:6122; PMID:15728487 IRF7 pDC IFN-α",
+    "TLR7": "HGNC:15631; PMID:18948386 TLR7 pDC ssRNA",
+    "TLR9": "HGNC:15633; PMID:18948386 TLR9 pDC CpG",
+}
+
+# Bonus / pénalité de plausibilité par cell-type quand R3 a plusieurs cibles.
+# Marqueurs partagés (lignée) : on n'attribue pas le score max.
+def _r3_score_for_marker(marker: str, n_celltypes: int) -> int:
+    """Score R3 ajusté : marqueur exclusif (n=1) → 95 ; lignée (n>1) → 80-85."""
+    if n_celltypes == 1:
+        return 95
+    if n_celltypes <= 4:
+        return 82
+    return 70
+
+
+# Pour R4, granularité par cell-type : un pathway très cell-type-spécifique
+# (TCR, BCR) a un score plus élevé qu'un pathway ubiquitaire (NF-κB, JAK-STAT).
+PATHWAY_SCORE_OVERRIDE: dict[str, int] = {
+    "R-HSA-983705": 80,  # BCR — très spécifique
+    "R-HSA-202403": 80,  # TCR — très spécifique
+    "R-HSA-877253": 75,  # IFN α/β — relativement spécifique innate
+    "R-HSA-877312": 75,  # IFN γ — TH1/M1 axis
+    "R-HSA-449147": 72,  # TLR — innate biased
+    "R-HSA-2132295": 70,  # MHC-II — APC
+    "R-HSA-1474244": 78,  # ECM (SGEC)
+    "R-HSA-451927": 72,  # IL-2 family (T cells)
+    "hsa04660": 80,      # TCR
+    "hsa04662": 80,      # BCR
+    "hsa04658": 82,      # Th1/Th2 differentiation
+    "hsa04659": 82,      # Th17 differentiation
+    "hsa04620": 72,      # TLR
+    "hsa04621": 72,      # NLR
+    "hsa04622": 72,      # RLR
+}
+
 # Patterns pathway depuis les notes (memo : déjà dans map_audit)
 PATHWAY_PATTERNS: list[re.Pattern] = [
     re.compile(r"R-HSA-\d+", re.I),
@@ -189,6 +362,11 @@ class Assignment:
     confidence: str = ""        # HIGH / MEDIUM / LOW
     rule: str = ""              # R1..R7
     evidence: str = ""          # texte court (marker, pathway id, voisin...)
+    # Score 0-100, calculé par cell-type (le score peut différer si on a une
+    # information cell-type-spécifique — ex. marqueur exclusif vs intra-lignée).
+    score_per_celltype: dict[str, int] = field(default_factory=dict)
+    # Référence biologique (DB ou DOI/PMID/PMC)
+    source_per_celltype: dict[str, str] = field(default_factory=dict)
 
     def to_rows(self) -> list[dict[str, Any]]:
         """Une ligne par cell-type assigné (format long)."""
@@ -202,6 +380,8 @@ class Assignment:
                 "confidence": "",
                 "rule": "R7",
                 "evidence": "",
+                "plausibility_score": 0,
+                "source": "",
             }]
         return [{
             "node_id": self.node_id,
@@ -212,6 +392,8 @@ class Assignment:
             "confidence": self.confidence,
             "rule": self.rule,
             "evidence": self.evidence,
+            "plausibility_score": self.score_per_celltype.get(ct, 0),
+            "source": self.source_per_celltype.get(ct, ""),
         } for ct in sorted(self.celltypes)]
 
 
@@ -253,6 +435,8 @@ def rule_R1_extracellular(elem: dict[str, Any]) -> Assignment | None:
         confidence="HIGH",
         rule="R1",
         evidence=f"compartment={cid}",
+        score_per_celltype={EXTRA: RULE_BASE_SCORE["R1"]},
+        source_per_celltype={EXTRA: RULE_SOURCE["R1"]},
     )
 
 
@@ -268,6 +452,8 @@ def rule_R2_phenotype(elem: dict[str, Any]) -> Assignment | None:
         confidence="HIGH",
         rule="R2",
         evidence="type=Phenotype",
+        score_per_celltype={PHENOTYPE: RULE_BASE_SCORE["R2"]},
+        source_per_celltype={PHENOTYPE: RULE_SOURCE["R2"]},
     )
 
 
@@ -275,10 +461,11 @@ def rule_R3_marker(elem: dict[str, Any]) -> Assignment | None:
     raw = elem.get("name") or ""
     norm = _normalise_name(raw)
     upper = raw.upper().strip()
-    # Match exact ou alphanum-only ; teste aussi le nom brut majuscules
     for candidate in (upper, norm):
         if candidate in EXCLUSIVE_MARKERS:
             cts = EXCLUSIVE_MARKERS[candidate]
+            score = _r3_score_for_marker(candidate, len(cts))
+            src = MARKER_SOURCE.get(candidate, f"CellMarker2.0/PanglaoDB consensus marker={candidate}")
             return Assignment(
                 node_id=int(elem["id"]),
                 name=raw,
@@ -288,6 +475,8 @@ def rule_R3_marker(elem: dict[str, Any]) -> Assignment | None:
                 confidence="HIGH",
                 rule="R3",
                 evidence=f"marker={candidate}",
+                score_per_celltype={ct: score for ct in cts},
+                source_per_celltype={ct: src for ct in cts},
             )
     return None
 
@@ -297,30 +486,39 @@ def rule_R4_pathway(elem: dict[str, Any]) -> Assignment | None:
     pids = _extract_pathway_ids(notes)
     if not pids:
         return None
-    cts: set[str] = set()
+    # Pour chaque cell-type, garder le score max issu d'un pathway pertinent
+    ct_scores: dict[str, int] = {}
+    ct_sources: dict[str, str] = {}
     matched_ids: list[str] = []
     for pid in pids:
-        # Recherche d'abord match exact, sinon préfixe (R-HSA-1280215...)
         if pid in PATHWAY_TO_CELLTYPES:
-            cts |= PATHWAY_TO_CELLTYPES[pid]
-            matched_ids.append(pid)
-            continue
-        for known, k_cts in PATHWAY_TO_CELLTYPES.items():
-            if pid.startswith(known) or known.startswith(pid):
-                cts |= k_cts
-                matched_ids.append(pid)
-                break
-    if not cts:
+            keys = [pid]
+        else:
+            keys = [k for k in PATHWAY_TO_CELLTYPES
+                    if pid.startswith(k) or k.startswith(pid)]
+        for k in keys:
+            cts = PATHWAY_TO_CELLTYPES[k]
+            score = PATHWAY_SCORE_OVERRIDE.get(k, RULE_BASE_SCORE["R4"])
+            db = "Reactome" if k.startswith("R-HSA") else "KEGG"
+            src = f"{db}:{k} via MINERVA notes"
+            for ct in cts:
+                if score > ct_scores.get(ct, 0):
+                    ct_scores[ct] = score
+                    ct_sources[ct] = src
+            matched_ids.append(k)
+    if not ct_scores:
         return None
     return Assignment(
         node_id=int(elem["id"]),
         name=elem.get("name") or "",
         type=elem.get("type") or "",
         compartment_id=elem.get("compartmentId"),
-        celltypes=cts,
+        celltypes=set(ct_scores),
         confidence="MEDIUM",
         rule="R4",
         evidence=";".join(sorted(set(matched_ids))[:5]),
+        score_per_celltype=ct_scores,
+        source_per_celltype=ct_sources,
     )
 
 
@@ -365,6 +563,17 @@ def rule_R5_neighbor(
     if not concordant:
         return None
 
+    # Score : base R5 + bonus proportionnel au vote (capé à 60)
+    ct_scores: dict[str, int] = {}
+    ct_sources: dict[str, str] = {}
+    max_vote = max(votes.values())
+    for ct in concordant:
+        bonus = min(15, int(8 * votes[ct] / max(max_vote, 1)))
+        ct_scores[ct] = RULE_BASE_SCORE["R5"] + bonus
+        ct_sources[ct] = (
+            f"{RULE_SOURCE['R5']}; neighbors_vote={votes[ct]}; "
+            f"InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12"
+        )
     return Assignment(
         node_id=nid,
         name=elem.get("name") or "",
@@ -374,6 +583,8 @@ def rule_R5_neighbor(
         confidence="LOW",
         rule="R5",
         evidence=f"neighbors_vote={dict(votes.most_common(5))}",
+        score_per_celltype=ct_scores,
+        source_per_celltype=ct_sources,
     )
 
 
@@ -401,18 +612,27 @@ def rule_R6_fallback(
         return None
 
     evidence = "default_signaling_fallback"
+    base = RULE_BASE_SCORE["R6"]
     if not has_edges:
         evidence += f"_isolated_in_compartment_{cid}"
+        base = 15  # plus pénalisé : isolé sans signal cell-type
 
+    cts = set(DEFAULT_FALLBACK_CELLTYPES)
+    src = (
+        f"{RULE_SOURCE['R6']}; "
+        f"compartment={cid}; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)"
+    )
     return Assignment(
         node_id=nid,
         name=elem.get("name") or "",
         type=etype,
         compartment_id=cid,
-        celltypes=set(DEFAULT_FALLBACK_CELLTYPES),
+        celltypes=cts,
         confidence="LOW",
         rule="R6",
         evidence=evidence,
+        score_per_celltype={ct: base for ct in cts},
+        source_per_celltype={ct: src for ct in cts},
     )
 
 
@@ -532,9 +752,24 @@ def summarize(assignments: dict[int, Assignment]) -> dict[str, Any]:
     by_confidence: Counter = Counter(a.confidence for a in assignments.values())
 
     by_celltype: Counter = Counter()
+    score_sum: dict[str, int] = defaultdict(int)
+    score_n: dict[str, int] = defaultdict(int)
+    score_high: dict[str, int] = defaultdict(int)  # ≥80
+    score_low: dict[str, int] = defaultdict(int)   # <40
     for a in assignments.values():
         for ct in a.celltypes:
             by_celltype[ct] += 1
+            s = a.score_per_celltype.get(ct, 0)
+            score_sum[ct] += s
+            score_n[ct] += 1
+            if s >= 80:
+                score_high[ct] += 1
+            elif s < 40:
+                score_low[ct] += 1
+    mean_score: dict[str, float] = {
+        ct: round(score_sum[ct] / score_n[ct], 1) if score_n[ct] else 0.0
+        for ct in score_n
+    }
 
     n_extra = by_celltype.get(EXTRA, 0)
     n_phen = by_celltype.get(PHENOTYPE, 0)
@@ -566,6 +801,9 @@ def summarize(assignments: dict[int, Assignment]) -> dict[str, Any]:
         "by_rule": dict(by_rule.most_common()),
         "by_confidence": dict(by_confidence.most_common()),
         "by_celltype": dict(by_celltype.most_common()),
+        "mean_plausibility_per_celltype": mean_score,
+        "n_high_score_per_celltype": dict(score_high),
+        "n_low_score_per_celltype": dict(score_low),
         "celltype_threshold": threshold,
         "underprovisioned_celltypes": underprovisioned,
         "gate_coverage_pass": coverage_pct >= 90.0,

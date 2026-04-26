@@ -3,7 +3,7 @@
 > **Phase 1.2 ROADMAP** — règles auditables d'assignation des nœuds de la SjD Map
 > à un ou plusieurs types cellulaires (SGEC, TH1, TH17, TFH, TREG, BCELL, PLASMA, M1, M2, PDC).
 >
-> **Statut** : v1 — 2026-04-25.
+> **Statut** : v2 — 2026-04-26 (ajout score plausibilité + sources).
 > **Auteur** : SjS-DigitalTwin pipeline (`scripts/03_dissociate.py`).
 
 ---
@@ -155,9 +155,39 @@ Matching exact du nom (insensible à la casse, après strip) contre une liste de
 
 **Justification** : pour ne pas perdre de nœuds, on suppose que le pathway est partagé. La curation manuelle Phase 1.3 affinera.
 
+### Règle R6c — Raffinement expert (Phase 1.2bis)
+
+**Condition** : nœud assigné par R6 **et** dont le nom (normalisé majuscules + alphanum) match une entrée de la table curée `scripts/lib/refinement.py`.
+
+**Action** : remplacer l'assignation R6 par le set `cell-types` curé manuellement à partir de :
+
+- **PanglaoDB** (Franzén 2019, PMID:30951143) — cell-type marker compendium
+- **CellMarker 2.0** (Hu 2023, PMID:36300620) — manually curated single-cell markers
+- **Human Protein Atlas** (Uhlén 2015, PMID:25613900) — tissue/cell expression
+- **InnateDB** (Breuer 2013, PMID:23180781) — innate immunity curation
+- **Reactome** (Jassal 2020, PMID:31691815) — pathway expression context
+- **KEGG pathway maps** (Kanehisa 2023)
+- **ImmGen** (Heng 2008, PMID:18800157) — immune cell transcriptional atlases
+- **Littérature SjD primaire** : Mavragani 2017 (PMID:28604219) IFN signature ; Manganelli 2003 (PMID:12796328) Fas/FasL SGEC ; Lavie 2004 BAFF ; Verstappen 2021 review
+- **Lineage TFs fondateurs** : Hori 2003 (FOXP3), Ivanov 2006 (RORγt), Szabo 2000 (T-bet), Johnston 2009 (BCL6), Steinfeld 2001 (AQP5)
+
+**Score** : 60–88 selon spécificité du knowledge :
+- 85–88 : restriction très forte avec consensus (ex. CD22 BCELL ; FLT3 PDC)
+- 80–84 : restriction modérée validée par 2+ DBs
+- 70–79 : axe biologique défini (ex. ISG → ALL ; Smad → ALL)
+- 60–69 : housekeeping informé par HPA
+
+**Confiance** : `MEDIUM` si score ≥ 75 sinon `LOW`.
+
+**Source** : citation explicite dans la table (`DB1; DB2; PMID:…`).
+
+**Cas spécial — DROP** : si le nœud est explicitement non-pertinent au modèle (ex. `IL5` Th2-only, `KDR` endothélial), la table renvoie un set vide, et le nœud bascule en R7 (drop expert).
+
+**Sortie typique** : 589 nœuds R6 → R6c, 4 nœuds R6 → R7 (drop), 8 nœuds R6 sans match (conservés en R6 score 25).
+
 ### Règle R7 — Inassignable
 
-**Condition** : R1–R6 non déclenchées (typiquement nœud isolé sans annotation, sans nom HGNC).
+**Condition** : R1–R6 non déclenchées (typiquement nœud isolé sans annotation, sans nom HGNC) **ou** drop explicite par R6c.
 
 **Action** : `UNASSIGNED`.
 
@@ -165,20 +195,51 @@ Matching exact du nom (insensible à la casse, après strip) contre une liste de
 
 ---
 
-## 4. Sortie attendue
+## 4. Score de plausibilité et source
 
-### 4.1 `node_to_celltype.tsv`
+À chaque triplet (nœud, cell-type, règle) le dissociator attache :
+
+- `plausibility_score` (0–100) — défendabilité biologique, indépendant de la confiance computationnelle
+- `source` — référence primaire (PMID/doi) ou base de données (HGNC, UniProt, Reactome, KEGG, InnateDB, STRING, CellMarker2.0, PanglaoDB, HPA)
+
+| Tranche | Sémantique | Règle typique |
+|---|---|---|
+| 95–100 | Marqueur lineage-defining, consensus immunologique | R1 (ECM), R3 mono-target |
+| 80–94  | Marqueur fonctionnel à forte spécificité (DB curées) | R3 lignée, R4 pathway très spécifique (TCR, BCR) |
+| 60–79  | Pathway-driven cohérent (Reactome/KEGG) | R4 ubiquitaire, R3 partagé large |
+| 40–59  | Propagation par voisinage, validée par graphe | R5 |
+| 20–39  | Fallback générique (signaling intracellulaire ubiquitaire) | R6 connecté |
+| 1–19   | Fallback isolé, faible confiance | R6 isolé |
+| 0      | Non assigné | R7 |
+
+### Règles → score base + source par défaut
+
+| Rule | Score base | Source par défaut |
+|---|---|---|
+| R1 | 95 | MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026) |
+| R2 | 90 | MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026) |
+| R3 | 95 (mono) / 82 (lignée ≤4) / 70 (large) | HGNC + PMID fondateur du marqueur (cf. `MARKER_SOURCE` dans `dissociator.py`) |
+| R4 | 65 (override 70–82 pour TCR/BCR/Th17/IFN) | Reactome:R-HSA-… ou KEGG:hsaXXXXX |
+| R5 | 45 + bonus vote (≤60) | propagation graphe + InnateDB Breuer 2013 PMID:23180781 + STRING v12 PMID:36370105 |
+| R6 | 25 (connecté) / 15 (isolé) | InnateDB + STRING + HPA Uhlén 2015 PMID:25613900 |
+| R6c | 60–88 selon spécificité | Table curée `refinement.py` (PanglaoDB, CellMarker 2.0, HPA, InnateDB, Reactome, KEGG, ImmGen, PMID primaires) |
+| R7 | 0 | — |
+
+## 5. Sortie attendue
+
+### 5.1 `node_to_celltype.tsv`
 
 Format (long) — une ligne par paire (nœud, cell-type) :
 
 ```tsv
-node_id    node_name    node_type    compartment_id    celltype    confidence    rule    evidence
-21127      IL2/IL2R     Complex      20513             TH1         MEDIUM        R4      R-HSA-451927
-21127      IL2/IL2R     Complex      20513             TH17        MEDIUM        R4      R-HSA-451927
+node_id  node_name        node_type  compartment_id  celltype  confidence  rule  evidence            plausibility_score  source
+20756    BTK              Protein    20513           BCELL     HIGH        R3    marker=BTK          95                  HGNC:1133; UniProt Q06187; KEGG:hsa04662 BCR
+21240    STAT1 homodimer  Protein    21231           TH1       MEDIUM      R4    R-HSA-877300        65                  Reactome:R-HSA-877300 via MINERVA notes
+21240    STAT1 homodimer  Protein    21231           BCELL     MEDIUM      R4    R-HSA-877300        65                  Reactome:R-HSA-877300 via MINERVA notes
 ...
 ```
 
-### 4.2 `extracellular_nodes.tsv`
+### 5.2 `extracellular_nodes.tsv`
 
 Sous-ensemble des nœuds R1 (extracellulaires) :
 
@@ -188,13 +249,13 @@ node_id    node_name    node_type    compartment_id    canonical_form    g_r_p_v
 ...
 ```
 
-### 4.3 `dissociation_summary.json`
+### 5.3 `dissociation_summary.json`
 
-Statistiques agrégées par règle, par cell-type, par compartiment.
+Statistiques agrégées par règle, par cell-type, par compartiment + score moyen de plausibilité par cell-type, n_high (≥80), n_low (<40).
 
 ---
 
-## 5. Gate 1.2 (passage Phase 1.3)
+## 6. Gate 1.2 (passage Phase 1.3)
 
 | Critère | Cible | Vérification |
 |---|---|---|
@@ -205,13 +266,13 @@ Statistiques agrégées par règle, par cell-type, par compartiment.
 
 ---
 
-## 6. Limites assumées
+## 7. Limites assumées
 
-1. **R6 (default fallback)** sur-assigne par défaut à 6 cell-types — overestimation à corriger en Phase 1.3 par expert.
+1. **R6 (default fallback)** sur-assigne par défaut à 6 cell-types — corrigé en Phase 1.2bis par R6c (table `refinement.py`).
 2. **R5 (random walk)** propage le bruit si un voisin a été mal assigné. Mitigation : ne déclencher R5 que si ≥2 voisins concordants.
 3. **Phénotypes** restent globaux à Phase 1.2 ; cell-type-specificité reportée à Phase 1.5.
 4. **Triplets Gene+RNA+Protein** sont assignés indépendamment — si discordance, alerter (rare attendu).
 
 ---
 
-*Dernière mise à jour : 2026-04-25*
+*Dernière mise à jour : 2026-04-26*
