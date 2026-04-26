@@ -320,10 +320,17 @@ Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire stru
 - Curation manuelle SjD : table `01_disease_map/intercellular_edges.tsv` avec colonnes :
   - `source_celltype, target_celltype, ligand, receptor, mechanism, evidence_PMID, in_cellphonedb, in_omnipath, sjs_specific`
 
-**Gate 1.4** :
-- [ ] ≥30 edges intercellulaires (cible : 40–60, échelle Zerrouk RA)
-- [ ] Chaque edge a ≥1 PMID ou est référencé dans CellPhoneDB/OmniPath
-- [ ] Couverture des 4 cytokines/voies clés en SjD : IFN-α, BAFF, CXCL13, IL-21
+**Gate 1.4** (audit informatique 2026-04-26 — voir `01_disease_map/intercellular_edges_report.md`) :
+- [x] ≥30 edges intercellulaires (instanciés : **470**, table curée 77 entrées LR)
+- [x] Chaque edge a ≥1 PMID + flags `in_cellphonedb`/`in_omnipath`/`sjs_specific`
+- [x] Couverture des 4 axes obligatoires SjD : ✅ IFN-α, ✅ BAFF, ✅ CXCL13, ✅ IL-21
+- [ ] Revue par expert SjD signée — ⏸ EN ATTENTE (manuel)
+
+**Livrables** :
+- `scripts/lib/intercellular.py` + `scripts/05_intercellular_edges.py`
+- `01_disease_map/intercellular_edges.tsv` (470 edges instanciés)
+- `01_disease_map/intercellular_edges_skipped.tsv` (116 entrées non instanciables)
+- `01_disease_map/intercellular_edges_{summary.json,report.md}`
 
 ### Sous-phase 1.5 — Assemblage & QC *(2 semaines)*
 

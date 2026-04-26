@@ -1,0 +1,117 @@
+ligand	receptor	source_celltypes	target_celltypes	reason	evidence
+CD279	CD274	TFH	BCELL	receptor_not_in_core(BCELL)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CD279	CD274	TH1	BCELL	receptor_not_in_core(BCELL)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CXCL13	CXCR5	SGEC	BCELL	receptor_not_in_core(BCELL)	PMID:17389321 Bombardieri CXCL13 SjD TLS; PMID:11160276 CXCR5 Tfh/B
+CpG_DNA	TLR9	SGEC	BCELL	receptor_not_in_core(BCELL)	PMID:12407176 CpG/TLR9
+IL10	IL10RA	BCELL	BCELL	receptor_not_in_core(BCELL)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	BCELL	receptor_not_in_core(BCELL)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	BCELL	receptor_not_in_core(BCELL)	PMID:11244051 IL-10 Treg/M2/Breg
+IL4	IL4R	TFH	BCELL	receptor_not_in_core(BCELL)	PMID:18599325 Tfh IL-4
+TNFSF10	TNFRSF10B	M1	BCELL	receptor_not_in_core(BCELL)	PMID:9311998
+TNFSF10	TNFRSF10B	PDC	BCELL	receptor_not_in_core(BCELL)	PMID:9311998
+TNFSF10	TNFRSF10B	TH1	BCELL	receptor_not_in_core(BCELL)	PMID:9311998
+ssRNA	TLR7	SGEC	BCELL	receptor_not_in_core(BCELL)	PMID:12407176 ssRNA/TLR7
+CD279	CD274	TFH	M1	receptor_not_in_core(M1)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CD279	CD274	TH1	M1	receptor_not_in_core(M1)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CSF2	CSF2RA	PDC	M1	receptor_not_in_core(M1)	PMID:7530740 GM-CSF myeloid
+CSF2	CSF2RA	TH1	M1	receptor_not_in_core(M1)	PMID:7530740 GM-CSF myeloid
+IL10	IL10RA	BCELL	M1	receptor_not_in_core(M1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	M1	receptor_not_in_core(M1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	M1	receptor_not_in_core(M1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL17A	IL17RA	TH17	M1	receptor_not_in_core(M1)	PMID:18172165 Th17 chemotaxis; PMID:18606613 IL-17 SjD
+CD279	CD274	TFH	M2	receptor_not_in_core(M2)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CD279	CD274	TH1	M2	receptor_not_in_core(M2)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CSF2	CSF2RA	PDC	M2	receptor_not_in_core(M2)	PMID:7530740 GM-CSF myeloid
+CSF2	CSF2RA	TH1	M2	receptor_not_in_core(M2)	PMID:7530740 GM-CSF myeloid
+IL10	IL10RA	BCELL	M2	receptor_not_in_core(M2)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	M2	receptor_not_in_core(M2)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	M2	receptor_not_in_core(M2)	PMID:11244051 IL-10 Treg/M2/Breg
+CCL19	CCR7	PDC	PDC	receptor_not_in_core(PDC)	PMID:18258608 CCL19/CCR7 LN homing
+CCL19	CCR7	SGEC	PDC	receptor_not_in_core(PDC)	PMID:18258608 CCL19/CCR7 LN homing
+CCL21	CCR7	SGEC	PDC	receptor_not_in_core(PDC)	PMID:18258608 SjD ectopic GC; CellPhoneDB
+IL10	IL10RA	BCELL	PDC	receptor_not_in_core(PDC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	PDC	receptor_not_in_core(PDC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	PDC	receptor_not_in_core(PDC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	BCELL	PLASMA	receptor_not_in_core(PLASMA)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	PLASMA	receptor_not_in_core(PLASMA)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	PLASMA	receptor_not_in_core(PLASMA)	PMID:11244051 IL-10 Treg/M2/Breg
+TNFSF13	TNFRSF13B	M1	PLASMA	receptor_not_in_core(PLASMA)	PMID:11460154 APRIL/TACI; PMID:18613817 SjD APRIL
+TNFSF13	TNFRSF13B	SGEC	PLASMA	receptor_not_in_core(PLASMA)	PMID:11460154 APRIL/TACI; PMID:18613817 SjD APRIL
+TNFSF13B	TNFRSF13B	M1	PLASMA	receptor_not_in_core(PLASMA)	PMID:14722095; PMID:11460154 BAFF/TACI
+TNFSF13B	TNFRSF13B	M2	PLASMA	receptor_not_in_core(PLASMA)	PMID:14722095; PMID:11460154 BAFF/TACI
+TNFSF13B	TNFRSF13B	SGEC	PLASMA	receptor_not_in_core(PLASMA)	PMID:14722095; PMID:11460154 BAFF/TACI
+CD279	CD274	TFH	SGEC	receptor_not_in_core(SGEC)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+CD279	CD274	TH1	SGEC	receptor_not_in_core(SGEC)	PMID:11015443 PD-1/PD-L1; CellPhoneDB
+IL10	IL10RA	BCELL	SGEC	receptor_not_in_core(SGEC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	SGEC	receptor_not_in_core(SGEC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	SGEC	receptor_not_in_core(SGEC)	PMID:11244051 IL-10 Treg/M2/Breg
+IL17A	IL17RA	TH17	SGEC	receptor_not_in_core(SGEC)	PMID:18172165 Th17 chemotaxis; PMID:18606613 IL-17 SjD
+TNFSF10	TNFRSF10B	M1	SGEC	receptor_not_in_core(SGEC)	PMID:9311998
+TNFSF10	TNFRSF10B	PDC	SGEC	receptor_not_in_core(SGEC)	PMID:9311998
+TNFSF10	TNFRSF10B	TH1	SGEC	receptor_not_in_core(SGEC)	PMID:9311998
+CCL19	CCR7	PDC	TFH	receptor_not_in_core(TFH)	PMID:18258608 CCL19/CCR7 LN homing
+CCL19	CCR7	SGEC	TFH	receptor_not_in_core(TFH)	PMID:18258608 CCL19/CCR7 LN homing
+CCL21	CCR7	SGEC	TFH	receptor_not_in_core(TFH)	PMID:18258608 SjD ectopic GC; CellPhoneDB
+CD80	CD28	BCELL	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M1	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M2	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	PDC	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	SGEC	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD86	CD28	BCELL	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M1	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M2	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	PDC	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	SGEC	TFH	receptor_not_in_core(TFH)	PMID:7510905 B7-2/CD28; CellPhoneDB
+IL10	IL10RA	BCELL	TFH	receptor_not_in_core(TFH)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	TFH	receptor_not_in_core(TFH)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	TFH	receptor_not_in_core(TFH)	PMID:11244051 IL-10 Treg/M2/Breg
+IL1B	IL1R1	M1	TFH	receptor_not_in_core(TFH)	PMID:8120391 IL-1R1 myeloid/epithelial
+IL1B	IL1R1	SGEC	TFH	receptor_not_in_core(TFH)	PMID:8120391 IL-1R1 myeloid/epithelial
+CD80	CD28	BCELL	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M1	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M2	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	PDC	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	SGEC	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD86	CD28	BCELL	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M1	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M2	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	PDC	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	SGEC	TH1	receptor_not_in_core(TH1)	PMID:7510905 B7-2/CD28; CellPhoneDB
+IL10	IL10RA	BCELL	TH1	receptor_not_in_core(TH1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	TH1	receptor_not_in_core(TH1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	TH1	receptor_not_in_core(TH1)	PMID:11244051 IL-10 Treg/M2/Breg
+IL1B	IL1R1	M1	TH1	receptor_not_in_core(TH1)	PMID:8120391 IL-1R1 myeloid/epithelial
+IL1B	IL1R1	SGEC	TH1	receptor_not_in_core(TH1)	PMID:8120391 IL-1R1 myeloid/epithelial
+CD80	CD28	BCELL	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M1	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M2	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	PDC	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	SGEC	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD86	CD28	BCELL	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M1	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M2	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	PDC	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	SGEC	TH17	receptor_not_in_core(TH17)	PMID:7510905 B7-2/CD28; CellPhoneDB
+ICOSLG	ICOS	BCELL	TH17	receptor_not_in_core(TH17)	PMID:11160276 ICOS Tfh; CellPhoneDB
+ICOSLG	ICOS	M1	TH17	receptor_not_in_core(TH17)	PMID:11160276 ICOS Tfh; CellPhoneDB
+ICOSLG	ICOS	M2	TH17	receptor_not_in_core(TH17)	PMID:11160276 ICOS Tfh; CellPhoneDB
+IL10	IL10RA	BCELL	TH17	receptor_not_in_core(TH17)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	TH17	receptor_not_in_core(TH17)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	TH17	receptor_not_in_core(TH17)	PMID:11244051 IL-10 Treg/M2/Breg
+IL1B	IL1R1	M1	TH17	receptor_not_in_core(TH17)	PMID:8120391 IL-1R1 myeloid/epithelial
+IL1B	IL1R1	SGEC	TH17	receptor_not_in_core(TH17)	PMID:8120391 IL-1R1 myeloid/epithelial
+IL23A	IL23R	M1	TH17	receptor_not_in_core(TH17)	PMID:11114383 IL-23 myeloid → Th17
+IL23A	IL23R	PDC	TH17	receptor_not_in_core(TH17)	PMID:11114383 IL-23 myeloid → Th17
+CD80	CD28	BCELL	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M1	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	M2	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	PDC	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD80	CD28	SGEC	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-1/CD28; CellPhoneDB
+CD86	CD28	BCELL	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M1	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	M2	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	PDC	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-2/CD28; CellPhoneDB
+CD86	CD28	SGEC	TREG	receptor_not_in_core(TREG)	PMID:7510905 B7-2/CD28; CellPhoneDB
+IL10	IL10RA	BCELL	TREG	receptor_not_in_core(TREG)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	M2	TREG	receptor_not_in_core(TREG)	PMID:11244051 IL-10 Treg/M2/Breg
+IL10	IL10RA	TREG	TREG	receptor_not_in_core(TREG)	PMID:11244051 IL-10 Treg/M2/Breg
