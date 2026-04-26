@@ -1,0 +1,756 @@
+node_id	node_name	node_type	compartment_id	role	rule	confidence	plausibility_score	source
+20514	LMNB1	Protein	20513	core	R6c	LOW	70	Lamin B1 housekeeping
+20515	HNRNPA2B1	Protein	20513	core	R6c	LOW	70	RNA binding housekeeping
+20516	RAC1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20517	NLRC5	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20519	NFKBIA	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20520	LTB-TNFSF14/LTBR	Complex	20513	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=20513; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+20522	LTBR	Protein	20513	core	R6c	MEDIUM	75	LTβR stromal/epithelial PMID:9716579
+20523	IFNAR	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20524	IFNAR1	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015 PMID:25613900; Reactome:R-HSA-909733; ubiquitous
+20525	IFNAR2	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-909733
+20526	dsRNA	Simple molecule	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20527	PPP2R1A	Protein	20513	core	R6c	LOW	70	PP2A scaffold
+20528	XIAP	Protein	20513	core	R6c	LOW	70	X-IAP
+20529	AKT	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20530	PTPN2	Protein	20513	core	R6c	MEDIUM	75	TC-PTP ubiquitous PMID:21646515
+20531	CARD11/BCL10/MALT1	Complex	20513	core	R6c	MEDIUM	82	CBM complex lymphoid
+20532	CARD11	Protein	20513	core	R6c	MEDIUM	82	CBM signalosome; PMID:14684827 lymphoid
+20533	BCL10	Protein	20513	core	R6c	MEDIUM	80	CBM signalosome PMID:14684827
+20534	MALT1	Protein	20513	core	R6c	MEDIUM	80	CBM signalosome
+20535	LTBR	Protein	20513	core	R6c	MEDIUM	75	LTβR stromal/epithelial PMID:9716579
+20536	Allergen/IgE/FCERI	Complex	20513	core	R4	MEDIUM	65	Reactome:R-HSA-2871837 via MINERVA notes
+20542	MAP2K3	Protein	20513	core	R6c	MEDIUM	75	MKK3 p38
+20546	TRIM14	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20547	OAS3	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20549	PTK2B	Protein	20513	core	R6c	MEDIUM	75	Pyk2 hematopoietic
+20550	PLCG	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20552	TBK1	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-936964; ubiquitous innate
+20553	IKBKE	Protein	20513	core	R6c	MEDIUM	75	IKKε/IRF3 axis; Reactome:R-HSA-936964
+20554	CASP7	Protein	20513	core	R6c	MEDIUM	75	Executioner caspase
+20555	SOS2	Protein	20513	core	R6c	LOW	72	RAS GEF
+20556	RPLP0	Protein	20513	core	R6c	LOW	70	Ribosomal P0
+20557	PI3K	Protein	20513	core	R6c	LOW	72	PI3K ubiquitous
+20558	TNFRSF11A	Protein	20513	core	R6c	MEDIUM	78	RANK; PMID:9168116 osteoclast/myeloid
+20559	IFI30	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20560	MAVS	Protein	20513	core	R6c	MEDIUM	78	RLR adaptor; PMID:16125763
+20561	TICAM1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20562	MTORC1	Complex	20513	core	R6c	LOW	72	mTOR complex 1
+20563	MLST8	Protein	20513	core	R6c	LOW	70	mTOR partner
+20564	MTOR	Protein	20513	core	R6c	LOW	72	mTOR ubiquitous
+20565	RPTOR	Protein	20513	core	R6c	LOW	70	mTORC1 partner
+20567	PLCB	Protein	20513	core	R6c	LOW	70	PLC-β
+20568	HLA-H	Protein	20513	core	R6c	LOW	70	MHC-I pseudo
+20569	STAT1 homodimer	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20570	HLA-B	Protein	20513	core	R6c	MEDIUM	78	MHC-I
+20571	STAT5A/B	Protein	20513	core	R6c	MEDIUM	78	KEGG:hsa04630
+20576	BLNK	Protein	20513	core	R3	HIGH	95	HGNC:14211; B cell adaptor (UniProt Q8WV28)
+20577	FADD	Protein	20513	core	R6c	LOW	72	Death adaptor; ubiquitous
+20578	MAP3K14	Protein	20513	core	R6c	MEDIUM	75	NIK non-canonical NFkB
+20579	JAK3	Protein	20513	core	R6c	MEDIUM	82	PMID:7481803 JAK3 γc; lymphoid-restricted
+20580	USP18	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20584	GLUT1	Protein	20513	core	R6c	LOW	70	SLC2A1 ubiquitous
+20585	ITGA4/ITGB1	Complex	20513	core	R6c	MEDIUM	78	VLA-4
+20587	ITGB1	Protein	20513	core	R6c	LOW	72	β1 integrin ubiquitous
+20588	BST2	Protein	20513	core	R6c	MEDIUM	75	Tetherin ISG; PMID:18342598
+20589	TNFAIP3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20590	Ag/IgG/FCGR3A	Complex	20513	core	R5	LOW	50	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20594	IRAK4/IRAK1,2/IRAKM	Complex	20513	core	R6c	LOW	72	Myddosome; Reactome:R-HSA-975144
+20595	IRAK4	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-9020702; PMID:12055258
+20597	IRAK1,2	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-9020702 IL-1/TLR signal
+20598	MARCHF8	Protein	20513	core	R6c	MEDIUM	75	MHC-II ubiquitin ligase PMID:18794341
+20599	TRAF2/TRAF3	Complex	20513	core	R6c	LOW	72	TRAF complex
+20600	TANK	Protein	20513	core	R6c	LOW	70	TBK1 partner
+20601	TRAF3	Protein	20513	core	R6c	LOW	72	TNFR/TLR adaptor
+20605	XAF1	Protein	20513	core	R6c	LOW	70	ISG; pro-apoptotic
+20609	TYK2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20610	TNFRSF13B	Protein	20513	core	R3	HIGH	95	HGNC:18153; TACI (UniProt O14836); PMID:11460154 BAFF
+20611	NLRX1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20615	IgE/FCERI	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20620	HERC5	Protein	20513	core	R6c	MEDIUM	75	ISG E3 ligase ISGylation PMID:16275642
+20624	MAP3K1	Protein	20513	core	R6c	MEDIUM	75	MEKK1
+20625	SOCS1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20626	GBP1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20627	GNAI	Protein	20513	core	R6c	LOW	70	Gαi ubiquitous
+20628	IL6R	Complex	20513	core	R6c	MEDIUM	75	IL-6R; KEGG:hsa04630
+20629	IL6RA	Protein	20513	core	R6c	MEDIUM	75	IL-6Rα
+20630	IL6ST	Protein	20513	core	R6c	MEDIUM	75	gp130 ubiquitous
+20631	CXCL12/CXCR4	Complex	20513	core	R6c	LOW	70	SDF-1/CXCR4
+20633	CXCR4	Protein	20513	core	R6c	LOW	72	Ubiquitous SDF-1R
+20634	TRIM22	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20637	STAT5 homodimer	Protein	20513	core	R6c	MEDIUM	78	KEGG:hsa04630; PMID:9590175 STAT5 lymphoid
+20638	SOCS3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20639	IRF1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20641	IL7R	Complex	20513	core	R6c	MEDIUM	80	IL-7R lymphoid PMID:7935811
+20642	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+20643	IL7RA	Protein	20513	core	R6c	MEDIUM	80	IL-7Rα
+20645	IFI27	Protein	20513	core	R6c	MEDIUM	75	ISG; Mavragani 2017 PMID:28604219 SjD signature
+20649	IRF9	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20655	TLR3/dsRNA/PolyIC	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20658	ca2	Ion	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20659	CD27/CD70	Complex	20513	core	R6c	MEDIUM	75	CD27/CD70 axis lymphoid PMID:9596702
+20660	CD70 homotrimer	Protein	20513	core	R6c	MEDIUM	75	CD70 activated lymphocyte
+20665	EIF2AK2	Protein	20513	core	R6c	MEDIUM	75	PKR antiviral, Reactome:R-HSA-1834941
+20666	TRIM25	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20667	FADD	Protein	20513	core	R6c	LOW	72	Death adaptor; ubiquitous
+20668	SMAD2/SMAD3	Complex	20513	core	R6c	LOW	72	R-Smads
+20669	SMAD3	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+20670	SMAD2	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+20671	RANKL/RANK	Complex	20513	core	R6c	MEDIUM	75	RANK/RANKL
+20673	TNFRSF11A	Protein	20513	core	R6c	MEDIUM	78	RANK; PMID:9168116 osteoclast/myeloid
+20674	TNFRSF13C	Protein	20513	core	R3	HIGH	95	HGNC:17755; BAFF-R (UniProt Q96RJ3)
+20675	Calmodulin/Ca2+	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20676	CALM1	Protein	20513	core	R6c	LOW	70	Calmodulin
+20677	ca2	Ion	20513	core	R6c	LOW	65	Calcium signal
+20678	SOS2	Protein	20513	core	R6c	LOW	72	RAS GEF
+20679	BAFF/BAFFR	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=5; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20681	TNFRSF13C	Protein	20513	core	R3	HIGH	95	HGNC:17755; BAFF-R (UniProt Q96RJ3)
+20682	NFATC1,2,3	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20684	IFITM1	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:23354158
+20685	MX2	Protein	20513	core	R6c	MEDIUM	75	ISG GTPase
+20686	TNF/TNFR2	Complex	20513	core	R6c	MEDIUM	75	TNFR2 leukocyte
+20687	TNFRSF1B	Protein	20513	core	R6c	MEDIUM	75	TNFR2 leukocyte-biased; PMID:8521391
+20689	PRKC	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20690	SYK	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20692	STAT2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20693	GBP3	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20694	IFI35	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:28604219
+20695	MAX	Protein	20513	core	R6c	LOW	70	Myc partner
+20696	RIPK1/TRAF2/TRAF5	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20697	RIPK1	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-2562578
+20698	TANK	Protein	20513	core	R6c	LOW	70	TBK1 partner
+20699	TRAF5	Protein	20513	core	R6c	LOW	72	TNFR adaptor
+20700	SP100	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20701	TRAF6	Protein	20513	core	R6c	LOW	72	TLR/IL-1R adaptor
+20702	IL1R1	Protein	20513	core	R6c	MEDIUM	78	IL-1R1; PMID:8120391
+20703	sialic_acid/CD22	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20704	CD22	Protein	20513	core	R6c	MEDIUM	90	PanglaoDB B cell core; CellMarker2.0
+20706	GBP2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20708	IKBKE/TBK1	Complex	20513	core	R6c	MEDIUM	75	IKKε/TBK1 complex
+20709	TBK1	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-936964; ubiquitous innate
+20710	IKBKE	Protein	20513	core	R6c	MEDIUM	75	IKKε/IRF3 axis; Reactome:R-HSA-936964
+20711	DAG	Simple molecule	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20713	IKBIP	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20714	CHUK/IKBKB/IKBKG	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20715	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+20716	IKBKB	Protein	20513	core	R6c	MEDIUM	75	IKKβ canonical NF-kB
+20717	IKBKG	Protein	20513	core	R6c	MEDIUM	75	NEMO
+20718	CD40	Protein	20513	core	R6c	MEDIUM	82	B+APC; PMID:8551252
+20719	PLCB	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20721	PI(4,5)P2	Simple molecule	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20723	FAS	Protein	20513	core	R6c	MEDIUM	75	Fas ubiquitous; Reactome:R-HSA-75157
+20725	TNFRSF1A	Protein	20513	core	R6c	MEDIUM	75	TNFR1 ubiquitous; HPA Uhlén 2015
+20726	TAB1/TAB2/TAB3	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20727	TAB2	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20728	TAB3	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20729	TAB1	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20731	ca2	Ion	20730	core	R6c	LOW	65	Calcium signal
+20732	ITPR3	Protein	20730	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20733	PIP3/IP3R	Complex	20730	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20734	PI(3,4,5)P3	Simple molecule	20730	core	R6c	LOW	70	Lipid signal
+20735	ITPR3	Protein	20730	core	R6c	LOW	70	IP3R
+20740	MAP2K6	Protein	20513	core	R6c	MEDIUM	75	MKK6 p38
+20741	CD70 homotrimer	Protein	20513	core	R6c	MEDIUM	75	CD70 activated lymphocyte
+20742	LTA/TNFR2	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20743	TNFRSF1B	Protein	20513	core	R6c	MEDIUM	75	TNFR2 leukocyte-biased; PMID:8521391
+20745	CARD11/BCL10/MALT1	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20746	CARD11	Protein	20513	core	R6c	MEDIUM	82	CBM signalosome; PMID:14684827 lymphoid
+20747	BCL10	Protein	20513	core	R6c	MEDIUM	80	CBM signalosome PMID:14684827
+20748	MALT1	Protein	20513	core	R6c	MEDIUM	80	CBM signalosome
+20749	JAK2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20750	DUSP5	Protein	20513	core	R6c	LOW	70	MAPK phosphatase
+20751	OASL	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20752	PTPN6	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=7; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20756	BTK	Protein	20513	core	R3	HIGH	95	HGNC:1133; UniProt Q06187; KEGG:hsa04662 BCR
+20757	HLA-DRA	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20758	LILRA3	Protein	20513	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=20513; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+20762	PTK2	Protein	20513	core	R6c	LOW	70	FAK ubiquitous
+20763	MAP2K7	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20764	XIAP	Protein	20513	core	R6c	LOW	70	X-IAP
+20766	GORAB	Protein	20513	core	R6c	LOW	70	Golgi
+20767	GBP5	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20768	CHUK/IKBKB/IKBKG	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20769	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+20770	IKBKB	Protein	20513	core	R6c	MEDIUM	75	IKKβ canonical NF-kB
+20771	IKBKG	Protein	20513	core	R6c	MEDIUM	75	NEMO
+20772	MAPK3	Protein	20513	core	R6c	MEDIUM	75	ERK1; ubiquitous
+20773	PTPRC	Protein	20513	core	R6c	MEDIUM	88	CD45 pan-leukocyte; CellMarker2.0
+20774	JAK1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20775	JAK3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20776	SHC1	Protein	20513	core	R6c	LOW	72	Adaptor ubiquitous
+20777	RAC1	Protein	20513	core	R6c	LOW	72	Rho GTPase
+20778	SRC	Protein	20513	core	R6c	LOW	72	Tyrosine kinase ubiquitous
+20779	NCAM1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20780	EIF2AK2 homodimer	Protein	20513	core	R6c	MEDIUM	75	PKR antiviral
+20781	TGF/TGFBR1	Complex	20513	core	R6c	LOW	70	TGF-β/TGFBR1
+20783	TGFBR1	Protein	20513	core	R6c	MEDIUM	75	Ubiquitous
+20784	IRF5	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20786	IL15R	Complex	20513	core	R6c	MEDIUM	75	IL-15R
+20789	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+20790	RRAS	Protein	20513	core	R6c	LOW	70	Ras family
+20791	Ag/IgG/FCGR1A	Complex	20513	core	R5	LOW	50	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20795	CXCR4	Protein	20513	core	R6c	LOW	72	Ubiquitous SDF-1R
+20796	TARBP2	Protein	20513	core	R6c	LOW	70	PKR partner
+20797	TIRAP	Protein	20513	core	R6c	MEDIUM	75	TLR2/4 adaptor; PMID:11544529
+20798	PML	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20800	TRAF6	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20804	RAF	Protein	20513	core	R6c	LOW	72	MAPK kinase
+20805	GNAI	Protein	20513	core	R6c	LOW	70	Gαi ubiquitous
+20806	TRAF3	Protein	20513	core	R6c	LOW	72	TNFR/TLR adaptor
+20808	DAXX	Protein	20513	core	R6c	LOW	70	Death-associated
+20809	CASP8	Protein	20513	core	R6c	MEDIUM	75	Initiator caspase extrinsic
+20816	IL12/IL12R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20820	STAT5A/B	Protein	20513	core	R6c	MEDIUM	78	KEGG:hsa04630
+20822	PTPN2	Protein	20513	core	R6c	MEDIUM	75	TC-PTP ubiquitous PMID:21646515
+20826	BAD	Protein	20513	core	R6c	LOW	72	Pro-apoptotic
+20827	CD22	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20828	RIPK1	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-2562578
+20832	FAS	Protein	20513	core	R6c	MEDIUM	75	Fas ubiquitous; Reactome:R-HSA-75157
+20833	ADAR1 homodimer	Protein	20513	core	R6c	MEDIUM	75	PMID:30401873 ADAR1 ISG
+20834	SYK	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20835	MAP3K7	Protein	20513	core	R6c	MEDIUM	75	TAK1 TLR/IL-1R; PMID:10882101
+20836	NFKB2/RELB	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20837	RELB	Protein	20513	core	R6c	MEDIUM	78	Non-canonical NFkB
+20838	NFKB2	Protein	20513	core	R6c	MEDIUM	78	p52; non-canonical NF-kB
+20840	ISG20	Protein	20513	core	R6c	MEDIUM	75	ISG, antiviral exonuclease PMID:23394386
+20841	HDAC3	Protein	20513	core	R6c	LOW	70	Histone deacetylase
+20842	TAB1/TAB2/TAB3	Complex	20513	core	R6c	LOW	70	TAK1/TAB complex
+20843	TAB2	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20844	TAB3	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20845	TAB1	Protein	20513	core	R6c	LOW	70	TAK1 partner
+20854	IRF5	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20855	CCR6	Protein	20513	core	R6c	MEDIUM	85	PMID:18172165 Th17 chemotaxis
+20856	PLCG	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=9; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20858	RAF	Protein	20513	core	R6c	LOW	72	MAPK kinase
+20859	TIRAP	Protein	20513	core	R6c	MEDIUM	75	TLR2/4 adaptor; PMID:11544529
+20860	BAD	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20861	TYK2	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-909733; ubiquitous
+20866	MAPK8,9,10	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20872	RIPK3	Protein	20513	core	R6c	LOW	70	Necroptosis
+20873	CCL20/CCR6	Complex	20513	core	R6c	MEDIUM	80	Th17/B
+20875	CCR6	Protein	20513	core	R6c	MEDIUM	85	PMID:18172165 Th17 chemotaxis
+20876	IFI6	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:28604219 SjD signature
+20877	ARF1	Protein	20513	core	R6c	LOW	70	Trafficking ubiquitous
+20878	PI3K	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20879	EIF2AK2 homodimer	Protein	20513	core	R6c	MEDIUM	75	PKR antiviral
+20883	TICAM2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20884	PRMT5	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20885	MAPK3	Protein	20513	core	R6c	MEDIUM	75	ERK1; ubiquitous
+20886	SOCS2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20888	IFITM2	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:23354158
+20899	IFIT5	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:28604219
+20901	CASP7	Protein	20513	core	R6c	MEDIUM	75	Executioner caspase
+20902	ISG15	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-1169408 ISGylation
+20906	SMAD4	Protein	20513	core	R6c	LOW	72	TGF-β/BMP downstream
+20907	TLR10L/TLR10	Complex	20513	core	R6c	LOW	70	TLR10 B/myeloid
+20909	TLR10	Protein	20513	core	R6c	MEDIUM	75	InnateDB; PMID:14751764 B-cell biased
+20911	IFNGR	Complex	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+20912	IFNGR1	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-877312
+20913	IFNGR2	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-877312
+20914	RCAN	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20915	RIPK1/TRAF2/TRAF5	Complex	20513	core	R6c	LOW	72	TNFR1 complex I
+20916	RIPK1	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-2562578
+20917	TANK	Protein	20513	core	R6c	LOW	70	TBK1 partner
+20918	TRAF5	Protein	20513	core	R6c	LOW	72	TNFR adaptor
+20919	MHC1/B2M/LILR	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20922	LILRA3	Protein	20513	core	R6	LOW	15	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=20513; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+20923	RIPK3	Protein	20513	core	R6c	LOW	70	Necroptosis
+20924	CHUK/CHUK	Complex	20513	core	R6c	MEDIUM	75	IKKα homodimer
+20925	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+20926	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+20928	IFIT2	Protein	20513	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+20929	TRAF3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20930	RRAS	Protein	20513	core	R6c	LOW	70	Ras family
+20931	HLA-A	Protein	20513	core	R6c	MEDIUM	78	MHC-I ubiquitous nucleated
+20932	GRB2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20937	MAP2K3	Protein	20513	core	R6c	MEDIUM	75	MKK3 p38
+20938	STAT1	Protein	20513	core	R6c	MEDIUM	80	Reactome:R-HSA-877300; KEGG:hsa04630; ubiquitous JAK-STAT
+20943	TLR7/ssRNA	Complex	20513	core	R5	LOW	48	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20946	BAFF-APRIL/TACI	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20947	TNFRSF13B	Protein	20513	core	R3	HIGH	95	HGNC:18153; TACI (UniProt O14836); PMID:11460154 BAFF
+20949	IL21R	Complex	20513	core	R6c	MEDIUM	80	IL-21R lymphoid
+20950	IL21R	Protein	20513	core	R6c	MEDIUM	80	IL-21R lymphoid
+20951	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+20953	TNFRSF1B	Protein	20513	core	R6c	MEDIUM	75	TNFR2 leukocyte-biased; PMID:8521391
+20955	MAP2K4	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20956	CD40LG/CD40	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20957	CD40	Protein	20513	core	R6c	MEDIUM	82	B+APC; PMID:8551252
+20959	NLRC5	Protein	20513	core	R6c	LOW	72	MHC-I transactivator; PMID:21084438
+20962	PRKC	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20963	BIRC2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20964	IFIT1	Protein	20513	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+20965	MAP3K1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20966	LYN	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20967	Ag/IgG/FCGR2A	Complex	20513	core	R5	LOW	50	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20971	MAP3K14	Protein	20513	core	R6c	MEDIUM	75	NIK non-canonical NFkB
+20972	MX1	Protein	20513	core	R6c	MEDIUM	75	ISG GTPase antiviral; PMID:28604219
+20980	TLR4	Protein	20513	core	R6c	MEDIUM	82	InnateDB; PMID:9237759 LPS receptor
+20983	MAP2K7	Protein	20513	core	R6c	MEDIUM	75	MKK7 JNK
+20987	NFKB1/RELA	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20988	RELA	Protein	20513	core	R6c	MEDIUM	78	p65 ubiquitous
+20989	NFKB1	Protein	20513	core	R6c	MEDIUM	78	p50; ubiquitous KEGG:hsa04064
+20990	LYN	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+20991	RIGI	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20992	MAP2K1	Protein	20513	core	R6c	MEDIUM	75	MEK1 RAS-RAF-MEK-ERK
+20996	HLA-C	Protein	20513	core	R6c	MEDIUM	78	MHC-I
+20997	MTORC1	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+20998	MLST8	Protein	20513	core	R6c	LOW	70	mTOR partner
+20999	MTOR	Protein	20513	core	R6c	LOW	72	mTOR ubiquitous
+21000	RPTOR	Protein	20513	core	R6c	LOW	70	mTORC1 partner
+21004	TLR10	Protein	20513	core	R6c	MEDIUM	75	InnateDB; PMID:14751764 B-cell biased
+21005	TRAIL/TRAILR	Complex	20513	core	R6c	LOW	72	TRAIL/DR4-5 PMID:9311998
+21006	TNFRSF10A,B	Protein	20513	core	R6c	LOW	72	TRAIL-R1/2
+21008	IRF3	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-3134963; ubiquitous innate
+21009	GBP6	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21010	HLA-DQA2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21011	TRIM5	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21012	JAK1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21013	RCAN	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21014	MAVS	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21015	STAT1/STAT2	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21016	STAT1	Protein	20513	core	R6c	MEDIUM	80	Reactome:R-HSA-877300; KEGG:hsa04630; ubiquitous JAK-STAT
+21017	STAT2	Protein	20513	core	R6c	MEDIUM	78	Reactome:R-HSA-909733; ubiquitous
+21018	KPNB1	Protein	20513	core	R6c	LOW	70	Importin β
+21019	PTK2	Protein	20513	core	R6c	LOW	70	FAK ubiquitous
+21020	IL6/IL6R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21021	IL6ST	Protein	20513	core	R6c	MEDIUM	75	gp130 ubiquitous
+21022	IL6RA	Protein	20513	core	R6c	MEDIUM	75	IL-6Rα
+21024	NFKB2/RELB	Complex	20513	core	R6c	MEDIUM	78	Non-canonical NFkB; PMID:11283238
+21025	RELB	Protein	20513	core	R6c	MEDIUM	78	Non-canonical NFkB
+21026	NFKB2	Protein	20513	core	R6c	MEDIUM	78	p52; non-canonical NF-kB
+21027	NFATC1,2,3	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21029	STAT3 homodimer	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21030	MARCHF8	Protein	20513	core	R6c	MEDIUM	75	MHC-II ubiquitin ligase PMID:18794341
+21031	IL7/IL7R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21033	IL7RA	Protein	20513	core	R6c	MEDIUM	80	IL-7Rα
+21034	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+21035	IL21/IL21R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21037	IL21R	Protein	20513	core	R6c	MEDIUM	80	IL-21R lymphoid
+21038	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+21039	MAP3K5	Protein	20513	core	R6c	MEDIUM	75	ASK1
+21040	MDM2	Protein	20513	core	R6c	LOW	70	p53 regulator
+21042	JAK2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21046	MAP2K4	Protein	20513	core	R6c	MEDIUM	75	MKK4 JNK
+21047	STAT1/STAT2/IRF9	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21048	STAT1	Protein	20513	core	R6c	MEDIUM	80	Reactome:R-HSA-877300; KEGG:hsa04630; ubiquitous JAK-STAT
+21049	STAT2	Protein	20513	core	R6c	MEDIUM	78	Reactome:R-HSA-909733; ubiquitous
+21050	IRF9	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-877300; STAT1/2/IRF9 complex
+21051	MAPK8,9,10	Protein	20513	core	R6c	MEDIUM	75	JNK1/2/3
+21052	SRC	Protein	20513	core	R6c	LOW	72	Tyrosine kinase ubiquitous
+21053	IRF3	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-3134963; ubiquitous innate
+21054	RSAD2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21055	PTPN6	Protein	20513	core	R6c	MEDIUM	80	SHP-1 hematopoietic PMID:7479798
+21057	IFIT3	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21058	AKT	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21059	VEGFA/VEGFR2	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21062	HLA-DQA1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21063	TP53	Protein	20513	core	R6c	LOW	70	Ubiquitous tumor suppressor
+21064	DAXX	Protein	20513	core	R6c	LOW	70	Death-associated
+21065	FCGR1BP	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21066	STAT1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21067	TNFRSF10A,B	Protein	20513	core	R6c	LOW	72	TRAIL-R1/2
+21068	RIGI	Protein	20513	core	R6c	MEDIUM	78	DDX58 RLR; PMID:15208624
+21072	OAS1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21073	IP6K2	Protein	20513	core	R6c	LOW	65	IP6 kinase
+21077	MYD88	Protein	20513	core	R6c	MEDIUM	75	Universal TLR/IL-1R adaptor; Reactome:R-HSA-166058
+21078	PPP2R1A	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21079	IFITM3	Protein	20513	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21080	ISG15	Protein	20513	core	R6c	MEDIUM	75	Reactome:R-HSA-1169408 ISGylation
+21081	MDM2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21082	UBA7	Protein	20513	core	R6c	LOW	70	UBE1L ISGylation E1; PMID:16275642
+21083	STAT1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21084	IFNA/IFNAR	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21085	IFNAR1	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015 PMID:25613900; Reactome:R-HSA-909733; ubiquitous
+21086	IFNAR2	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-909733
+21091	TRIM34	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21092	BIRC2	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21094	IRF1	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21095	GRB2	Protein	20513	core	R6c	LOW	72	Adaptor ubiquitous
+21096	BLNK	Protein	20513	core	R3	HIGH	95	HGNC:14211; B cell adaptor (UniProt Q8WV28)
+21098	BCR	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21100	CD79A	Protein	20513	core	R3	HIGH	82	HGNC:1698; BCR component (UniProt P11912)
+21101	CD79B	Protein	20513	core	R3	HIGH	82	HGNC:1699; BCR component (UniProt P40259)
+21106	CMTM6	Protein	20513	core	R6c	LOW	70	PD-L1 stabilizer PMID:28813417
+21107	BTK	Protein	20513	core	R3	HIGH	95	HGNC:1133; UniProt Q06187; KEGG:hsa04662 BCR
+21109	IL1R	Complex	20513	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=20513; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+21110	IL1R1	Protein	20513	core	R6c	MEDIUM	78	IL-1R1; PMID:8120391
+21111	IL1RA	Protein	20513	core	R6c	LOW	70	IL-1Ra antagonist
+21113	LPS/CD14/TL4/LY96	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21116	TLR4	Protein	20513	core	R6c	MEDIUM	82	InnateDB; PMID:9237759 LPS receptor
+21118	UBE2L6	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21123	VCAM/ITGA4/ITGB1	Complex	20513	core	R6c	MEDIUM	75	VLA-4/VCAM lymphocyte trafficking
+21124	ITGA4	Protein	20513	core	R6c	MEDIUM	78	VLA-4 leukocyte
+21125	ITGB1	Protein	20513	core	R6c	LOW	72	β1 integrin ubiquitous
+21127	IL2/IL2R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21131	MAP3K5	Protein	20513	core	R6c	MEDIUM	75	ASK1
+21132	CD72	Protein	20513	core	R6c	MEDIUM	88	PanglaoDB B cell
+21133	MAPK11,12,13,14	Protein	20513	core	R6c	MEDIUM	75	p38 MAPK
+21134	SMAD2/SMAD3	Complex	20513	core	R6c	LOW	72	R-Smads
+21135	SMAD2	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+21136	SMAD3	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+21137	CALM1	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21139	STAT2	Protein	20513	core	R6c	MEDIUM	78	Reactome:R-HSA-909733; ubiquitous
+21141	OAS2	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21142	TRIM6	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21143	MAP2K6	Protein	20513	core	R6c	MEDIUM	75	MKK6 p38
+21144	STAT3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21145	TNF/TNFR1	Complex	20513	core	R6c	MEDIUM	75	TNFR1 complex
+21146	TNFRSF1A	Protein	20513	core	R6c	MEDIUM	75	TNFR1 ubiquitous; HPA Uhlén 2015
+21148	SHC1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21149	MAPK11,12,13,14	Protein	20513	core	R6c	MEDIUM	75	p38 MAPK
+21150	MAP3K7	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21152	ETS1	Protein	20513	core	R6c	MEDIUM	75	Lymphoid/myeloid TF; PMID:9252188
+21153	TRADD	Protein	20513	core	R6c	LOW	72	TNFR1 adaptor
+21155	PI(3,4,5)P3	Simple molecule	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21156	MT2A	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21158	NFKB1/RELA	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21159	RELA	Protein	20513	core	R6c	MEDIUM	78	p65 ubiquitous
+21160	NFKB1	Protein	20513	core	R6c	MEDIUM	78	p50; ubiquitous KEGG:hsa04064
+21161	EDARADD	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21162	CASP3	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21167	ADAR	Protein	20513	core	R6c	MEDIUM	75	PMID:30401873 ISG; Reactome:R-HSA-9013973
+21168	TGFBR1	Protein	20513	core	R6c	MEDIUM	75	Ubiquitous
+21169	IRAK4/IRAK1,2/IRAKM	Complex	20513	core	R6c	LOW	72	Myddosome; Reactome:R-HSA-975144
+21170	IRAK4	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-9020702; PMID:12055258
+21172	IRAK1,2	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-9020702 IL-1/TLR signal
+21178	TP53	Protein	20513	core	R6c	LOW	70	Ubiquitous tumor suppressor
+21179	BCR	Complex	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21181	CD79A	Protein	20513	core	R3	HIGH	82	HGNC:1698; BCR component (UniProt P11912)
+21182	CD79B	Protein	20513	core	R3	HIGH	82	HGNC:1699; BCR component (UniProt P40259)
+21183	IFIH1	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21184	SHISA5	Protein	20513	core	R6c	LOW	65	Apoptosis regulator
+21185	TRAF2/TRAF3	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21186	TANK	Protein	20513	core	R6c	LOW	70	TBK1 partner
+21187	TRAF3	Protein	20513	core	R6c	LOW	72	TNFR/TLR adaptor
+21188	HLA-DRB4	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21189	CAMKMT	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21190	PTEN	Protein	20513	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21191	MAP2K1	Protein	20513	core	R6c	MEDIUM	75	MEK1 RAS-RAF-MEK-ERK
+21192	IL15R	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21195	IL2RG	Protein	20513	core	R6c	MEDIUM	80	γc subunit lymphoid
+21197	RIPK1	Protein	20513	core	R6c	LOW	72	Reactome:R-HSA-2562578
+21201	CASP3	Protein	20513	core	R6c	MEDIUM	75	Executioner caspase
+21202	DUSP6	Protein	20513	core	R6c	LOW	70	MAPK phosphatase
+21203	GBP4	Protein	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21204	CISH	Protein	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21206	IFNG/IFNGR	Complex	20513	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21207	IFNGR1	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-877312
+21208	IFNGR2	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-877312
+21210	CASP8	Protein	20513	core	R6c	MEDIUM	75	Initiator caspase extrinsic
+21211	SMAD2/SMAD3/SMAD4	Complex	20513	core	R6c	LOW	72	Smad complex
+21212	SMAD4	Protein	20513	core	R6c	LOW	72	TGF-β/BMP downstream
+21213	SMAD2	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+21214	SMAD3	Protein	20513	core	R6c	LOW	72	TGF-β downstream
+21215	CD80,86	Protein	20513	core	R6c	MEDIUM	82	B7-1/B7-2 co-stim APC; PMID:7510905
+21217	PSME2	Protein	20513	core	R6c	MEDIUM	75	Immunoproteasome; PMID:21134086 IFN-γ induced
+21218	MAX	Protein	20513	core	R6c	LOW	70	Myc partner
+21219	TRADD	Protein	20513	core	R6c	LOW	72	TNFR1 adaptor
+21220	IFNB/IFNAR	Complex	20513	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21221	IFNAR1	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015 PMID:25613900; Reactome:R-HSA-909733; ubiquitous
+21222	IFNAR2	Protein	20513	core	R6c	MEDIUM	75	HPA Uhlén 2015; Reactome:R-HSA-909733
+21224	CFLAR	Protein	20513	core	R6c	LOW	70	cFLIP anti-apoptotic
+21225	STAT3	Protein	20513	core	R6c	MEDIUM	78	KEGG:hsa04630; ubiquitous IL-6/IL-10
+21226	CHUK/CHUK	Complex	20513	core	R6c	MEDIUM	75	IKKα homodimer
+21227	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+21228	CHUK	Protein	20513	core	R6c	MEDIUM	75	IKKα; KEGG:hsa04064
+21230	IFIH1	Protein	20513	core	R6c	MEDIUM	78	MDA5 RLR; PMID:15208624
+21233	TP53	Protein	21231	core	R6c	LOW	70	Ubiquitous tumor suppressor
+21235	IFI6	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219 SjD signature
+21236	SOCS2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21237	IL1B	Gene	21231	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=21231; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+21238	GBP5	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21239	CCL5	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21240	STAT1 homodimer	Protein	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21241	CCL4	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21242	GLUT1	Gene	21231	core	R6c	LOW	70	SLC2A1 ubiquitous
+21243	CD40	Gene	21231	core	R6c	MEDIUM	82	B+APC; PMID:8551252
+21245	ISG15	RNA	21231	core	R6c	MEDIUM	75	Reactome:R-HSA-1169408 ISGylation
+21247	HLA-B	Gene	21231	core	R6c	MEDIUM	78	MHC-I
+21248	TRIM5	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21250	IRF5	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21252	TRIM14	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21254	IL17A	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21256	ARF1	Gene	21231	core	R6c	LOW	70	Trafficking ubiquitous
+21257	TLR4	Gene	21231	core	R6c	MEDIUM	82	InnateDB; PMID:9237759 LPS receptor
+21258	GBP4	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21259	HLA-C	Gene	21231	core	R6c	MEDIUM	78	MHC-I
+21260	HLA-DQA2	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21261	RPLP0	RNA	21231	core	R6c	LOW	70	Ribosomal P0
+21262	CXCL10	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21264	IFI6	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219 SjD signature
+21266	IL6	Gene	21231	core	R6c	MEDIUM	80	PMID:23597562 IL-6 source; SjD SGEC
+21268	SP100	Protein	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21269	XIAP	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21270	GBP2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21271	CXCL1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21272	RELA/NFKB1	Complex	21231	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21273	RELA	Protein	21231	core	R6c	MEDIUM	78	p65 ubiquitous
+21274	NFKB1	Protein	21231	core	R6c	MEDIUM	78	p50; ubiquitous KEGG:hsa04064
+21276	IL12	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21279	TNFRSF10A	RNA	21231	core	R6c	LOW	72	TRAIL-R1; HPA
+21280	SOCS3	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21281	TRIM34	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21282	IFIT5	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21283	TRIM25	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21284	VCAM1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21285	IFI35	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21286	RPLP0	Gene	21231	core	R6c	LOW	70	Ribosomal P0
+21287	BCL2L1	Gene	21231	core	R6c	MEDIUM	75	Bcl-xL anti-apoptotic
+21288	IFIT1	Gene	21231	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+21289	IL17A	Gene	21231	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=21231; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+21292	RRM2	Gene	21231	core	R6c	LOW	65	Ribonucleotide reductase
+21293	CD80,86	Gene	21231	core	R6c	MEDIUM	82	B7-1/B7-2 co-stim APC; PMID:7510905
+21294	STAT3 homodimer	Protein	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=3; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21295	OASL	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21296	PML	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21297	XAF1	Gene	21231	core	R6c	LOW	70	ISG; pro-apoptotic
+21298	MT2A	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21299	GBP1	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21300	RIPK1	RNA	21231	core	R6c	LOW	72	Reactome:R-HSA-2562578
+21301	GLUT1	RNA	21231	core	R6c	LOW	70	SLC2A1 ubiquitous
+21303	IFI30	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21305	IFI30	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21306	CFLAR	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21307	IFI27	RNA	21231	core	R6c	MEDIUM	75	ISG; Mavragani 2017 PMID:28604219 SjD signature
+21309	CXCL3	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21310	IL15	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21312	HLA-DQA2	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21313	BST2	Gene	21231	core	R6c	MEDIUM	75	Tetherin ISG; PMID:18342598
+21314	PTPN2	Protein	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21315	MT2A	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21316	IRF5	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21317	IRF9	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21319	BCL2A1	Gene	21231	core	R6c	MEDIUM	75	Lymphoid/myeloid HPA
+21320	CDKN1A	RNA	21231	core	R6c	LOW	70	p21 ubiquitous
+21321	NCAM1	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21322	NFKB1	Gene	21231	core	R6c	MEDIUM	78	p50; ubiquitous KEGG:hsa04064
+21323	TRIM22	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21324	RRM2	RNA	21231	core	R6c	LOW	65	Ribonucleotide reductase
+21325	TRIM14	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21326	HLA-DRB4	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21327	HLA-DRA	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21328	CD80,86	RNA	21231	core	R6c	MEDIUM	82	B7-1/B7-2 co-stim APC; PMID:7510905
+21330	FOS	Protein	21231	core	R6c	LOW	72	AP-1
+21331	SOCS3	Gene	21231	core	R6c	MEDIUM	75	JAK-STAT inhibitor
+21332	SMAD2/SMAD3/SMAD4	Complex	21231	core	R6c	LOW	72	Smad complex
+21333	SMAD4	Protein	21231	core	R6c	LOW	72	TGF-β/BMP downstream
+21334	SMAD2	Protein	21231	core	R6c	LOW	72	TGF-β downstream
+21335	SMAD3	Protein	21231	core	R6c	LOW	72	TGF-β downstream
+21336	ISG15	Gene	21231	core	R6c	MEDIUM	75	Reactome:R-HSA-1169408 ISGylation
+21339	NCAM1	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21340	IKBIP	Gene	21231	core	R6c	LOW	70	IKK interactor
+21342	IFITM2	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21343	FAS	Gene	21231	core	R6c	MEDIUM	75	Fas ubiquitous; Reactome:R-HSA-75157
+21344	IL6	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21345	GBP6	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21347	OAS1	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21348	TRIM6	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21350	CDKN1A	Gene	21231	core	R6c	LOW	70	p21 ubiquitous
+21352	GADD45B	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21353	TRIM5	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21354	ETS1	Protein	21231	core	R6c	MEDIUM	75	Lymphoid/myeloid TF; PMID:9252188
+21355	MDM2	Gene	21231	core	R6c	LOW	70	p53 regulator
+21356	NFKB2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21357	BCL2	Gene	21231	core	R6c	MEDIUM	75	Anti-apoptotic; KEGG:hsa04210
+21359	GBP3	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21360	GBP3	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21361	MX2	RNA	21231	core	R6c	MEDIUM	75	ISG GTPase
+21362	GBP6	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21363	SESN1	RNA	21231	core	R6c	LOW	65	Sestrin stress
+21368	IL23A	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21370	IRF3	Protein	21231	core	R6c	MEDIUM	75	Reactome:R-HSA-3134963; ubiquitous innate
+21371	TRIM22	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21372	PML	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21374	CD82	RNA	21231	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=21231; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+21376	HLA-A	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21377	FAS	RNA	21231	core	R6c	MEDIUM	75	Fas ubiquitous; Reactome:R-HSA-75157
+21378	NFKBIA	Gene	21231	core	R6c	MEDIUM	75	IκBα ubiquitous
+21379	GBP5	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21381	OASL	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21382	CD40	RNA	21231	core	R6c	MEDIUM	82	B+APC; PMID:8551252
+21383	IFIT3	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21384	HLA-B	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21385	IRF9	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21386	LMNB1	Gene	21231	core	R6c	LOW	70	Lamin B1 housekeeping
+21387	LMNB1	RNA	21231	core	R6c	LOW	70	Lamin B1 housekeeping
+21388	IFIT3	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21389	HLA-H	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21390	GBP2	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21391	BST2	RNA	21231	core	R6c	MEDIUM	75	Tetherin ISG; PMID:18342598
+21394	IRF5	Protein	21231	core	R5	LOW	50	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21395	RSAD2	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21396	BCL2A1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21397	MX1	RNA	21231	core	R6c	MEDIUM	75	ISG GTPase antiviral; PMID:28604219
+21399	BIRC2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21401	IFI35	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21402	OAS1	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21404	ARF1	RNA	21231	core	R6c	LOW	70	Trafficking ubiquitous
+21405	RSAD2	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21406	CFLAR	Gene	21231	core	R6c	LOW	70	cFLIP anti-apoptotic
+21407	TNFAIP3	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21408	SESN1	Gene	21231	core	R6c	LOW	65	Sestrin stress
+21409	RIPK1	Gene	21231	core	R6c	LOW	72	Reactome:R-HSA-2562578
+21411	HLA-DRA	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21412	OAS3	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21413	HLA-G	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21414	HLA-DQA1	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21415	MDM2	RNA	21231	core	R6c	LOW	70	p53 regulator
+21416	AP1	Complex	21231	core	R6c	LOW	70	AP-1 TF
+21417	JUN	Protein	21231	core	R6c	LOW	72	AP-1
+21418	FOS	Protein	21231	core	R6c	LOW	72	AP-1
+21419	NFKBIA	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21420	IP6K2	RNA	21231	core	R6c	LOW	65	IP6 kinase
+21422	TRIM25	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21424	IFIT5	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:28604219
+21425	CD82	Gene	21231	core	R6	LOW	25	default intracellular signaling fallback (InnateDB Breuer 2013 PMID:23180781; STRING Szklarczyk 2023 PMID:36370105); compartment=21231; HPA Uhlén 2015 PMID:25613900 (ubiquitous expression)
+21426	TOX	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21427	CISH	Gene	21231	core	R6c	LOW	72	CIS JAK-STAT inhibitor
+21429	IFITM1	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21431	NFKB2	Gene	21231	core	R6c	MEDIUM	78	p52; non-canonical NF-kB
+21432	OAS2	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21433	SP100	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21434	IFIT2	RNA	21231	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+21435	TNF	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21436	IP6K2	Gene	21231	core	R6c	LOW	65	IP6 kinase
+21437	OAS2	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21438	IFITM2	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21439	SHISA5	RNA	21231	core	R6c	LOW	65	Apoptosis regulator
+21440	XAF1	RNA	21231	core	R6c	LOW	70	ISG; pro-apoptotic
+21441	TRIM6	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21444	ADAR	Gene	21231	core	R6c	MEDIUM	75	PMID:30401873 ISG; Reactome:R-HSA-9013973
+21446	IL1B	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21447	ISG20	Gene	21231	core	R6c	MEDIUM	75	ISG, antiviral exonuclease PMID:23394386
+21448	HLA-DQA1	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21449	FCGR1BP	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21450	PSME2	Gene	21231	core	R6c	MEDIUM	75	Immunoproteasome; PMID:21134086 IFN-γ induced
+21453	TNFRSF10A	Gene	21231	core	R6c	LOW	72	TRAIL-R1; HPA
+21454	EIF2AK2	RNA	21231	core	R6c	MEDIUM	75	PKR antiviral, Reactome:R-HSA-1834941
+21455	SOCS2	Gene	21231	core	R6c	LOW	70	JAK-STAT inhibitor
+21456	IFIT1	RNA	21231	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+21457	SOCS1	RNA	21231	core	R6c	MEDIUM	75	JAK-STAT inhibitor PMID:9590175
+21458	FCGR1BP	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21460	IFI27	Gene	21231	core	R6c	MEDIUM	75	ISG; Mavragani 2017 PMID:28604219 SjD signature
+21462	BCL2L1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21463	HLA-DRB4	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21464	CXCL2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21466	HNRNPA2B1	RNA	21231	core	R6c	LOW	70	RNA binding housekeeping
+21467	GADD45B	Gene	21231	core	R6c	LOW	70	Stress response
+21468	STAT5 homodimer	Protein	21231	core	R6c	MEDIUM	78	KEGG:hsa04630; PMID:9590175 STAT5 lymphoid
+21471	SHISA5	Gene	21231	core	R6c	LOW	65	Apoptosis regulator
+21472	IFITM3	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21473	HLA-A	Gene	21231	core	R6c	MEDIUM	78	MHC-I ubiquitous nucleated
+21474	CISH	RNA	21231	core	R6c	LOW	72	CIS JAK-STAT inhibitor
+21475	JUN	Protein	21231	core	R6c	LOW	72	AP-1
+21477	SP100	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21478	BCL2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21479	ADAR	RNA	21231	core	R6c	MEDIUM	75	PMID:30401873 ISG; Reactome:R-HSA-9013973
+21481	IFITM1	Gene	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21483	IFIT2	Gene	21231	core	R6c	MEDIUM	75	ISG; Reactome:R-HSA-936964
+21484	NFATC1,2,3	Protein	21231	core	R4	MEDIUM	80	Reactome:R-HSA-983705 via MINERVA notes
+21485	STAT1/STAT2/IRF9	Complex	21231	core	R5	LOW	51	graph propagation on SjD Map (this work); neighbors_vote=16; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21486	STAT1	Protein	21231	core	R6c	MEDIUM	80	Reactome:R-HSA-877300; KEGG:hsa04630; ubiquitous JAK-STAT
+21487	STAT2	Protein	21231	core	R6c	MEDIUM	78	Reactome:R-HSA-909733; ubiquitous
+21488	IRF9	Protein	21231	core	R6c	MEDIUM	75	Reactome:R-HSA-877300; STAT1/2/IRF9 complex
+21489	HNRNPA2B1	Gene	21231	core	R6c	LOW	70	RNA binding housekeeping
+21491	XIAP	Gene	21231	core	R6c	LOW	70	X-IAP
+21492	ICAM1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21493	OAS3	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21494	GBP4	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21495	HLA-H	Gene	21231	core	R6c	LOW	70	MHC-I pseudo
+21497	STAT1 homodimer	Protein	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21498	GBP1	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21502	ETS1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21503	IFITM3	RNA	21231	core	R6c	MEDIUM	75	ISG; PMID:23354158
+21505	JUN	Protein	21231	core	R6c	LOW	72	AP-1
+21506	SOCS1	Gene	21231	core	R6c	MEDIUM	75	JAK-STAT inhibitor PMID:9590175
+21507	PSME2	RNA	21231	core	R6c	MEDIUM	75	Immunoproteasome; PMID:21134086 IFN-γ induced
+21508	ICAM1	Gene	21231	core	R6c	MEDIUM	78	Adhesion induced by IFN-γ; PMID:2563381
+21510	IRF1	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21511	TRIM21	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21512	TNFAIP3	Gene	21231	core	R6c	MEDIUM	75	A20 deubiquitinase NFkB
+21513	CXCL8	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21514	MX2	Gene	21231	core	R6c	MEDIUM	75	ISG GTPase
+21515	ISG20	RNA	21231	core	R6c	MEDIUM	75	ISG, antiviral exonuclease PMID:23394386
+21516	TRIM34	Gene	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21517	FOS	Protein	21231	core	R6c	LOW	72	AP-1
+21520	NFKB1	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=4; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21521	EIF2AK2	Gene	21231	core	R6c	MEDIUM	75	PKR antiviral, Reactome:R-HSA-1834941
+21522	ETS1	Gene	21231	core	R6c	MEDIUM	75	Lymphoid/myeloid TF; PMID:9252188
+21523	IL1R1	Gene	21231	core	R6c	MEDIUM	78	IL-1R1; PMID:8120391
+21524	HLA-C	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21525	BIRC2	Gene	21231	core	R6c	LOW	70	cIAP1
+21526	PTGS2	RNA	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21527	TLR4	RNA	21231	core	R6c	MEDIUM	82	InnateDB; PMID:9237759 LPS receptor
+21528	NFKB2/RELB	Complex	21231	core	R5	LOW	53	graph propagation on SjD Map (this work); neighbors_vote=2; InnateDB:innatedb.com Breuer 2013 PMID:23180781; STRING db v12
+21529	RELB	Protein	21231	core	R6c	MEDIUM	78	Non-canonical NFkB
+21530	NFKB2	Protein	21231	core	R6c	MEDIUM	78	p52; non-canonical NF-kB
+21531	IRF1	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21533	MX1	Gene	21231	core	R6c	MEDIUM	75	ISG GTPase antiviral; PMID:28604219
+21537	IKBIP	RNA	21231	core	R6c	LOW	70	IKK interactor
+21538	IL10	Gene	21231	core	R6c	MEDIUM	82	PMID:11244051 IL-10 M2/Treg/Breg
+21539	TRIM21	RNA	21231	core	R4	MEDIUM	65	Reactome:R-HSA-877300 via MINERVA notes
+21541	Inflammation	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21542	Regulated_Necrosis	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21543	Phagocytosis	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21544	Chemotaxis/Infiltration	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21546	B_Cell_Activation/Survival	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21547	Lymphoid_organ_development	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21548	MHC_Class_2_Activation	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21549	Angiogenesis	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21551	MHC_Class_1_Activation	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21552	Apoptosis	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21553	T_Cell_Activation/Differentiation	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21554	Cell_Proliferation/Survival	Phenotype	21540	phenotype_output	R2	HIGH	90	MINERVA SjD Map Phenotypes layer (Silva-Saffar 2026)
+21556	VCAM1	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21557	LPS	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21558	antigen	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21562	IL15	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21563	TNFSF13B	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21564	TGFB1	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21565	TNFSF14	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21566	ssRNA	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21571	TNF	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21574	FASLG	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21575	LTA	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21577	IL21	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21581	TNFSF13	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21583	CD40LG	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21584	IL1	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21585	IFNG	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21588	dsRNA/polyIC	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21593	TLR10_ligand	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21594	IFNA	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21597	TNFSF11	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21600	IL7	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21601	IL2	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21602	Allergen	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21604	CXCL12	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21605	Ag/IgG	Complex	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21610	TNFSF10	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21611	VEGFA	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21612	MHC1/B2M	Complex	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21615	IFNB1	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21616	CCL20	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21618	sialic_acid	Simple molecule	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21619	IL12	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21623	LTB	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21625	IL6	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21628	CD27	Protein	21555	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21630	CXCL2	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21631	PTGS2	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21633	IL23A	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21634	CXCL1	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21637	CCL4	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21638	IL12	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21639	CXCL8	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21642	TNF	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21647	IL15	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21649	IL17A	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21651	CCL5	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21655	IL6	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21658	CXCL10	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21660	CXCL3	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21661	VCAM1	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21664	TRIM21	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21665	TOX	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)
+21666	IL1B	Protein	21629	extra_port	R1	HIGH	95	MINERVA SjD Map compartments 21555/21629 (Silva-Saffar 2026, doi:10.1038/s41540-026-00xxx-x)

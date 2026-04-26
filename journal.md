@@ -304,3 +304,69 @@ Tous les cell-types restent ≥80 nœuds (min TREG=567). Gate 1.2 : **PASS** (co
 - Lancer **Phase 1.3** (modules CellDesigner cell-type) sur la base du `node_to_celltype.tsv` raffiné.
 
 ---
+
+## 2026-04-26 — Phase 1.3 — Extraction des modules cell-type
+
+### Contexte
+
+Avec un `node_to_celltype.tsv` raffiné (Phase 1.2bis), il faut extraire 10 sous-cartes (une par cell-type) avec leurs nœuds core, ports extracellulaires (EXTRA bridges), phénotypes connectés et réactions strictement contenues. Cible Gate 1.3 : ≥80 nœuds, ≥50 réactions, ≥1 boucle feedback, ≥1 phénotype connecté par module.
+
+### Actions
+
+1. **Création `scripts/lib/celltype_module.py`** :
+    - `CellTypeAssignment` + loader TSV
+    - `extract_module(celltype, core, extra, pheno, reactions, graph)` : 2 passes (détection ports → réactions strictement contenues)
+    - Détection cycles simples via `nx.simple_cycles` (cap 5000)
+    - `evaluate_gate(module, min_nodes=80, min_reactions=50)` → `GateResult`
+    - Writers TSV nœuds + réactions + JSON metrics
+2. **Création `scripts/04_split_celltype.py`** :
+    - Charge MINERVA (cache) + `node_to_celltype.tsv`
+    - Itère sur les 10 cell-types, écrit `01_disease_map/celltype_modules/<CT>/<CT>_{nodes,reactions,metrics}.tsv|json`
+    - Synthèse `celltype_modules_summary.json` + `celltype_modules_report.md`
+3. **Run** `python3 scripts/04_split_celltype.py` : **10/10 modules PASS Gate 1.3**.
+
+### Résultats Gate 1.3
+
+| Cell-type | n_total | n_reactions | n_loops | n_pheno | Gate |
+|---|---|---|---|---|---|
+| SGEC | 622 | 260 | 6 | 8 | ✅ |
+| TH1 | 645 | 266 | 20 | 9 | ✅ |
+| TH17 | 619 | 250 | 20 | 8 | ✅ |
+| TFH | 611 | 251 | 20 | 7 | ✅ |
+| TREG | 609 | 251 | 20 | 8 | ✅ |
+| BCELL | 755 | 361 | 26 | 12 | ✅ |
+| PLASMA | 693 | 328 | 12 | 11 | ✅ |
+| M1 | 736 | 299 | 6 | 11 | ✅ |
+| M2 | 683 | 274 | 6 | 11 | ✅ |
+| PDC | 663 | 282 | 6 | 8 | ✅ |
+
+Densité ~0.0011-0.0016 — graphe sparse caractéristique d'une carte mécaniste (Zerrouk RA Atlas atteint ~0.001).
+
+### Décisions
+
+- **Convention port** : nœud EXTRA conservé dans le module si participant à ≥1 réaction où ≥1 partenaire ∈ core. Permet à Phase 1.4 de tisser les edges intercellulaires sur ces ports déjà identifiés.
+- **Convention phénotype** : même règle — phénotype connecté = phénotype gardé comme sortie locale du module.
+- **Pas d'export CellDesigner XML à ce stade** : les primitives `lib/celldesigner_xml.py` existent mais l'XML par cell-type sera produit en Phase 1.5 (assemblage final). Phase 1.3 livre les TSV manifestes auditables — suffisant pour la curation expert et la Phase 1.4 (intercellular edges).
+
+### Limites résiduelles
+
+- **Effectifs n_total > 600** par module : la majorité des nœuds R6c sont partagés entre cell-types (signaling intracellulaire ubiquitaire). C'est attendu — le pruning expert Phase 1.4-1.5 réduira les modules vers ~150-300 nœuds/module échelle Zerrouk.
+- **n_loops faible (6) pour SGEC/M1/M2/PDC** : reflète une topologie plus arborescente (cascades signalétiques convergentes vers phénotypes). Pas un échec — Gate ≥1 atteint.
+- **Revue expert SjD toujours requise** sur les TSV nœuds avant Phase 1.4.
+
+### Livrables
+
+- `scripts/lib/celltype_module.py` (~330 lignes)
+- `scripts/04_split_celltype.py` (~230 lignes)
+- `01_disease_map/celltype_modules/<CT>/{nodes,reactions,metrics}` × 10
+- `01_disease_map/celltype_modules/celltype_modules_{summary.json,report.md}`
+
+### Prochaines étapes
+
+- Tasks #12-#17 (Phase 1.3) → **completed**.
+- **Phase 1.4** — edges intercellulaires :
+    - Script `scripts/05_intercellular_edges.py` : intersection CellPhoneDB v4 ∩ OmniPath, filtré sur les paires (source_celltype, target_celltype) effectivement présentes via les ports EXTRA déjà extraits.
+    - Curation manuelle : table `intercellular_edges.tsv` avec couverture obligatoire IFN-α, BAFF, CXCL13, IL-21.
+    - Cible Gate 1.4 : ≥30 edges (cible 40-60 échelle Zerrouk).
+
+---

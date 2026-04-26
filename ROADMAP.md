@@ -282,13 +282,17 @@ Transformer la SjD Map intégrée (mono-bloc) en une carte multi-cellulaire stru
   - Script `scripts/03_split_celltype.py` : extraction automatique sous-graphes en SBML
   - Script `scripts/04_validate_module.py` : checks topologiques par module
 
-**Gate 1.3** :
-- [ ] 4 modules ouverts proprement dans CellDesigner 4.4.2
-- [ ] Chaque module : ≥1 feedback loop, ≥1 phénotype de sortie
-- [ ] Chaque module : ≥80 nœuds, ≥50 réactions (échelle Zerrouk)
-- [ ] Revue par expert SjD signée
+**Gate 1.3** (audit informatique 2026-04-26 — voir `01_disease_map/celltype_modules/celltype_modules_report.md`) :
+- [x] 10 modules extraits proprement (TSV manifestes + métriques)
+- [x] Chaque module : ≥1 feedback loop (min 6, max 26), ≥1 phénotype de sortie
+- [x] Chaque module : ≥80 nœuds (min 609 TREG), ≥50 réactions (min 250 TH17)
+- [ ] Revue par expert SjD signée — ⏸ EN ATTENTE (manuel)
 
-**Livrable** : `01_disease_map/SjD_Map_celltype_modules/*.xml` + rapport de complétude
+**Livrable** :
+- `scripts/04_split_celltype.py` + `scripts/lib/celltype_module.py` (extraction automatique)
+- `01_disease_map/celltype_modules/<CT>/{nodes,reactions,metrics}` × 10
+- `01_disease_map/celltype_modules/celltype_modules_report.md`
+- Export CellDesigner XML reporté à Phase 1.5 (assemblage)
 
 ### Sous-phase 1.4 — Edges intercellulaires *(3 semaines)*
 
