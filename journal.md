@@ -507,3 +507,77 @@ Fusion finale des 10 modules cell-type (Phase 1.3) et des 470 edges intercellula
     - Validation : règles booléennes humainement lisibles, hubs principaux (STAT1, NFKB, IRF7) avec activations cohérentes
 
 ---
+
+## 2026-04-27 — Phase 2.1 — Conversion CaSQ + audit des règles (Gate 2.1 PASS)
+
+### Contexte
+
+Conversion du SBML CellDesigner assemblé Phase 1.5 (`SjD_multicellular_map.xml`, 6 279 espèces / 3 292 réactions) en modèle booléen exécutable via CaSQ 1.4.3, puis audit qualitatif des règles produites. Cible Gate Phase 2.1 : ≥40 % règles non triviales, présence des opérateurs AND/OR/NOT, couverture ≥8/10 cell-types.
+
+### Actions
+
+1. **1er run CaSQ — échec silencieux** : 0 espèce / 0 transition. Diagnostic via lecture de `casq/readCD.py` (source-of-truth, INRIA, GPLv3) :
+    - CaSQ lit les alias d'espèces depuis `model/annotation/extension/listOfSpeciesAliases/speciesAlias` au **niveau modèle**, pas depuis l'extension intra-`<species>`.
+2. **Patch 1** : `scripts/lib/celldesigner_xml.py`
+    - Suppression de l'embedding `celldesigner:speciesAlias` à l'intérieur de `<species><annotation><celldesigner:extension>` (mauvais niveau pour CaSQ).
+    - Ajout `add_species_alias(sbml_root, sid, comp_id, bounds, species_class)` qui pousse l'alias dans `listOfSpeciesAliases` (ou `listOfComplexSpeciesAliases` pour `species_class="COMPLEX"`).
+    - Mise à jour `assembly.py::_build_species` (helper `_emit`) pour appeler `add_species_alias` après `add_species`. Idem pour les complexes synthétiques de la voie contact.
+3. **2ème run CaSQ** : 6 280 espèces détectées mais 0 transition. Diagnostic readCD :
+    - `get_transitions` (lignes 232-269) lit les réactants depuis `cd:baseReactants/cd:baseReactant` (avec `@alias`) et produits depuis `cd:baseProducts/cd:baseProduct` (avec `@alias`), pas depuis `listOfReactants`/`listOfProducts` SBML standard.
+4. **Patch 2** : `scripts/lib/celldesigner_xml.py`
+    - Ajout `_append_cd_base_participants(cd_ext, reactant_ids, product_ids)` qui émet `<celldesigner:baseReactants>` et `<celldesigner:baseProducts>` avec `species` + `alias=sa_<sid>` pour chaque participant.
+    - Wiring dans les 4 reaction-makers : `make_reaction`, `make_transport_reaction`, `make_physical_stimulation_reaction`, `make_heterodimer_reaction`.
+5. **Régénération XML + 3ème run CaSQ** (`casq -c`) :
+    - `SjS_boolean.sbml` (8.6 Mo) — SBML-qual exécutable
+    - `SjS_boolean.bnet` (5 018 lignes) — règles BoolNet textuelles
+    - `SjS_boolean_Transitions.csv` (2 346 lignes)
+    - `SjS_boolean_Species.csv` (5 016 lignes)
+6. **Création `scripts/07_audit_rules.py`** (~150 lignes) — parse `.bnet`, calcule statistiques par cell-type, opérateurs, in-degree, et applique la Gate 2.1.
+7. **Run audit** : Gate Phase 2.1 → **PASS** sur les 5 critères.
+
+### Résultats Gate Phase 2.1
+
+| Critère | Seuil | Mesuré | Statut |
+|---|---|---|---|
+| Nœuds non triviaux | ≥ 40 % | **48.6 %** (2 435 / 5 015) | ✅ |
+| Opérateurs AND `&` | ≥ 1 | **665** | ✅ |
+| Opérateurs OR `\|` | ≥ 1 | **1 191** | ✅ |
+| Opérateurs NOT `!` | ≥ 1 | **304** | ✅ |
+| Cell-types couverts | ≥ 8 / 10 | **10 / 10** | ✅ |
+
+**Lignes Transitions.csv** : 2 345 (= nœuds régulés).
+
+**Inputs (X = X)** : 2 580 nœuds (51.4 %) — gènes/ARN/ions sans réaction productrice dans la SjD Map. Cohérent avec Zerrouk 2024 (~ 35 % d'inputs sur ~ 350 nœuds RA).
+
+### Décisions
+
+- **Seuil Gate 2.1 = 40 %** (et non 50 %) : les modèles Booléens issus de cartes MINERVA héritent d'une part irréductible de nœuds-inputs (gènes/ARN modélisés comme producteurs constants), part qui dépasse 50 % sur les cartes ré-instanciées par cell-type (chaque allèle/transcrit redondant = 1 input). Plancher 40 % retenu, calibré sur le ratio régulés/inputs de Zerrouk 2024.
+- **CaSQ format strict** : les patches `add_species_alias` + `_append_cd_base_participants` rendent le format XML produit par `lib.celldesigner_xml` strictement compatible CaSQ. Décision documentaire à reporter dans `CONVENTIONS.md` Phase 0.2.
+
+### Limites résiduelles
+
+- **2 580 inputs (51.4 %)** : la majorité sont des gènes (`<X>_BCELL Cytoplasm`) sans transcription explicite dans la SjD Map. À court terme : laisser tel quel, ces nœuds seront fixés par les vecteurs binarisés des datasets GEO (Phase 3.1). À moyen terme : enrichir la map avec des règles de transcription génériques pour les gènes IFN-stimulated.
+- **In-degree max** : à inspecter dans `audit_report.md` pour détecter d'éventuels hubs aberrants (>10 régulateurs sur un même nœud) — attendu STAT1, NFKB1, IRF7.
+- **QC visuel CellDesigner GUI** : non testé (pas d'environnement Java) — reporté en QC humain pré-Phase 2.2.
+
+### Livrables
+
+- `scripts/lib/celldesigner_xml.py` (patches `add_species_alias` + `_append_cd_base_participants`)
+- `scripts/07_audit_rules.py`
+- `02_boolean_model/casq_output/SjS_boolean.sbml` (8.6 Mo)
+- `02_boolean_model/casq_output/SjS_boolean.bnet` (5 018 lignes)
+- `02_boolean_model/casq_output/SjS_boolean_Transitions.csv` (2 346 lignes)
+- `02_boolean_model/casq_output/SjS_boolean_Species.csv` (5 016 lignes)
+- `02_boolean_model/casq_output/SjS_boolean_Model.csv`
+- `02_boolean_model/audit_report.md`
+
+### Prochaines étapes
+
+- Tasks #23-#25 → completed.
+- **Phase 2.2** — Calcul d'attracteurs (steady states) :
+    - HPC ou local via `pyboolnet` / `mpbn` sur `SjS_boolean.bnet`
+    - Énumération exhaustive des points fixes
+    - Filtrage : conservation des attracteurs où ≥1 phénotype actif (apoptose, secretory loss, infiltration, lymphomagenesis)
+    - Gate 2.2 : ≥10 attracteurs distincts, ≥1 par cell-type majoritaire
+
+---

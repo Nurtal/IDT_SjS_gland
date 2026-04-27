@@ -51,43 +51,43 @@
 Premiers messages libsbml :
 
 ```
-[Error] L190:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19029:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L218:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19054:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L246:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19079:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L372:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19190:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L452:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19261:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L480:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19286:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L509:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19312:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L538:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19338:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L566:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19363:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 
-[Error] L595:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
+[Error] L19389:C6 — An SBML XML document must conform to the XML Schema for the corresponding SBML Level, Version and Release. The XML Schema for SBML defines the basic SBML object structure, the data types used by those objects, and the order in which the objects may appear in an SBML document.
 Reference: L2V4 Section 4.1
  Incorrect ordering of <annotation> and <notes> elements -- <notes> must come before <annotation> due to the way that the XML Schema for SBML is defined.
 

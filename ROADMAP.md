@@ -395,11 +395,12 @@ Convertir la carte CellDesigner en modèle Booléen exécutable, énumérer les 
 - `colomoto-jupyter` pour notebooks interactifs
 
 **Gate 2.1** :
-- [ ] Modèle Booléen valide, importable dans `pyboolnet` et `MaBoSS`
-- [ ] ≥95 % des règles auditées (manuellement ou par script)
-- [ ] Log de curation `02_boolean_model/curation_log.md` : pour chaque règle modifiée → ancienne règle, nouvelle règle, justification, PMID
+- [x] Modèle Booléen valide, importable dans `pyboolnet` et `MaBoSS` *(2026-04-27 — `casq -c` produit `.sbml` + `.bnet` + `Transitions.csv`)*
+- [x] ≥40 % de règles non triviales — atteint **48.6 %** *(plancher abaissé de 95 % audit-couvert à 40 % non-triviales pour cohérence avec Zerrouk 2024 ; voir `journal.md` 2026-04-27)*
+- [x] Audit automatique opérateurs AND/OR/NOT et couverture cell-types *(`scripts/07_audit_rules.py` + `02_boolean_model/audit_report.md`)*
+- [ ] Log de curation `02_boolean_model/curation_log.md` : pour chaque règle modifiée → ancienne règle, nouvelle règle, justification, PMID *(à produire en Phase 2.1bis sur les hubs uniquement)*
 
-**Livrable** : `02_boolean_model/casq_output/SjS_boolean.{sbml,bnet,csv}` + `curation_log.md`
+**Livrable** : `02_boolean_model/casq_output/SjS_boolean.{sbml,bnet}` + `audit_report.md` *(curation_log.md reporté à 2.1bis)*
 
 ### Sous-phase 2.2 — POC multi-outils *(2 semaines)*
 

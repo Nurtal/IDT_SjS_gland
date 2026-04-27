@@ -41,9 +41,11 @@ from typing import Any
 from lxml import etree
 
 from lib.celldesigner_xml import (  # noqa: E402
+    MINERVA_TYPE_TO_CD,
     add_compartment,
     add_reaction,
     add_species,
+    add_species_alias,
     make_extracellular_species,
     make_heterodimer_reaction,
     make_physical_stimulation_reaction,
@@ -183,6 +185,18 @@ def _build_species(
     secreted_comp_id = _compartment_id(COMP_SECRETED, "")
     pheno_comp_id = _compartment_id(COMP_PHENOTYPES, "")
 
+    def _emit(elem: dict[str, Any], comp_id: str, prefix: str) -> str:
+        species = make_species(elem, comp_id, module_prefix=prefix)
+        add_species(sbml, species)
+        sid = species.get("id")
+        cd_class = MINERVA_TYPE_TO_CD.get(elem.get("type", ""), "PROTEIN")
+        add_species_alias(
+            sbml, sid, comp_id,
+            bounds=elem.get("bounds") or {},
+            species_class=cd_class,
+        )
+        return sid
+
     # 1) Espèces core par cell-type
     for ct in CELL_TYPES:
         for nid in sorted(ctx.core_by_ct.get(ct, set())):
@@ -191,9 +205,7 @@ def _build_species(
                 continue
             cid = _intracell_compartment(elem)
             comp_sbml_id = _compartment_id(cid, ct)
-            species = make_species(elem, comp_sbml_id, module_prefix=ct)
-            add_species(sbml, species)
-            ctx.id_map[(ct, nid)] = species.get("id")
+            ctx.id_map[(ct, nid)] = _emit(elem, comp_sbml_id, ct)
             stats.n_species_core += 1
 
     # 2) EXTRA partagés
@@ -206,9 +218,7 @@ def _build_species(
             if elem.get("compartmentId") == COMP_SECRETED
             else extra_comp_id
         )
-        species = make_species(elem, comp_id, module_prefix="")
-        add_species(sbml, species)
-        ctx.extra_id_map[nid] = species.get("id")
+        ctx.extra_id_map[nid] = _emit(elem, comp_id, "")
         stats.n_species_extra += 1
 
     # 3) PHENOTYPE partagés
@@ -216,9 +226,7 @@ def _build_species(
         elem = ctx.elements_by_id.get(nid)
         if not elem:
             continue
-        species = make_species(elem, pheno_comp_id, module_prefix="")
-        add_species(sbml, species)
-        ctx.pheno_id_map[nid] = species.get("id")
+        ctx.pheno_id_map[nid] = _emit(elem, pheno_comp_id, "")
         stats.n_species_phenotype += 1
 
 
@@ -315,6 +323,10 @@ def _build_intercellular_edges(
                 species_id=complex_id,
             )
             add_species(sbml, cx_species)
+            add_species_alias(
+                sbml, complex_id, extra_comp_id,
+                bounds={}, species_class="COMPLEX",
+            )
             stats.n_species_complex += 1
             rxn = make_heterodimer_reaction(
                 rid, src_sbml, tgt_sbml, complex_id,

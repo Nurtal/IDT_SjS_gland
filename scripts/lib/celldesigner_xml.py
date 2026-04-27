@@ -424,26 +424,10 @@ def make_species(
     name_el = etree.SubElement(identity, _cd("name"))
     name_el.text = name
 
-    # Alias de position spatiale
-    bounds = elem.get("bounds") or {}
-    if bounds:
-        alias_el = etree.SubElement(
-            cd_ext, _cd("speciesAlias"),
-            attrib={
-                "id": f"sa_{sid}",
-                "species": sid,
-                "compartmentAlias": f"ca_{compartment_sbml_id}",
-            },
-        )
-        etree.SubElement(
-            alias_el, _cd("bounds"),
-            attrib={
-                "x": str(bounds.get("x", 0.0)),
-                "y": str(bounds.get("y", 0.0)),
-                "w": str(bounds.get("w", 60.0)),
-                "h": str(bounds.get("h", 25.0)),
-            },
-        )
+    # NB : l'alias de position spatiale n'est PAS ajouté ici. CaSQ lit
+    # `speciesAlias` depuis `model/annotation/extension/listOfSpeciesAliases/`,
+    # pas depuis l'extension intra-species. Utiliser `add_species_alias` après
+    # `add_species` pour exposer l'alias au niveau modèle.
 
     # Notes textuelles (annotations libres MINERVA)
     notes_text = elem.get("notes", "")
@@ -469,6 +453,67 @@ def add_species(sbml_root: etree._Element, species_el: etree._Element) -> None:
     _get_list(sbml_root, "listOfSpecies").append(species_el)
 
 
+def add_species_alias(
+    sbml_root: etree._Element,
+    species_sbml_id: str,
+    compartment_sbml_id: str,
+    bounds: dict[str, Any] | None = None,
+    species_class: str = "PROTEIN",
+) -> etree._Element | None:
+    """
+    Ajoute un `celldesigner:speciesAlias` (ou `complexSpeciesAlias` pour les
+    complexes) au niveau modèle, dans `listOfSpeciesAliases` —
+    **format attendu par CaSQ** (`./sbml:annotation/cd:extension/
+    cd:listOfSpeciesAliases/cd:speciesAlias`).
+
+    Args:
+        sbml_root           : racine <sbml> du document
+        species_sbml_id     : id de l'espèce (attribut `species`)
+        compartment_sbml_id : id du compartiment associé
+        bounds              : dict {x, y, w, h} (sinon défaut)
+        species_class       : "PROTEIN" / "COMPLEX" / etc. — détermine
+                              speciesAlias vs complexSpeciesAlias.
+
+    Returns:
+        L'élément `<celldesigner:speciesAlias>` (ou complexSpeciesAlias) créé.
+    """
+    list_tag = (
+        "listOfComplexSpeciesAliases"
+        if species_class == "COMPLEX"
+        else "listOfSpeciesAliases"
+    )
+    alias_tag = (
+        "complexSpeciesAlias"
+        if species_class == "COMPLEX"
+        else "speciesAlias"
+    )
+
+    list_alias = sbml_root.find(f".//{_cd(list_tag)}")
+    if list_alias is None:
+        logger.warning("Liste d'alias %s introuvable", list_tag)
+        return None
+
+    alias = etree.SubElement(
+        list_alias, _cd(alias_tag),
+        attrib={
+            "id": f"sa_{species_sbml_id}",
+            "species": species_sbml_id,
+            "compartmentAlias": f"ca_{compartment_sbml_id}",
+        },
+    )
+    b = bounds or {}
+    etree.SubElement(
+        alias, _cd("bounds"),
+        attrib={
+            "x": str(b.get("x", 0.0)),
+            "y": str(b.get("y", 0.0)),
+            "w": str(b.get("w", 60.0)),
+            "h": str(b.get("h", 25.0)),
+        },
+    )
+    return alias
+
+
 # ---------------------------------------------------------------------------
 # Réactions
 # ---------------------------------------------------------------------------
@@ -485,6 +530,35 @@ def _make_modifier_ref(species_sbml_id: str) -> etree._Element:
         _sbml("modifierSpeciesReference"),
         attrib={"species": species_sbml_id},
     )
+
+
+def _append_cd_base_participants(
+    cd_ext: etree._Element,
+    reactant_ids: list[str],
+    product_ids: list[str],
+) -> None:
+    """
+    Ajoute `celldesigner:baseReactants` et `celldesigner:baseProducts` à
+    l'extension de la réaction — **format requis par CaSQ** pour parser les
+    transitions (cf. `casq.readCD.get_transitions`).
+
+    Chaque baseReactant/baseProduct référence à la fois `species` (ID SBML)
+    et `alias` (ID de speciesAlias `sa_<species_id>`).
+    """
+    if reactant_ids:
+        lor_cd = etree.SubElement(cd_ext, _cd("baseReactants"))
+        for sid in reactant_ids:
+            etree.SubElement(
+                lor_cd, _cd("baseReactant"),
+                attrib={"species": sid, "alias": f"sa_{sid}"},
+            )
+    if product_ids:
+        lop_cd = etree.SubElement(cd_ext, _cd("baseProducts"))
+        for sid in product_ids:
+            etree.SubElement(
+                lop_cd, _cd("baseProduct"),
+                attrib={"species": sid, "alias": f"sa_{sid}"},
+            )
 
 
 def make_reaction(
@@ -591,6 +665,8 @@ def make_reaction(
     rt_el = etree.SubElement(cd_ext, _cd("reactionType"))
     rt_el.text = cd_type
 
+    _append_cd_base_participants(cd_ext, reactant_ids, product_ids)
+
     if modifier_data:
         lom_cd = etree.SubElement(cd_ext, _cd("listOfModification"))
         modifier_ids_str = ",".join(sid for sid, _ in modifier_data)
@@ -682,6 +758,10 @@ def make_transport_reaction(
     rt = etree.SubElement(cd_ext, _cd("reactionType"))
     rt.text = "TRANSPORT"
 
+    _append_cd_base_participants(
+        cd_ext, [source_species_id], [target_species_id],
+    )
+
     return reaction
 
 
@@ -720,6 +800,10 @@ def make_physical_stimulation_reaction(
     cd_ext = etree.SubElement(annotation, _cd("extension"))
     rt = etree.SubElement(cd_ext, _cd("reactionType"))
     rt.text = "PHYSICAL_STIMULATION"
+
+    _append_cd_base_participants(
+        cd_ext, [source_species_id], [target_species_id],
+    )
 
     return reaction
 
@@ -769,6 +853,10 @@ def make_heterodimer_reaction(
     cd_ext = etree.SubElement(annotation, _cd("extension"))
     rt = etree.SubElement(cd_ext, _cd("reactionType"))
     rt.text = "HETERODIMER_ASSOCIATION"
+
+    _append_cd_base_participants(
+        cd_ext, [species1_id, species2_id], [complex_id],
+    )
 
     return reaction
 
