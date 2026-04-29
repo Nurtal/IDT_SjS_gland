@@ -1,0 +1,90 @@
+{
+  "n_attractors_total": 400,
+  "n_disease": 300,
+  "n_healthy_like": 100,
+  "n_mixed": 0,
+  "by_scenario": {
+    "healthy": 100,
+    "disease_ifn": 100,
+    "disease_ag": 100,
+    "disease_full": 100
+  },
+  "phenotype_on_counts": {
+    "Apoptosis_phenotype": 0,
+    "Inflammation_phenotype": 0,
+    "Fibrosis_phenotype": 200,
+    "B_Cell_Activation_Survival_phenotype": 0,
+    "T_Cell_Activation_Differentiation_phenotype": 0,
+    "Chemotaxis_Infiltration_phenotype": 0,
+    "Lymphoid_organ_development_phenotype": 0,
+    "Matrix_degradation_phenotype": 200,
+    "Regulated_Necrosis_phenotype": 300,
+    "Angiogenesis_phenotype": 300,
+    "Cell_Proliferation_Survival_phenotype": 0,
+    "MHC_Class_1_Activation_phenotype": 100,
+    "MHC_Class_2_Activation_phenotype": 100,
+    "Phagocytosis_phenotype": 0
+  },
+  "disease_phenotypes_used": [
+    "Apoptosis_phenotype",
+    "Inflammation_phenotype",
+    "Fibrosis_phenotype",
+    "B_Cell_Activation_Survival_phenotype",
+    "T_Cell_Activation_Differentiation_phenotype",
+    "Chemotaxis_Infiltration_phenotype",
+    "Lymphoid_organ_development_phenotype",
+    "Matrix_degradation_phenotype",
+    "Regulated_Necrosis_phenotype"
+  ],
+  "homeostatic_phenotypes_used": [
+    "Angiogenesis_phenotype",
+    "Cell_Proliferation_Survival_phenotype",
+    "MHC_Class_1_Activation_phenotype",
+    "MHC_Class_2_Activation_phenotype",
+    "Phagocytosis_phenotype"
+  ],
+  "scenarios_definitions": {
+    "healthy": {
+      "dsRNA_polyIC": 0,
+      "CpG_DNA": 0,
+      "Allergen": 0,
+      "TNF_Extracellular": 0,
+      "IFNG_Extracellular": 0,
+      "IFNB1_Extracellular": 0,
+      "IL6_Extracellular": 0,
+      "Apoptosis_phenotype": 0,
+      "Inflammation_phenotype": 0,
+      "Fibrosis_phenotype": 0,
+      "B_Cell_Activation_Survival_phenotype": 0,
+      "T_Cell_Activation_Differentiation_phenotype": 0,
+      "Chemotaxis_Infiltration_phenotype": 0,
+      "Lymphoid_organ_development_phenotype": 0,
+      "Matrix_degradation_phenotype": 0,
+      "Regulated_Necrosis_phenotype": 0
+    },
+    "disease_ifn": {
+      "dsRNA_polyIC": 1,
+      "CpG_DNA": 1,
+      "IFNB1_Extracellular": 1,
+      "Allergen": 0,
+      "TNF_Extracellular": 0
+    },
+    "disease_ag": {
+      "Allergen": 1,
+      "TNF_Extracellular": 1,
+      "IFNG_Extracellular": 1,
+      "IL6_Extracellular": 1,
+      "dsRNA_polyIC": 0
+    },
+    "disease_full": {
+      "dsRNA_polyIC": 1,
+      "CpG_DNA": 1,
+      "Allergen": 1,
+      "TNF_Extracellular": 1,
+      "IFNG_Extracellular": 1,
+      "IFNB1_Extracellular": 1,
+      "IL6_Extracellular": 1
+    }
+  },
+  "cap_per_scenario": 100
+}

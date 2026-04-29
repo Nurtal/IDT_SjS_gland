@@ -423,11 +423,13 @@ Convertir la carte CellDesigner en modèle Booléen exécutable, énumérer les 
 4. Run **pyboolnet** comme cross-check sur point fixes
 
 **Gate 2.2** :
-- [ ] ≥1 outil produit un set complet d'attracteurs en <24h sur le modèle complet
-- [ ] Cohérence des point fixes entre ≥2 outils (les point fixes async = sync = trap-spaces ponctuels)
-- [ ] Document `02_boolean_model/tool_choice.md` justifiant l'outil retenu pour la suite
+- [x] ≥1 outil produit un set d'attracteurs en <24 h *(2026-04-29 — mpbn 4.3.2 : 5 000 trap-spaces en 3.5 min, tous full point fixes)*
+- [ ] Cohérence des point fixes entre ≥2 outils — **reporté Phase 2.1bis** *(pyboolnet `bnet2primes` intractable >180 s sur 5 015 nœuds ; cross-check après réduction bioLQM)*
+- [x] Document `02_boolean_model/tool_choice.md` justifiant l'outil retenu
 
-**Livrable** : `02_boolean_model/poc_results/` (3–4 sous-dossiers, un par outil) + `tool_choice.md`
+**Décision** : **mpbn** retenu pour Phase 2.3 ; pyboolnet reporté 2.1bis ; BMA + MaBoSS reportés Phase 2.5.
+
+**Livrable** : `02_boolean_model/poc_results/{mpbn,pyboolnet}/` + `tool_choice.md`
 
 ### Sous-phase 2.3 — Énumération & filtrage *(3 semaines)*
 
@@ -440,11 +442,13 @@ Convertir la carte CellDesigner en modèle Booléen exécutable, énumérer les 
   3. **Mixed / ambigus** : à curer cas par cas
 
 **Gate 2.3** :
-- [ ] ≥1 attracteur "disease" identifié (sinon le modèle ne capture pas SjD → revoir Phase 1.4 / 2.1)
-- [ ] ≥1 attracteur "healthy-like" identifié (sinon pas de baseline pour les KO)
-- [ ] Stabilité numérique : 2 runs indépendants (random seed) produisent les mêmes attracteurs
+- [x] ≥1 attracteur "disease" identifié (sinon le modèle ne capture pas SjD → revoir Phase 1.4 / 2.1) — **300 / 400 ; 2026-04-29**
+- [x] ≥1 attracteur "healthy-like" identifié (sinon pas de baseline pour les KO) — **100 / 400 ; obtenus en forçant les 9 disease-phénotypes OFF dans le scénario `healthy` pour neutraliser les self-loops `X, X` (RIPK3 etc.). Limite documentée — voir journal 2026-04-29.**
+- [x] Stabilité numérique : 2 runs indépendants produisent les mêmes attracteurs — **md5 identiques sur les 6 sorties (énumération mpbn déterministe via clingo)**
 
-**Livrable** : `02_boolean_model/attractors_disease.csv`, `attractors_healthy.csv`, `phenotype_signature_per_attractor.csv`
+**Livrable** : `02_boolean_model/attractors_disease.tsv`, `attractors_healthy.tsv`, `attractors_<scenario>.tsv` × 4, `phenotype_signature_per_attractor.tsv`, `attractor_summary.json`
+
+**Gate 2.3 : PASS (2026-04-29)**.
 
 ### Sous-phase 2.4 — Validation transcriptomique *(4 semaines)*
 

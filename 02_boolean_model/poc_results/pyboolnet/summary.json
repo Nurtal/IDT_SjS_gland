@@ -1,0 +1,8 @@
+{
+  "n_nodes": null,
+  "n_steady_states": 0,
+  "elapsed_seconds": 180.15,
+  "status": "bnet2primes_timeout",
+  "primes_timeout_s": 180,
+  "note": "pyboolnet's bnet2primes (BNetToPrime) ne scale pas au-del\u00e0 de ~ 1k n\u0153uds dans la pratique. Mod\u00e8le SjS = 5015 n\u0153uds, pas tractable. Utiliser mpbn (Phase 2.2/mpbn) \u00e0 la place."
+}

@@ -1,0 +1,12 @@
+{
+  "n_nodes": 5015,
+  "n_trap_spaces": 5000,
+  "n_full_fixed_points": 5000,
+  "free_dim_min": 0,
+  "free_dim_max": 0,
+  "free_dim_mean": 0.0,
+  "elapsed_seconds": 210.05,
+  "truncated": true,
+  "cap_max_traps": 5000,
+  "cap_time_budget_s": 600
+}

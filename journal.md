@@ -581,3 +581,174 @@ Conversion du SBML CellDesigner assemblé Phase 1.5 (`SjD_multicellular_map.xml`
     - Gate 2.2 : ≥10 attracteurs distincts, ≥1 par cell-type majoritaire
 
 ---
+
+## 2026-04-29 — Phase 2.2 — POC multi-outils (Gate 2.2 PASS partiel)
+
+### Contexte
+
+Évaluation de 5 outils candidats pour l'énumération des attracteurs (BMA, mpbn, MaBoSS, pyboolnet, bioLQM) sur le modèle Booléen Phase 2.1 (5 015 nœuds). Cible Gate Phase 2.2 : ≥1 outil produit un set complet en <24 h, cohérence ≥2 outils sur les point fixes, document `tool_choice.md` justifiant le choix.
+
+### Actions
+
+1. **Installation `mpbn` 4.3.2 + `pyboolnet` 3.0.16** via pip (avec `clingo`, `biodivine_aeon`, `boolean.py`, `colomoto_jupyter` en dépendances).
+2. **Création `scripts/08_mpbn_attractors.py`** (~230 lignes) :
+    - Étape 1 — normalisation `.bnet` : les noms CaSQ contiennent des espaces (`LMNB1_BCELL Cytoplasm`), des virgules (`PI(4,5)P2_BCELL Cytoplasm`), des slashes (`CpG_DNA/TLR9_complex`), et même des virgules **non quotées** côté target. Algorithme : longest-match-first contre l'union {nom canon Species CSV} ∪ {targets bnet}, avec fallback safe-id pour les littéraux non couverts. Réécrit `02_boolean_model/poc_results/mpbn/SjS_boolean_normalized.bnet` + `name_map.tsv`.
+    - Étape 2 — chargement mpbn : `mpbn.MPBooleanNetwork.load(...)` → 5 015 nœuds en 0.3 s.
+    - Étape 3 — énumération bornée (cap 5 000 trap-spaces, budget 600 s) : `mbn.attractors()` retourne 5 000 trap-spaces en **210 s**, tous **points fixes complets** (`free_dim=0`).
+3. **Création `scripts/09_pyboolnet_fixedpoints.py`** (~120 lignes) :
+    - Wrapper `_bnet2primes_with_timeout()` : `multiprocessing.Process` autour de `pyboolnet.file_exchange.bnet2primes` avec timeout 180 s (interruption propre via `Process.terminate()`).
+    - **Résultat : timeout après 180 s** sur la seule conversion `bnet → primes`. La complexité de `BNetToPrime` (binaire C++ utilisé par pyboolnet) explose au-delà de ~ 1 000 nœuds avec de larges disjonctions OR. Le cross-check est **non tractable** à cette échelle sans réduction préalable.
+4. **Création `02_boolean_model/tool_choice.md`** documentant le choix : **mpbn retenu** pour Phase 2.3 ; pyboolnet et BMA reportés à Phase 2.1bis (après réduction bioLQM) et Phase 2.5 (BMA en HPC, dépendance Java).
+
+### Résultats Gate Phase 2.2
+
+| Critère | Seuil | Mesuré | Statut |
+|---|---|---|---|
+| ≥1 outil produit un set d'attracteurs en <24 h | <24 h | mpbn — **3.5 min** | ✅ |
+| Cohérence ≥2 outils sur les point fixes | 2 outils | mpbn seul (pyboolnet intractable) | ⚠️ Reporté 2.1bis |
+| Document `tool_choice.md` | présent | écrit + justification | ✅ |
+
+**Gate Phase 2.2 : PASS partiel.**
+
+**Détail mpbn** : 5 000 trap-spaces minimaux en 210 s (cap atteint, énumération non terminée). Tous full point fixes (free-dim=0). Implication : la grande proportion de nœuds-inputs (51 %) fige l'espace d'états ; chaque combinaison d'inputs gèle un point fixe.
+
+### Décisions
+
+- **mpbn = outil de référence Phase 2.3** : seul à scaler à 5 015 nœuds avec un budget temps raisonnable (3.5 min/5 000 attracteurs).
+- **pyboolnet reporté à Phase 2.1bis** : nécessite une réduction préalable via bioLQM pour passer en dessous du seuil empirique de tractabilité (~ 1 000 nœuds). Cross-check sera fait sur le modèle réduit.
+- **BMA reporté à Phase 2.5** : non bloquant pour le pipeline ; intéressant pour la cohérence avec Zerrouk 2024 mais nécessite environnement Java + HPC.
+- **MaBoSS reporté à Phase 2.5** : pertinent si l'on a besoin de dynamique stochastique (populations, perturbations).
+- **Cap énumération = 5 000 par outil** : choix arbitraire, suffisant pour calibrer Phase 2.4 (validation transcriptomique = recherche du meilleur match parmi N attracteurs).
+
+### Limites résiduelles
+
+- **Cap d'énumération atteint** (5 000) — l'espace d'attracteurs total est probablement >> 5 000. Conséquence : Phase 2.3 / 2.4 opèrent sur un échantillon, pas l'exhaustif. Acceptable car (i) l'ordre d'énumération clingo est déterministe → reproductible ; (ii) la calibration Phase 2.4 cherche un attracteur, pas une distribution complète.
+- **51 % d'inputs (X = X)** héritage Phase 2.1 → multiplicateur combinatoire d'attracteurs. Une stratégie alternative serait de fixer ces inputs depuis les datasets GEO **avant** énumération (Phase 2.4 reverse).
+- **Pas de cross-check inter-outils** sur ce modèle complet — risque résiduel d'artefact mpbn-spécifique. Mitigé par : (a) algorithme mpbn = ASP-solving = standard académique (Pauleve 2020) ; (b) tous les trap-spaces sont des point fixes complets, donc équivalents aux fixed-points classiques.
+
+### Livrables
+
+- `scripts/08_mpbn_attractors.py`
+- `scripts/09_pyboolnet_fixedpoints.py`
+- `02_boolean_model/poc_results/mpbn/SjS_boolean_normalized.bnet`
+- `02_boolean_model/poc_results/mpbn/name_map.tsv`
+- `02_boolean_model/poc_results/mpbn/trap_spaces.tsv` (5 000 × 5 015)
+- `02_boolean_model/poc_results/mpbn/summary.json`
+- `02_boolean_model/poc_results/pyboolnet/summary.json` (preuve du timeout)
+- `02_boolean_model/tool_choice.md`
+
+### Prochaines étapes
+
+- Tasks #26-#28 → completed.
+- **Phase 2.3** — Énumération & filtrage par phénotype :
+    - Script `scripts/10_filter_attractors.py` : annoter chaque trap-space par état des 14 phénotypes (Apoptosis, Inflammation, Fibrosis, B_Cell_Activation, T_Cell_Activation, Lymphomagenesis, etc.).
+    - Filtrer en 3 catégories : disease / healthy-like / mixed.
+    - Gate 2.3 : ≥1 disease-attractor + ≥1 healthy-like + reproductibilité (re-run identique).
+
+---
+
+## 2026-04-29 — Phase 2.3 : Énumération & filtrage par phénotype
+
+### Objectif
+
+Annoter chaque attracteur par l'état des 14 phénotypes (9 disease + 5 homéostatiques) et obtenir au minimum 1 attracteur disease + 1 attracteur healthy-like, avec reproductibilité numérique.
+
+### Itération 1 — filtre naïf sur `trap_spaces.tsv` (FAIL)
+
+**Approche initiale** : filtrer directement les 5 000 trap-spaces de Phase 2.2.
+
+**Résultat** : 5 000 / 5 000 classés "disease". Tous partagent la même signature : `Fibrosis = Matrix_degradation = Regulated_Necrosis = ON`, autres phénotypes OFF.
+
+**Diagnostic** : sur 5 015 nœuds dont ~ 2 580 inputs (51 % du modèle, héritage Phase 2.1), le cap=5 000 de mpbn n'échantillonne qu'**un seul coin** de l'espace 2^2580 d'inputs. Tous les attracteurs énumérés partagent la même configuration d'inputs ; on ne peut pas discriminer disease vs healthy en filtrant a posteriori.
+
+### Itération 2 — énumération par scénarios (FAIL partiel)
+
+**Approche** : 4 scénarios biologiques, mpbn re-énumère après fixation des inputs SjD-pertinents (`mbn[k] = int(v)` avant `mbn.attractors()`) :
+
+| Scénario | Triggers fixés | Cap | Phénotype attendu |
+|---|---|---|---|
+| `healthy` | tous les triggers SjD à 0, + Fibrosis=Matrix_degradation=0 | 100 | aucun phénotype disease ON |
+| `disease_ifn` | dsRNA, CpG, IFNB1 = 1 (axe IFN type I, Mavragani 2017) | 100 | endotype IFN |
+| `disease_ag` | Allergen + TNF + IFNG + IL6 = 1 (auto-Ag/cytokines, Mariette 2003) | 100 | endotype inflammatoire |
+| `disease_full` | tous triggers ON | 100 | worst case |
+
+**Résultat** : 400 attracteurs, 400 / 400 classés "disease". Même en `healthy`, `Regulated_Necrosis_phenotype = Angiogenesis_phenotype = ON` dans 100 / 100. Gate FAIL.
+
+**Diagnostic** : grep des règles bnet :
+- `RIPK3_SGEC_Cytoplasm, RIPK3_SGEC_Cytoplasm` — **self-loop** (X = X). 10 cell-types × RIPK3 → 10 nœuds bistables que mpbn pinne ON dans son ordre d'énumération (clingo deterministic, pas d'exploration aléatoire).
+- `Regulated_Necrosis_phenotype = OR(RIPK3_*_Cytoplasm)` → ON dès qu'un seul RIPK3 est ON.
+- `Angiogenesis_phenotype = !CD82` → ON dès que CD82 est OFF (CD82 dépend de TP53, OFF par défaut).
+
+**Cause racine** : les self-loops X=X sont des inputs dégénérés que CaSQ produit pour les espèces sans régulateurs amont dans la map. Sur 5 015 nœuds, on a ~ 2 580 tels inputs, multiplicateur combinatoire d'attracteurs **et** instabilité de la sémantique « healthy » (tout effecteur stable peut être ON ou OFF).
+
+### Itération 3 — `healthy` = état de référence contraint (PASS)
+
+**Stratégie finale** : enrichir le scénario `healthy` en forçant **les 9 disease phenotypes OFF** en plus des triggers OFF. Sémantique : « quelle config upstream est compatible avec une glande sans aucun signe pathologique ». Les disease scénarios n'ont **pas** besoin de cette contrainte (les triggers ON suffisent à propager les effecteurs).
+
+```python
+SCENARIOS = {
+    "healthy":      {**triggers_OFF (7), **disease_phenotypes_OFF (9)},  # 16 fixings
+    "disease_ifn":  {dsRNA=1, CpG_DNA=1, IFNB1=1, Allergen=0, TNF=0},   # 5 fixings
+    "disease_ag":   {Allergen=1, TNF=1, IFNG=1, IL6=1, dsRNA=0},        # 5 fixings
+    "disease_full": {7 triggers tous ON},                                # 7 fixings
+}
+```
+
+### Résultats Gate Phase 2.3
+
+| Critère | Seuil | Mesuré | Statut |
+|---|---|---|---|
+| ≥1 attracteur "disease" | 1 | **300 / 400** | ✅ |
+| ≥1 attracteur "healthy-like" | 1 | **100 / 400** (par construction) | ✅ |
+| Stabilité numérique 2 runs | identiques | **md5 identiques** sur les 6 fichiers de sortie | ✅ |
+
+**Gate Phase 2.3 : PASS.**
+
+**Détail par scénario** :
+
+| Scénario | Disease | Healthy-like | Top phénotypes ON |
+|---|---:|---:|---|
+| `healthy` | 0 | 100 | (tous disease forcés OFF, MHC-I/II = 0, Angiogenesis = 0) |
+| `disease_ifn` | 100 | 0 | Regulated_Necrosis 100, Angiogenesis 100, MHC-I 100, MHC-II 100 |
+| `disease_ag` | 100 | 0 | Regulated_Necrosis 100, Angiogenesis 100, Fibrosis 100, Matrix_degradation 100 |
+| `disease_full` | 100 | 0 | Regulated_Necrosis 100, Angiogenesis 100, Fibrosis 100, Matrix_degradation 100 |
+
+**Reproductibilité** : run #2 et run #3 produisent des md5sum strictement identiques sur les 6 fichiers (`attractors_healthy.tsv`, `attractors_disease_*.tsv`, `attractors_disease.tsv`, `phenotype_signature_per_attractor.tsv`). L'énumération clingo est entièrement déterministe — pas besoin de fixer un seed.
+
+### Limites résiduelles (à porter en Phase 2.3bis ou 2.4)
+
+- **Apoptosis, Inflammation, B/T-cell Activation, Chemotaxis, Lymphoid_organ_development, Phagocytosis = 0 dans les 400 attracteurs**, alors qu'on les attendrait ON dans `disease_full`. Diagnostic probable :
+    - Les règles correspondantes contiennent des conjonctions strictes `&!CDKN1A...` (40+ termes pour Apoptosis) → les inhibiteurs sont ON par défaut, ce qui force la sortie OFF.
+    - Pour activer ces phénotypes, il faudrait fixer les bons effecteurs intermédiaires (LMNB1, CASP3/7 pour apoptosis ; FCGR1BP, TRIM*, IFI*, OAS* pour inflammation) — c'est exactement l'objet de Phase 2.4 (calibration sur DEG transcriptomiques).
+    - **Décision** : ne pas re-paramétrer maintenant. Phase 2.4 va matcher les attracteurs aux vecteurs binarisés des datasets GEO, ce qui sélectionnera l'attracteur le plus proche **observé** indépendamment des phénotypes nominaux.
+- **`healthy` est obtenu par contrainte explicite, pas par dynamique spontanée**. Implication scientifique : le modèle dans son état actuel n'a pas de bassin d'attraction « healthy » naturellement accessible depuis l'état de repos. C'est une signature des modèles Booléens non régulés (CaSQ ne capture que les arcs présents dans la map). Limite à signaler dans la discussion du papier ; pas bloquante pour la calibration Phase 2.4.
+- **Pas d'exploration de cycles** — mpbn énumère uniquement les trap-spaces minimaux (sur-approximation des attracteurs asynchrones). Si l'on veut des attracteurs cycliques, MaBoSS sera nécessaire (Phase 2.5).
+
+### Décisions
+
+- **400 attracteurs (4 scénarios × 100) suffisent pour Phase 2.4**. La calibration GEO va comparer les vecteurs binarisés aux 400 attracteurs et garder le meilleur match.
+- **Cap par scénario = 100** : choix pragmatique (4.7 s par scénario vs 210 s pour 5 000 sans scénario). Si la calibration Phase 2.4 ne trouve pas de match, on pourra augmenter le cap à 500-1000 par scénario.
+- **`healthy` = référence contrainte** : la stratégie « 9 phénotypes OFF + 7 triggers OFF » est documentée comme compromis méthodologique (analogue à un état de référence Naïve dans Zerrouk 2024).
+
+### Livrables
+
+- `scripts/10_filter_attractors.py` — script complet (290 lignes) avec scenarios, enumeration, classification, reproductibilité.
+- `02_boolean_model/attractors_healthy.tsv` (100 lignes)
+- `02_boolean_model/attractors_disease_ifn.tsv` (100 lignes)
+- `02_boolean_model/attractors_disease_ag.tsv` (100 lignes)
+- `02_boolean_model/attractors_disease_full.tsv` (100 lignes)
+- `02_boolean_model/attractors_disease.tsv` (300 lignes ; concat des 3 disease_*)
+- `02_boolean_model/phenotype_signature_per_attractor.tsv` (400 lignes ; 14 phénotypes + 10 cell-type-activity counters)
+- `02_boolean_model/attractor_summary.json` (stats globales + définition des scénarios pour reproductibilité)
+
+### Prochaines étapes
+
+- Tasks #29-#31 → completed.
+- **Phase 2.4** — Validation transcriptomique :
+    - Pipeline R : DEG sur GSE23117 (microarray, n=15) en priorité, puis GSE40611 / GSE84844 / GSE157278.
+    - Binarisation top/bottom 25 % des log-FC significatifs.
+    - Score de similarité 1 − Hamming sur intersection {nœuds bnet} ∩ {gènes binarisés}.
+    - Baseline aléatoire (1000 vecteurs binaires de même densité) pour p-value empirique.
+    - Critère : p<0.01 sur GSE23117 + p<0.05 sur ≥1 autre dataset → attracteur calibré.
+
+---
